@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Game Loading Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        .games-grid { display: none; }
+        .game-card { border: 1px solid #ddd; padding: 10px; margin: 5px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>动态游戏加载测试</h1>
+
+    <div id="testResults"></div>
+
+    <div id="gamesGrid" class="games-grid"></div>
+
+    <script src="games_data.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const results = document.getElementById('testResults');
+
+            function addResult(test, success, message) {
+                const div = document.createElement('div');
+                div.className = `test-result ${success ? 'success' : 'error'}`;
+                div.innerHTML = `<strong>${test}:</strong> ${message}`;
+                results.appendChild(div);
+            }
+
+            function addInfo(message) {
+                const div = document.createElement('div');
+                div.className = 'test-result info';
+                div.innerHTML = message;
+                results.appendChild(div);
+            }
+
+            // Test 1: Check if GAMES_DATABASE loaded
+            if (typeof window.GAMES_DATABASE !== 'undefined') {
+                addResult('GAMES_DATABASE 加载', true, 'GAMES_DATABASE 已成功加载');
+
+                // Test 2: Check each category
+                const categories = ['action', 'adventure', 'puzzle', 'sports'];
+                categories.forEach(category => {
+                    if (window.GAMES_DATABASE[category]) {
+                        addResult(`${category} 分类`, true,
+                            `找到 ${window.GAMES_DATABASE[category].length} 个游戏`);
+
+                        // Test 3: Sample games from each category
+                        const sampleGames = window.GAMES_DATABASE[category].slice(0, 3);
+                        sampleGames.forEach((game, index) => {
+                            if (game && game.name && game.file) {
+                                addResult(`${category} 游戏 ${index + 1}`, true,
+                                    `"${game.name}" -> ${game.file}`);
+                            } else {
+                                addResult(`${category} 游戏 ${index + 1}`, false,
+                                    '游戏数据不完整');
+                            }
+                        });
+                    } else {
+                        addResult(`${category} 分类`, false, '分类不存在');
+                    }
+                });
+
+                // Test 4: Dynamic loading simulation
+                addInfo('测试动态加载功能...');
+
+                const gamesGrid = document.getElementById('gamesGrid');
+                const category = 'action';
+
+                if (window.GAMES_DATABASE[category]) {
+                    const games = window.GAMES_DATABASE[category];
+                    let loadedCount = 0;
+
+                    // Simulate loading first 5 games
+                    games.slice(0, 5).forEach(game => {
+                        if (game && game.name && game.file) {
+                            const gameCard = document.createElement('div');
+                            gameCard.className = 'game-card';
+                            gameCard.textContent = `${game.name} (${game.file})`;
+                            gamesGrid.appendChild(gameCard);
+                            loadedCount++;
+                        }
+                    });
+
+                    addResult('动态加载测试', true, `成功加载了 ${loadedCount} 个游戏到页面`);
+                    gamesGrid.style.display = 'block';
+
+                } else {
+                    addResult('动态加载测试', false, '无法找到 action 分类游戏');
+                }
+
+            } else {
+                addResult('GAMES_DATABASE 加载', false, 'GAMES_DATABASE 未加载');
+            }
+        });
+    </script>
+</body>
+</html>

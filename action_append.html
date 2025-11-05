@@ -1,0 +1,40 @@
+      // Initialize page when data is loaded
+        if (window.GAMES_DATABASE) {
+            console.log('🎮 Games database loaded, initializing action games...');
+            loadGamesFromDatabase('action');
+        } else {
+            console.error('❌ Games database not found');
+        }
+
+        // Navigation search functions
+        window.navSearch = function() {
+            const searchInput = document.getElementById('navSearchInput');
+            const searchTerm = searchInput ? searchInput.value.trim() : '';
+            if (searchTerm) {
+                window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+            }
+        };
+
+        window.mobileNavSearch = function() {
+            const searchInput = document.getElementById('mobileNavSearchInput');
+            const searchTerm = searchInput ? searchInput.value.trim() : '';
+            if (searchTerm) {
+                // Close mobile menu first
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileMenu) {
+                    mobileMenu.classList.add('hidden');
+                }
+                window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+            }
+        };
+
+        // Mobile menu toggle
+        window.toggleMobileMenu = function() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Test Direct</title>
+    <script src="games_data.js"></script>
+</head>
+<body>
+    <h1>Direct Search Test</h1>
+    <div id="output"></div>
+
+    <script>
+        // Search functionality (copied from search.html)
+        let allGames = [];
+
+        function loadGamesData() {
+            try {
+                if (window.GAMES_DATABASE) {
+                    allGames = [];
+                    Object.keys(window.GAMES_DATABASE).forEach(category => {
+                        if (Array.isArray(window.GAMES_DATABASE[category])) {
+                            window.GAMES_DATABASE[category].forEach(game => {
+                                allGames.push({
+                                    name: game.name,
+                                    file: game.file,
+                                    classification: game.classification || category
+                                });
+                            });
+                        }
+                    });
+                    console.log('Loaded', allGames.length, 'games');
+                    return allGames;
+                } else {
+                    console.error('GAMES_DATABASE not found');
+                    return [];
+                }
+            } catch (error) {
+                console.error('Error loading games data:', error);
+                return [];
+            }
+        }
+
+        function performSearch(searchTerm) {
+            searchTerm = searchTerm.trim().toLowerCase();
+
+            if (!searchTerm) {
+                return [];
+            }
+
+            console.log('Searching for:', searchTerm);
+            console.log('Total games:', allGames.length);
+
+            const filteredGames = allGames.filter(game => {
+                const nameMatch = game.name.toLowerCase().includes(searchTerm);
+                const categoryMatch = game.classification.toLowerCase().includes(searchTerm);
+                return nameMatch || categoryMatch;
+            });
+
+            console.log('Found', filteredGames.length, 'games');
+            return filteredGames;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadGamesData();
+
+            const output = document.getElementById('output');
+
+            // Test searches
+            const testTerms = ['gold miner', 'minecraft', 'vex'];
+            let html = '<h2>Search Test Results:</h2>';
+
+            testTerms.forEach(term => {
+                const results = performSearch(term);
+                html += `<h3>Search for "${term}": ${results.length} results</h3>`;
+                if (results.length > 0) {
+                    html += '<ul>';
+                    results.forEach(game => {
+                        html += `<li>${game.name} (${game.classification}) - ${game.file}</li>`;
+                    });
+                    html += '</ul>';
+                } else {
+                    html += '<p>No games found</p>';
+                }
+            });
+
+            output.innerHTML = html;
+        });
+    </script>
+</body>
+</html>

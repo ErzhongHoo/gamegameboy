@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameGameBoy.online - Free Online Games Portal</title>
+    <meta name="description" content="Play the best free online games at GameGameBoy.online! Action, puzzle, adventure, and more - all in your browser, no downloads required.">
+    <link rel="canonical" href="https://gamegameboy.online/">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light-gray': '#F2F2F7',
+                        'apple-dark-gray': '#1C1C1E'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-900 font-sans m-0">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-apple-blue">🎮 GameGameBoy</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-apple-blue border-b-2 border-apple-blue pb-1">Home</a>
+                      <a href="action.html" class="nav-link" data-page="action" class="text-gray-700 hover:text-apple-blue transition-colors">Action</a>
+                    <a href="puzzle.html" class="nav-link" data-page="puzzle" class="text-gray-700 hover:text-apple-blue transition-colors">Puzzle</a>
+                    <a href="adventure.html" class="nav-link" data-page="adventure" class="text-gray-700 hover:text-apple-blue transition-colors">Adventure</a>
+                    <a href="sports.html" class="nav-link" data-page="sports" class="text-gray-700 hover:text-apple-blue transition-colors">Sports</a>
+
+                    <!-- Navigation Search -->
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="navSearchInput"
+                            placeholder="Search games..."
+                            class="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
+                            onkeypress="if(event.key === 'Enter') navSearch()"
+                        >
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-apple-blue bg-apple-light-gray">Home</a>
+                  <a href="action.html" class="nav-link" data-page="action" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Action</a>
+                <a href="puzzle.html" class="nav-link" data-page="puzzle" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Puzzle</a>
+                <a href="adventure.html" class="nav-link" data-page="adventure" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Adventure</a>
+                <a href="sports.html" class="nav-link" data-page="sports" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Sports</a>
+
+                <!-- Mobile Search -->
+                <div class="px-3 py-2">
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="mobileNavSearchInput"
+                            placeholder="Search games..."
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
+                            onkeypress="if(event.key === 'Enter') mobileNavSearch()"
+                        >
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-apple-blue to-blue-600 text-white pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 pt-8">Free Online Games Portal</h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">Play hundreds of amazing games directly in your browser</p>
+
+            <!-- Quick Categories -->
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="action.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-full transition-all">Action</a>
+                <a href="puzzle.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-full transition-all">Puzzle</a>
+                <a href="adventure.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-full transition-all">Adventure</a>
+                <a href="sports.html" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-full transition-all">Sports</a>
+            </div>
+        </div>
+    </section>
+
+              <!-- 🎮 Action Games -->
+    <section id="action" class="mb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-8 text-center">🎮 Action Games</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-orange-600 to-red-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">🚴</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Obby But You&#x27;re on a Bike</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/obby-but-youre-on-a-bike.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-gray-800 to-orange-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🚗</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">GTA Simulator</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/gta-simulator.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">💥</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Masked Special Forces</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/masked-special-forces.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-red-600 to-pink-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">⚔️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Five Nights At Freddys</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/five-nights-at-freddys.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-gray-800 to-red-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">💥</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Geometry Arrow</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/geometry-arrow.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">🔢</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Moto Road Rash 3D</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/moto-road-rash-3d.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🛡️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Granny</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/granny.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">⚔️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Fragen</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/fragen.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏃</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Extreme Run 3D</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/extreme-run-3d.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-gray-800 to-orange-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🚗</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Stickman GTA City</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/stickman-gta-city.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-rose-500 to-red-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">⚔️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Five Nights At Freddy&#x27;s 2</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/five-nights-at-freddys-2.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
+                    <div class="aspect-video bg-gradient-to-br from-green-600 to-blue-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏃</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Stickman Parkour</h4>
+                        <p class="text-sm text-gray-600 mb-3">Exciting action-packed gameplay awaits!</p>
+                        <a href="games/action/stickman-parkour.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="action.html" class="nav-link" data-page="action" class="bg-apple-blue text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                    Load More Action Games (292 more)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🗺️ Adventure Games -->
+    <section id="adventure" class="mb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-8 text-center">🗺️ Adventure Games</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🔮</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Drac &amp; Franc</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/drac-franc.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-green-600 to-brown-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">⛏️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Minecraft Classic</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/minecraft-classic.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🛡️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Hole Digger</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/hole-digger.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-red-600 to-orange-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">🔥</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Fireboy and Watergirl</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/fireboy-and-watergirl.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-cyan-600 to-blue-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">🧭</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Cube Worlds</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/cube-worlds.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-green-600 to-brown-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">⛏️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Paper Minecraft</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/paper-minecraft.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-pink-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🐱</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Cat Simulator</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/cat-simulator.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-pink-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🐱</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Obby: Find 100 Cats</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/obby-find-100-cats.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🗡️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Mergest Kingdom</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/mergest-kingdom.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-brown-600 to-green-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">⛏️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Craftmine</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/craftmine.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-cyan-600 to-blue-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">🛡️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">We Become What We Behold</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/we-become-what-we-behold.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
+                    <div class="aspect-video bg-gradient-to-br from-green-600 to-blue-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏃</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Parkour Block 3D</h4>
+                        <p class="text-sm text-gray-600 mb-3">Embark on an epic adventure!</p>
+                        <a href="games/adventure/parkour-block-3d.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="adventure.html" class="nav-link" data-page="adventure" class="bg-apple-blue text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                    Load More Adventure Games (38 more)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🧩 Puzzle Games -->
+    <section id="puzzle" class="mb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-8 text-center">🧩 Puzzle Games</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🧩</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">BlockBuster Puzzle</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/blockbuster-puzzle.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-red-600 to-pink-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🧩</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Sprunky Incredibox Mods</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/sprunky-incredibox-mods.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🧩</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Thief Puzzle</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/thief-puzzle.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-pink-400 to-yellow-500 flex items-center justify-center">
+                        <span class="text-white text-4xl">🎂</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Merge Cakes</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/merge-cakes.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">💧</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Watermelon Game</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/watermelon-game.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🔍</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Home Design</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/home-design.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🧩</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Cake Match Puzzle</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/cake-match-puzzle.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">📝</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Wordle</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/wordle.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">🎲</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Bookworm</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/bookworm.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-brown-600 to-green-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">⛏️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Nova Craft</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/nova-craft.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🎲</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Words of Wonders</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/words-of-wonders.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
+                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🎲</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Words from Words</h4>
+                        <p class="text-sm text-gray-600 mb-3">Challenge your mind with this puzzle!</p>
+                        <a href="games/puzzle/words-from-words.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="puzzle.html" class="nav-link" data-page="puzzle" class="bg-apple-blue text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                    Load More Puzzle Games (44 more)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⚽ Sports Games -->
+    <section id="sports" class="mb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-8 text-center">⚽ Sports Games</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-gray-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">🚗</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Draw the Car Path</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/draw-the-car-path.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏎️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Drift King</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/drift-king.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-blue-700 to-blue-900 flex items-center justify-center">
+                        <span class="text-white text-4xl">🚓</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Police Simulator</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/police-simulator.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏎️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Drift Hunters 2</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/drift-hunters-2.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🔢</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Traffic Jam 3D</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/traffic-jam-3d.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏈</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Highway Traffic</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/highway-traffic.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🥅</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Street Traffic Racer</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/street-traffic-racer.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏎️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Drift Boss</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/drift-boss.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-teal-600 to-green-700 flex items-center justify-center">
+                        <span class="text-white text-4xl">⚽</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Tow N Go</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/tow-n-go.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏎️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Drift Hunters Pro</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/drift-hunters-pro.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏎️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Drift Hunters</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/drift-hunters.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
+                    <div class="aspect-video bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                        <span class="text-white text-4xl">⚾</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Survival Race</h4>
+                        <p class="text-sm text-gray-600 mb-3">Competitive sports action!</p>
+                        <a href="games/sports/survival-race.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-8">
+                <a href="sports.html" class="nav-link" data-page="sports" class="bg-apple-blue text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-200">
+                    Load More Sports Games (99 more)
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- Stats Section -->
+    <section class="bg-apple-dark-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold mb-2">500+</div>
+                    <div class="text-gray-300">Free Games</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold mb-2">1M+</div>
+                    <div class="text-gray-300">Players</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold mb-2">24/7</div>
+                    <div class="text-gray-300">Available</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold mb-2">0$</div>
+                    <div class="text-gray-300">Cost</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-bold text-lg mb-4 text-apple-blue">🎮 GameGameBoy</h3>
+                    <p class="text-gray-600 text-sm">Your destination for the best free online games. Play anytime, anywhere!</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Categories</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="action.html" class="nav-link" data-page="action" class="hover:text-apple-blue">Action Games</a></li>
+                        <li><a href="puzzle.html" class="nav-link" data-page="puzzle" class="hover:text-apple-blue">Puzzle Games</a></li>
+                                            </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Popular Games</h4>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li><a href="games/puzzle/bloxorz.html" class="hover:text-apple-blue">Bloxorz</a></li>
+                        <li><a href="games/action/gold-miner.html" class="hover:text-apple-blue">Gold Miner</a></li>
+                        <li><a href="games/action/geometry-vibes.html" class="hover:text-apple-blue">Geometry Vibes</a></li>
+                        <li><a href="games/action/vex-9.html" class="hover:text-apple-blue">Vex 9</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-apple-blue">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-apple-blue">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-500">
+                <p>© 2024 GameGameBoy.online - Free Online Games Portal. No downloads required!</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .search-match {
+            animation: searchHighlight 0.5s ease-in-out;
+        }
+
+        @keyframes searchHighlight {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 10px 20px rgba(0,123,255,0.3), 0 6px 6px rgba(0,123,255,0.3);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            }
+        }
+
+        .search-result-item {
+            transition: all 0.2s ease;
+        }
+
+        .search-result-item:hover {
+            background-color: #f8fafc;
+            border-left: 3px solid #007AFF;
+            padding-left: 13px;
+        }
+
+        .search-result-item.active {
+            background-color: #eff6ff;
+            border-left: 3px solid #007AFF;
+            padding-left: 13px;
+        }
+
+            </style>
+
+    <script>
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Filter by category
+        function filterByCategory(category) {
+            const gameCards = document.querySelectorAll('.game-card');
+
+            gameCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Scroll to games section
+            if (category !== 'all') {
+                document.getElementById(category).scrollIntoView({ behavior: 'smooth' });
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate game cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Initially set styles and observe all game cards
+            document.querySelectorAll('.game-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+
+    <script>
+        // 导航高亮功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取当前页面路径
+            const currentPath = window.location.pathname;
+            const currentPage = currentPath.split('/').pop().split('.')[0] || 'index';
+
+            // 高亮当前页面的导航链接
+            function highlightCurrentPage() {
+                // 移除所有高亮状态
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('text-apple-blue', 'border-b-2', 'border-apple-blue', 'pb-1', 'bg-apple-light-gray');
+                    link.classList.add('text-gray-700');
+                });
+
+                // 高亮当前页面
+                let activeLinks = [];
+
+                if (currentPage === 'index') {
+                    // 首页高亮
+                    activeLinks = document.querySelectorAll('a[href="index.html"]');
+                } else if (['action', 'adventure', 'puzzle', 'sports'].includes(currentPage)) {
+                    // 分类页面高亮
+                    activeLinks = document.querySelectorAll(`a[href="${currentPage}.html"]`);
+                }
+
+                activeLinks.forEach(link => {
+                    link.classList.remove('text-gray-700');
+                    link.classList.add('text-apple-blue');
+                    if (link.closest('.hidden')) {
+                        // 移动端导航
+                        link.classList.add('bg-apple-light-gray');
+                    } else {
+                        // 桌面端导航
+                        link.classList.add('border-b-2', 'border-apple-blue', 'pb-1');
+                    }
+                });
+            }
+
+            highlightCurrentPage();
+
+            // 移动端菜单切换函数
+            window.toggleMobileMenu = function() {
+                const menu = document.getElementById('mobileMenu');
+                menu.classList.toggle('hidden');
+            };
+
+            // 添加平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        // 导航高亮功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 移除所有导航链接的默认高亮
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('text-apple-blue', 'border-b-2', 'border-apple-blue', 'pb-1', 'bg-apple-light-gray');
+                link.classList.add('text-gray-700');
+            });
+
+            // 高亮当前页面
+            const currentPage = "index";
+
+            // 查找当前页面的导航链接
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if ((currentPage === 'index' && href === 'index.html') ||
+                    (currentPage !== 'index' && href === currentPage + '.html')) {
+
+                    link.classList.remove('text-gray-700');
+                    link.classList.add('text-apple-blue');
+
+                    // 桌面端和移动端不同的高亮样式
+                    if (link.closest('.hidden') || link.closest('#mobileMenu')) {
+                        // 移动端导航 - 背景高亮
+                        link.classList.add('bg-apple-light-gray');
+                    } else {
+                        // 桌面端导航 - 下划线高亮
+                        link.classList.add('border-b-2', 'border-apple-blue', 'pb-1');
+                    }
+                }
+            });
+
+            // 移动端菜单切换
+            window.toggleMobileMenu = function() {
+                const menu = document.getElementById('mobileMenu');
+                if (menu) {
+                    menu.classList.toggle('hidden');
+                }
+            };
+
+            // Navigation search functions
+            window.navSearch = function() {
+                const searchInput = document.getElementById('navSearchInput');
+                const searchTerm = searchInput ? searchInput.value.trim() : '';
+                if (searchTerm) {
+                    window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+                }
+            };
+
+            window.mobileNavSearch = function() {
+                const searchInput = document.getElementById('mobileNavSearchInput');
+                const searchTerm = searchInput ? searchInput.value.trim() : '';
+                if (searchTerm) {
+                    // Close mobile menu first
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+                }
+            };
+        });
+    </script>
+
+    <script>
+        // 测试搜索功能
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                console.log('🔍 Testing search functionality...');
+                const searchInput = document.getElementById('searchInput');
+                if (searchInput) {
+                    console.log('✅ Search input found');
+
+                    // 测试搜索功能是否可用
+                        console.log('✅ Enhanced search is available');
+                    } else {
+                        console.warn('⚠️ Enhanced search not available');
+                    }
+                } else {
+                    console.error('❌ Search input not found');
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

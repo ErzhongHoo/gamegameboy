@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagination Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6">Pagination Test</h1>
+
+        <div id="gamesGrid" class="grid grid-cols-3 gap-4 mb-8">
+            <!-- Test game cards -->
+            <div class="game-card bg-gray-200 p-4 rounded">Game 1</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 2</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 3</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 4</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 5</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 6</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 7</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 8</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 9</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 10</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 11</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 12</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 13</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 14</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 15</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 16</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 17</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 18</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 19</div>
+            <div class="game-card bg-gray-200 p-4 rounded">Game 20</div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center gap-2">
+            <button onclick="previousPage()" class="bg-gray-200 px-4 py-2 rounded">Previous</button>
+            <span id="pageDisplay" class="px-4 py-2">Page 1 of 3</span>
+            <button onclick="nextPage()" class="bg-gray-200 px-4 py-2 rounded">Next</button>
+        </div>
+
+        <div id="debug" class="mt-8 p-4 bg-gray-100 rounded text-sm"></div>
+    </div>
+
+    <script>
+        // Pagination variables
+        let currentPage = 1;
+        const gamesPerPage = 6;
+        const totalPages = 3;
+        let allGames = [];
+
+        // Debug function
+        function log(message) {
+            console.log(message);
+            document.getElementById('debug').innerHTML += message + '<br>';
+        }
+
+        // Pagination functions
+        function previousPage() {
+            log(`previousPage() called - currentPage: ${currentPage}, totalPages: ${totalPages}`);
+            if (currentPage > 1) {
+                currentPage--;
+                log(`Going to page ${currentPage}`);
+                updatePagination();
+                goToPage();
+            } else {
+                log('Already on first page');
+            }
+        }
+
+        function nextPage() {
+            log(`nextPage() called - currentPage: ${currentPage}, totalPages: ${totalPages}`);
+            if (currentPage < totalPages) {
+                currentPage++;
+                log(`Going to page ${currentPage}`);
+                updatePagination();
+                goToPage();
+            } else {
+                log('Already on last page');
+            }
+        }
+
+        function goToPage() {
+            log(`goToPage() called - currentPage: ${currentPage}, allGames.length: ${allGames.length}`);
+
+            // Hide all games first
+            allGames.forEach(game => game.style.display = 'none');
+
+            // Calculate start and end indices
+            const startIndex = (currentPage - 1) * gamesPerPage;
+            const endIndex = startIndex + gamesPerPage;
+            log(`Showing games from index ${startIndex} to ${endIndex}`);
+
+            // Show games for current page
+            let shownCount = 0;
+            for (let i = startIndex; i < endIndex && i < allGames.length; i++) {
+                if (allGames[i]) {
+                    allGames[i].style.display = 'block';
+                    shownCount++;
+                }
+            }
+            log(`Showed ${shownCount} games`);
+        }
+
+        function updatePagination() {
+            log(`updatePagination() called - currentPage: ${currentPage}, totalPages: ${totalPages}`);
+
+            // Update page display
+            const pageDisplay = document.getElementById('pageDisplay');
+            if (pageDisplay) {
+                pageDisplay.textContent = `Page ${currentPage} of ${totalPages}`;
+                log(`Updated page display to: ${pageDisplay.textContent}`);
+            }
+
+            // Update button states
+            const prevButton = document.querySelector('button[onclick="previousPage()"]');
+            const nextButton = document.querySelector('button[onclick="nextPage()"]');
+
+            if (prevButton) {
+                prevButton.disabled = currentPage === 1;
+                log(`${prevButton.disabled ? 'Disabled' : 'Enabled'} previous button`);
+            }
+
+            if (nextButton) {
+                nextButton.disabled = currentPage === totalPages;
+                log(`${nextButton.disabled ? 'Disabled' : 'Enabled'} next button`);
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            log('DOM loaded - initializing pagination...');
+
+            // Store all game cards
+            allGames = Array.from(document.querySelectorAll('.game-card'));
+            log(`Found ${allGames.length} game cards`);
+
+            // Initialize pagination
+            updatePagination();
+            goToPage();
+
+            log('Initialization complete');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - GameGameBoy.online</title>
+    <meta name="description" content="Search for your favorite games at GameGameBoy.online">
+    <link rel="canonical" href="https://gamegameboy.online/search.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light-gray': '#F2F2F7',
+                        'apple-dark-gray': '#1C1C1E'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-900 font-sans m-0">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-apple-blue">🎮 GameGameBoy</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-apple-blue transition-colors">Home</a>
+                    <a href="action.html" class="text-gray-700 hover:text-apple-blue transition-colors">Action</a>
+                    <a href="puzzle.html" class="text-gray-700 hover:text-apple-blue transition-colors">Puzzle</a>
+                    <a href="adventure.html" class="text-gray-700 hover:text-apple-blue transition-colors">Adventure</a>
+                    <a href="sports.html" class="text-gray-700 hover:text-apple-blue transition-colors">Sports</a>
+                </div>
+                <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Home</a>
+                <a href="action.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Action</a>
+                <a href="puzzle.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Puzzle</a>
+                <a href="adventure.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Adventure</a>
+                <a href="sports.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Sports</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Header -->
+    <section class="bg-gradient-to-br from-apple-blue to-blue-600 text-white pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-6">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4 pt-8">Search Games</h1>
+                <p class="text-lg opacity-90 mb-6">Find your favorite games from our collection</p>
+
+                <!-- Search Bar -->
+                <div class="relative max-w-2xl mx-auto">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-white opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search games..."
+                            class="w-full pl-12 pr-24 py-4 rounded-full text-gray-900 text-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-50"
+                            autocomplete="off"
+                        >
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-2">
+                            <button
+                                id="searchButton"
+                                onclick="performSearch()"
+                                class="bg-white text-apple-blue px-6 py-2 rounded-full hover:bg-gray-100 transition-colors flex items-center gap-2 font-semibold"
+                                aria-label="Search"
+                            >
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                Search
+                            </button>
+                            <button
+                                id="clearSearchButton"
+                                class="ml-2 text-white opacity-70 hover:opacity-100 transition-opacity hidden"
+                                aria-label="Clear search"
+                                onclick="clearSearch()"
+                            >
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Info -->
+            <div id="searchInfo" class="text-center hidden">
+                <p class="text-lg opacity-90">
+                    Searching for: <span id="searchTerm" class="font-semibold"></span>
+                </p>
+                <p class="text-sm opacity-75 mt-1">
+                    Found <span id="resultCount" class="font-semibold">0</span> games
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Results -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Loading State -->
+        <div id="loadingState" class="text-center py-12 hidden">
+            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-apple-blue"></div>
+            <p class="mt-4 text-gray-600">Searching games...</p>
+        </div>
+
+        <!-- No Results -->
+        <div id="noResults" class="text-center py-12 hidden">
+            <div class="text-6xl mb-4">🔍</div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">No games found</h2>
+            <p class="text-gray-600 mb-6">Try searching with different keywords or browse our categories</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="action.html" class="bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition-colors font-semibold">Action Games</a>
+                <a href="puzzle.html" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors font-semibold">Puzzle Games</a>
+                <a href="adventure.html" class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-colors font-semibold">Adventure Games</a>
+                <a href="sports.html" class="bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition-colors font-semibold">Sports Games</a>
+            </div>
+        </div>
+
+        <!-- Search Results Grid -->
+        <div id="searchResults" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Results will be dynamically inserted here -->
+        </div>
+
+        <!-- Initial State - Popular Games -->
+        <div id="initialState">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Popular Games</h2>
+            <div id="popularGames" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Popular games will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 border-t border-gray-200 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">🎮 GameGameBoy</h3>
+                    <p class="text-gray-600 text-sm">Your destination for the best free online games. Play instantly in your browser!</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 mb-3">Game Categories</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="action.html" class="text-gray-600 hover:text-apple-blue">Action Games</a></li>
+                        <li><a href="puzzle.html" class="text-gray-600 hover:text-apple-blue">Puzzle Games</a></li>
+                        <li><a href="adventure.html" class="text-gray-600 hover:text-apple-blue">Adventure Games</a></li>
+                        <li><a href="sports.html" class="text-gray-600 hover:text-apple-blue">Sports Games</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 mb-3">Popular Searches</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" onclick="searchForTerm('Minecraft')" class="text-gray-600 hover:text-apple-blue">Minecraft</a></li>
+                        <li><a href="#" onclick="searchForTerm('Racing')" class="text-gray-600 hover:text-apple-blue">Racing Games</a></li>
+                        <li><a href="#" onclick="searchForTerm('Puzzle')" class="text-gray-600 hover:text-apple-blue">Puzzle Games</a></li>
+                        <li><a href="#" onclick="searchForTerm('Vex')" class="text-gray-600 hover:text-apple-blue">Vex Games</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-semibold text-gray-900 mb-3">About</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-600 hover:text-apple-blue">Home</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-apple-blue">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-apple-blue">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-apple-blue">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-600">
+                <p>&copy; 2024 GameGameBoy.online. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="games_data.js"></script>
+    <script src="enhanced_search.js"></script>
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Search functionality
+        let allGames = [];
+        let currentSearchTerm = '';
+
+        // Load games data
+        function loadGamesData() {
+            try {
+                // Use the same data source as other pages
+                if (window.GAMES_DATABASE) {
+                    // Convert the category-based object to a flat array of games
+                    allGames = [];
+                    Object.keys(window.GAMES_DATABASE).forEach(category => {
+                        if (Array.isArray(window.GAMES_DATABASE[category])) {
+                            window.GAMES_DATABASE[category].forEach(game => {
+                                allGames.push({
+                                    name: game.name,
+                                    file: game.file,
+                                    classification: game.classification || category
+                                });
+                            });
+                        }
+                    });
+
+                    console.log('Loaded', allGames.length, 'games from', Object.keys(window.GAMES_DATABASE).length, 'categories');
+                    return allGames;
+                } else {
+                    console.error('GAMES_DATABASE not found');
+                    allGames = [];
+                    return [];
+                }
+            } catch (error) {
+                console.error('Error loading games data:', error);
+                allGames = [];
+                return [];
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load games data synchronously since we're using GAMES_DATABASE
+            loadGamesData();
+
+            // Get search term from URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchParam = urlParams.get('q');
+
+            if (searchParam) {
+                document.getElementById('searchInput').value = searchParam;
+                // Small delay to ensure data is loaded
+                setTimeout(() => {
+                    performSearch();
+                }, 100);
+            } else {
+                showPopularGames();
+            }
+
+            // Setup enter key for search
+            document.getElementById('searchInput').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // Setup clear button
+            const searchInput = document.getElementById('searchInput');
+            const clearButton = document.getElementById('clearSearchButton');
+
+            searchInput.addEventListener('input', () => {
+                if (searchInput.value.trim()) {
+                    clearButton.classList.remove('hidden');
+                } else {
+                    clearButton.classList.add('hidden');
+                }
+            });
+        });
+
+        // Perform search
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
+
+            if (!searchTerm) {
+                showPopularGames();
+                return;
+            }
+
+            currentSearchTerm = searchTerm;
+
+            // Update URL
+            const newUrl = `${window.location.pathname}?q=${encodeURIComponent(searchTerm)}`;
+            window.history.pushState({}, '', newUrl);
+
+            // Show loading state
+            document.getElementById('loadingState').classList.remove('hidden');
+            document.getElementById('initialState').classList.add('hidden');
+            document.getElementById('searchResults').innerHTML = '';
+            document.getElementById('noResults').classList.add('hidden');
+            document.getElementById('searchInfo').classList.add('hidden');
+
+            // Simulate loading delay for better UX
+            setTimeout(() => {
+                console.log('Searching for:', searchTerm);
+                console.log('Total games loaded:', allGames.length);
+
+                const filteredGames = allGames.filter(game => {
+                    const nameMatch = game.name.toLowerCase().includes(searchTerm);
+                    const categoryMatch = game.classification.toLowerCase().includes(searchTerm);
+                    return nameMatch || categoryMatch;
+                });
+
+                console.log('Found', filteredGames.length, 'games matching:', searchTerm);
+
+                // Hide loading state
+                document.getElementById('loadingState').classList.add('hidden');
+
+                if (filteredGames.length === 0) {
+                    showNoResults();
+                } else {
+                    showSearchResults(filteredGames, searchTerm);
+                }
+            }, 300);
+        }
+
+        // Show search results
+        function showSearchResults(games, searchTerm) {
+            const searchResults = document.getElementById('searchResults');
+            const searchInfo = document.getElementById('searchInfo');
+
+            // Update search info
+            document.getElementById('searchTerm').textContent = searchTerm;
+            document.getElementById('resultCount').textContent = games.length;
+            searchInfo.classList.remove('hidden');
+
+            // Hide initial state
+            document.getElementById('initialState').classList.add('hidden');
+            document.getElementById('noResults').classList.add('hidden');
+
+            // Clear and populate results
+            searchResults.innerHTML = '';
+
+            games.forEach(game => {
+                const gameCard = createGameCard(game);
+                searchResults.appendChild(gameCard);
+            });
+        }
+
+        // Show no results
+        function showNoResults() {
+            document.getElementById('searchResults').innerHTML = '';
+            document.getElementById('initialState').classList.add('hidden');
+            document.getElementById('noResults').classList.remove('hidden');
+            document.getElementById('searchInfo').classList.add('hidden');
+        }
+
+        // Show popular games
+        function showPopularGames() {
+            document.getElementById('searchInfo').classList.add('hidden');
+            document.getElementById('noResults').classList.add('hidden');
+            document.getElementById('searchResults').innerHTML = '';
+            document.getElementById('initialState').classList.remove('hidden');
+
+            // Load some popular games
+            const popularGames = allGames.slice(0, 8);
+            const popularGamesContainer = document.getElementById('popularGames');
+            popularGamesContainer.innerHTML = '';
+
+            popularGames.forEach(game => {
+                const gameCard = createGameCard(game);
+                popularGamesContainer.appendChild(gameCard);
+            });
+        }
+
+        // Clear search
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('clearSearchButton').classList.add('hidden');
+            showPopularGames();
+
+            // Update URL
+            window.history.pushState({}, '', window.location.pathname);
+        }
+
+        // Search for term (from footer links)
+        function searchForTerm(term) {
+            document.getElementById('searchInput').value = term;
+            performSearch();
+        }
+
+        // Create game card
+        function createGameCard(game) {
+            const card = document.createElement('div');
+            card.className = 'game-card bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group cursor-pointer transform hover:-translate-y-1';
+
+            const categoryColors = {
+                'action': 'from-red-500 to-red-600',
+                'adventure': 'from-blue-500 to-blue-600',
+                'puzzle': 'from-green-500 to-green-600',
+                'sports': 'from-orange-500 to-orange-600'
+            };
+
+            const colorClass = categoryColors[game.classification] || 'from-gray-500 to-gray-600';
+            const gameUrl = game.file.startsWith('http') ? game.file : game.file;
+
+            card.innerHTML = `
+                <div class="relative">
+                    <div class="h-48 bg-gradient-to-br ${colorClass} flex items-center justify-center">
+                        <div class="text-white text-center">
+                            <div class="text-4xl mb-2">🎮</div>
+                            <p class="text-sm opacity-75 uppercase tracking-wide font-semibold">${game.classification}</p>
+                        </div>
+                    </div>
+                    <div class="absolute top-2 right-2">
+                        <span class="bg-white bg-opacity-90 text-gray-800 text-xs px-2 py-1 rounded-full font-semibold">
+                            ${game.classification}
+                        </span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg text-gray-900 mb-2 line-clamp-1">${game.name}</h3>
+                    <a href="${gameUrl}" class="w-full bg-apple-blue text-white py-2 px-4 rounded-lg hover:bg-apple-blue/90 transition-colors text-center block font-semibold">
+                        Play Now
+                    </a>
+                </div>
+            `;
+
+            return card;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for file in puzzle.html adventure.html sports.html)",
+      "Bash(do echo \"=== Checking $file ===\" sed -n '/<script>/,/<\\/script>/p' \"$file\")",
+      "Bash(\"/tmp/$file_js.js\" node -c \"/tmp/$file_js.js\")",
+      "Bash(/home/ezhonghu/.nvm/versions/node/v24.10.0/bin/node:*)",
+      "Bash(/tmp/puzzle_test.txt:*)",
+      "Bash(/tmp/puzzle_final_js.txt)",
+      "Bash(find:*)",
+      "Bash(python3:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

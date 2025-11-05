@@ -1,0 +1,138 @@
+<!-- 通用游戏页面模板 -->
+<!-- 使用说明：替换以下占位符 -->
+<!-- GAME_TITLE - 游戏标题 -->
+<!-- GAME_DESCRIPTION - 游戏描述 -->
+<!-- GAME_CATEGORY - 游戏分类 -->
+<!-- GAME_IFRAME_URL - 游戏iframe链接 -->
+<!-- GAME_SCREENSHOT_URL - 游戏截图URL -->
+<!-- GAME_CONTROLS - 游戏操作说明 -->
+<!-- RELATED_GAMES - 相关游戏列表 -->
+
+<main>
+    <div class="container">
+        <div class="game-container">
+            <!-- 游戏头部信息 -->
+            <div class="game-header">
+                <h1 class="game-title">{{GAME_TITLE}}</h1>
+                <p class="game-description">{{GAME_DESCRIPTION}}</p>
+                <div class="game-meta">
+                    <span class="game-category">{{GAME_CATEGORY}}</span>
+                    <span>🎮 休闲游戏</span>
+                    <span>⭐ 免费游戏</span>
+                </div>
+            </div>
+
+            <!-- 游戏iframe容器 -->
+            <div class="game-iframe-container">
+                <div class="loading" id="gameLoader">
+                    <div class="loading-spinner"></div>
+                    <p>游戏加载中...</p>
+                </div>
+                <iframe
+                    class="game-iframe"
+                    id="gameFrame"
+                    src="{{GAME_IFRAME_URL}}"
+                    loading="lazy"
+                    onload="hideLoader()"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <!-- 游戏信息区 -->
+            <div class="game-info">
+                <!-- 游戏介绍 -->
+                <div class="game-info-section">
+                    <h3>🎯 游戏介绍</h3>
+                    <p>{{GAME_DESCRIPTION}}</p>
+                    <div class="mt-1">
+                        <strong>分类：</strong> {{GAME_CATEGORY}}<br>
+                        <strong>类型：</strong> HTML5休闲游戏<br>
+                        <strong>难度：</strong> 简单易上手
+                    </div>
+                </div>
+
+                <!-- 操作说明 -->
+                <div class="game-info-section">
+                    <h3>🎮 操作说明</h3>
+                    <ul class="controls-list">
+                        {{GAME_CONTROLS}}
+                    </ul>
+                    <div class="mt-1">
+                        <p><strong>提示：</strong>游戏支持触摸屏操作，手机平板都能玩！</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 社交分享 -->
+            <div class="social-share">
+                <a href="#" class="share-btn share-twitter" id="shareTwitter">
+                    🐦 分享到Twitter
+                </a>
+                <a href="#" class="share-btn share-facebook" id="shareFacebook">
+                    👍 分享到Facebook
+                </a>
+                <a href="#" class="share-btn share-reddit" id="shareReddit">
+                    🤖 分享到Reddit
+                </a>
+            </div>
+
+            <!-- 相关游戏推荐 -->
+            <div class="related-games">
+                <h3>🎲 你可能喜欢的游戏</h3>
+                <div class="related-games-grid" id="relatedGames">
+                    {{RELATED_GAMES}}
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- JavaScript -->
+<script src="../assets/js/main.js"></script>
+<script>
+// 游戏页面专用脚本
+function hideLoader() {
+    const loader = document.getElementById('gameLoader');
+    const gameFrame = document.getElementById('gameFrame');
+
+    setTimeout(() => {
+        loader.style.display = 'none';
+        gameFrame.style.display = 'block';
+    }, 500);
+}
+
+// 社交分享功能
+document.addEventListener('DOMContentLoaded', function() {
+    const gameTitle = document.querySelector('.game-title').textContent;
+    const gameUrl = window.location.href;
+    const gameDescription = document.querySelector('.game-description').textContent;
+
+    // Twitter分享
+    document.getElementById('shareTwitter').addEventListener('click', function(e) {
+        e.preventDefault();
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(gameTitle + ' - ' + gameDescription)}&url=${encodeURIComponent(gameUrl)}`;
+        window.open(twitterUrl, '_blank', 'width=550,height=420');
+    });
+
+    // Facebook分享
+    document.getElementById('shareFacebook').addEventListener('click', function(e) {
+        e.preventDefault();
+        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(gameUrl)}`;
+        window.open(facebookUrl, '_blank', 'width=580,height=400');
+    });
+
+    // Reddit分享
+    document.getElementById('shareReddit').addEventListener('click', function(e) {
+        e.preventDefault();
+        const redditUrl = `https://reddit.com/submit?url=${encodeURIComponent(gameUrl)}&title=${encodeURIComponent(gameTitle)}`;
+        window.open(redditUrl, '_blank', 'width=600,height=500');
+    });
+});
+
+// 游戏加载失败处理
+document.getElementById('gameFrame').addEventListener('error', function() {
+    const loader = document.getElementById('gameLoader');
+    loader.innerHTML = '<p>❌ 游戏加载失败，请刷新页面重试</p>';
+});
+</script>

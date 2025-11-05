@@ -1,0 +1,55 @@
+<!-- Enhanced Search Component -->
+<div class="relative max-w-2xl mx-auto mb-8">
+    <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+        </div>
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search games... (Ctrl+K)"
+            class="w-full pl-12 pr-24 py-4 rounded-full text-gray-900 text-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-apple-blue focus:ring-opacity-50 border border-gray-200"
+            autocomplete="off"
+        >
+        <div class="absolute inset-y-0 right-0 flex items-center pr-2">
+            <button
+                id="searchButton"
+                class="bg-apple-blue text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors flex items-center gap-2"
+                aria-label="Search"
+            >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                Search
+            </button>
+            <button
+                id="clearSearchButton"
+                class="ml-2 text-gray-400 hover:text-gray-600 transition-colors hidden"
+                aria-label="Clear search"
+                onclick="clearSearch()"
+            >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Search Suggestions Dropdown -->
+        <div id="searchResults" class="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg mt-2 max-h-96 overflow-y-auto z-50 hidden">
+        </div>
+    </div>
+
+    <!-- Search Tips -->
+    <div class="mt-3 flex flex-wrap gap-2 justify-center">
+        <span class="text-sm text-gray-500">Popular:</span>
+        <button onclick="searchGame('Minecraft')" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">Minecraft</button>
+        <button onclick="searchGame('Vex')" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">Vex</button>
+        <button onclick="searchGame('Puzzle')" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">Puzzle</button>
+        <button onclick="searchGame('Racing')" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">Racing</button>
+        <button onclick="searchGame('Zombie')" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">Zombie</button>
+    </div>
+</div>
+
+<script src="enhanced_search.js"></script>

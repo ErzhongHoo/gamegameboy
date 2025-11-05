@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Test | GameGameBoy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light-gray': '#F2F2F7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-white text-gray-900 font-sans">
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6 text-center">🔍 Search Functionality Test</h1>
+
+        <!-- Test Search Component -->
+        <div class="bg-white border rounded-lg p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">测试搜索功能</h2>
+
+            <div class="relative max-w-2xl mx-auto mb-8">
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="搜索游戏... (Ctrl+K)"
+                        class="w-full pl-12 pr-24 py-4 rounded-full text-gray-900 text-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-apple-blue focus:ring-opacity-50 border border-gray-200"
+                        autocomplete="off"
+                    >
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-2">
+                        <button
+                            id="searchButton"
+                            onclick="performEnhancedSearch()"
+                            class="bg-apple-blue text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors flex items-center gap-2"
+                            aria-label="Search"
+                        >
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            Search
+                        </button>
+                        <button
+                            id="clearSearchButton"
+                            class="ml-2 text-gray-400 hover:text-gray-600 transition-colors hidden"
+                            aria-label="Clear search"
+                            onclick="clearSearch()"
+                        >
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Test Tags -->
+                <div class="mt-3 flex flex-wrap gap-2 justify-center">
+                    <span class="text-sm text-gray-500">测试搜索:</span>
+                    <button onclick="searchGame('Vex')" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">Vex</button>
+                    <button onclick="searchGame('Minecraft')" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">Minecraft</button>
+                    <button onclick="searchGame('Puzzle')" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">Puzzle</button>
+                    <button onclick="searchGame('Racing')" class="text-sm bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full transition-colors">Racing</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Games -->
+        <div class="mb-8">
+            <h2 class="text-xl font-semibold mb-4">示例游戏列表</h2>
+            <div id="gamesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105">
+                    <div class="aspect-video bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏃</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Vex 9</h4>
+                        <p class="text-sm text-gray-600 mb-3">刺激的跑酷冒险游戏！</p>
+                        <a href="#" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105">
+                    <div class="aspect-video bg-gradient-to-br from-green-600 to-brown-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">⛏️</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Minecraft Classic</h4>
+                        <p class="text-sm text-gray-600 mb-3">经典的沙盒建造游戏！</p>
+                        <a href="#" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105">
+                    <div class="aspect-video bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                        <span class="text-white text-4xl">🧩</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Bloxorz</h4>
+                        <p class="text-sm text-gray-600 mb-3">挑战你的智力拼图游戏！</p>
+                        <a href="#" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105">
+                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-green-500 flex items-center justify-center">
+                        <span class="text-white text-4xl">🏁</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Hill Climb Racing</h4>
+                        <p class="text-sm text-gray-600 mb-3">刺激的赛车竞速游戏！</p>
+                        <a href="#" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105">
+                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🔥</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Fireboy and Watergirl</h4>
+                        <p class="text-sm text-gray-600 mb-3">合作冒险解谜游戏！</p>
+                        <a href="#" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+
+                <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105">
+                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <span class="text-white text-4xl">🔷</span>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold mb-2">Geometry Dash</h4>
+                        <p class="text-sm text-gray-600 mb-3">节奏动作冒险游戏！</p>
+                        <a href="#" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Results -->
+        <div id="searchResultsCount"></div>
+
+        <!-- Instructions -->
+        <div class="bg-gray-50 rounded-lg p-6">
+            <h2 class="text-xl font-semibold mb-4">测试说明</h2>
+            <div class="space-y-2 text-sm text-gray-600">
+                <p>✅ <strong>点击搜索按钮:</strong> 点击"Search"按钮执行搜索</p>
+                <p>✅ <strong>输入搜索:</strong> 在搜索框中输入游戏名称，如"Vex"、"Minecraft"等</p>
+                <p>✅ <strong>快捷键:</strong> 按 Ctrl+K 快速聚焦搜索框</p>
+                <p>✅ <strong>Enter搜索:</strong> 输入后按 Enter 键搜索</p>
+                <p>✅ <strong>ESC清空:</strong> 按 ESC 键清空搜索</p>
+                <p>✅ <strong>快速标签:</strong> 点击下方的标签按钮快速搜索</p>
+                <p>✅ <strong>清空按钮:</strong> 输入内容后右侧会显示清空按钮</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 搜索功能脚本
+        function performEnhancedSearch() {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                const searchTerm = searchInput.value.toLowerCase().trim();
+                if (searchTerm) {
+                    console.log('🔍 搜索:', searchTerm);
+
+                    // 过滤游戏卡片
+                    const gameCards = document.querySelectorAll('.game-card');
+                    let visibleCount = 0;
+
+                    gameCards.forEach(card => {
+                        const title = card.querySelector('h4');
+                        const description = card.querySelector('p');
+
+                        if (title && description) {
+                            const titleText = title.textContent.toLowerCase();
+                            const descText = description.textContent.toLowerCase();
+
+                            if (titleText.includes(searchTerm) || descText.includes(searchTerm)) {
+                                card.style.display = 'block';
+                                visibleCount++;
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+
+                    // 显示搜索结果统计
+                    showSearchResultsCount(visibleCount, searchTerm);
+
+                    // 滚动到第一个结果
+                    const firstVisible = document.querySelector('.game-card:not([style*="display: none"])');
+                    if (firstVisible) {
+                        firstVisible.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+
+                    // 显示成功消息
+                    console.log(`✅ 搜索完成，找到 ${visibleCount} 个结果`);
+                } else {
+                    clearSearch();
+                }
+            }
+        }
+
+        // 显示搜索结果统计
+        function showSearchResultsCount(count, searchTerm) {
+            let countElement = document.getElementById('searchResultsCount');
+
+            if (!countElement) {
+                countElement = document.createElement('div');
+                countElement.id = 'searchResultsCount';
+                countElement.className = 'text-center mb-4';
+                document.getElementById('gamesGrid').appendChild(countElement);
+            }
+
+            if (count === 0) {
+                countElement.innerHTML = `
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                        <h3 class="text-lg font-semibold text-yellow-800 mb-2">😔 没有找到游戏</h3>
+                        <p class="text-yellow-700">没有找到匹配 "${searchTerm}" 的游戏，请尝试其他关键词。</p>
+                    </div>
+                `;
+            } else {
+                countElement.innerHTML = `
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-2">🎮 搜索结果</h3>
+                        <p class="text-blue-700">找到 ${count} 个匹配 "${searchTerm}" 的游戏</p>
+                    </div>
+                `;
+            }
+        }
+
+        // 清空搜索
+        function clearSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const clearButton = document.getElementById('clearSearchButton');
+
+            if (searchInput) {
+                searchInput.value = '';
+            }
+            if (clearButton) {
+                clearButton.classList.add('hidden');
+            }
+
+            // 显示所有游戏
+            const gameCards = document.querySelectorAll('.game-card');
+            gameCards.forEach(card => {
+                card.style.display = 'block';
+            });
+
+            // 移除搜索结果统计
+            const countElement = document.getElementById('searchResultsCount');
+            if (countElement) {
+                countElement.innerHTML = '';
+            }
+
+            console.log('🧹 搜索已清空');
+        }
+
+        // 搜索游戏（用于快速标签）
+        function searchGame(gameName) {
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.value = gameName;
+                performEnhancedSearch();
+            }
+        }
+
+        // 初始化事件监听器
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 搜索测试页面已加载');
+
+            const searchInput = document.getElementById('searchInput');
+            const clearButton = document.getElementById('clearSearchButton');
+            const searchButton = document.getElementById('searchButton');
+
+            if (searchInput && clearButton && searchButton) {
+                // 输入事件
+                searchInput.addEventListener('input', function() {
+                    console.log('⌨️ 输入内容:', this.value);
+                    if (this.value.trim()) {
+                        clearButton.classList.remove('hidden');
+                    } else {
+                        clearButton.classList.add('hidden');
+                    }
+                });
+
+                // Enter键搜索
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        console.log('⏎ Enter键触发搜索');
+                        performEnhancedSearch();
+                    }
+                });
+
+                // ESC键清空
+                searchInput.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        console.log('⎋ ESC键清空搜索');
+                        clearSearch();
+                    }
+                });
+
+                // 搜索按钮点击测试
+                searchButton.addEventListener('click', function() {
+                    console.log('🖱️ 搜索按钮被点击');
+                });
+
+                console.log('✅ 所有事件监听器已绑定');
+            }
+
+            // Ctrl+K 快捷键
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    console.log('⌨️ Ctrl+K 快捷键触发');
+                    if (searchInput) {
+                        searchInput.focus();
+                        searchInput.select();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

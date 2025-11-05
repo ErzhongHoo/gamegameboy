@@ -1,0 +1,2615 @@
+{
+  "action": [
+    {
+      "name": "Obby But You're on a Bike",
+      "file": "games/action/obby-but-youre-on-a-bike.html",
+      "classification": "action"
+    },
+    {
+      "name": "GTA Simulator",
+      "file": "games/action/gta-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "Masked Special Forces",
+      "file": "games/action/masked-special-forces.html",
+      "classification": "action"
+    },
+    {
+      "name": "Five Nights At Freddys",
+      "file": "games/action/five-nights-at-freddys.html",
+      "classification": "action"
+    },
+    {
+      "name": "Geometry Arrow",
+      "file": "games/action/geometry-arrow.html",
+      "classification": "action"
+    },
+    {
+      "name": "Moto Road Rash 3D",
+      "file": "games/action/moto-road-rash-3d.html",
+      "classification": "action"
+    },
+    {
+      "name": "Granny",
+      "file": "games/action/granny.html",
+      "classification": "action"
+    },
+    {
+      "name": "Fragen",
+      "file": "games/action/fragen.html",
+      "classification": "action"
+    },
+    {
+      "name": "Extreme Run 3D",
+      "file": "games/action/extreme-run-3d.html",
+      "classification": "action"
+    },
+    {
+      "name": "Stickman GTA City",
+      "file": "games/action/stickman-gta-city.html",
+      "classification": "action"
+    },
+    {
+      "name": "Five Nights At Freddy's 2",
+      "file": "games/action/five-nights-at-freddys-2.html",
+      "classification": "action"
+    },
+    {
+      "name": "Stickman Parkour",
+      "file": "games/action/stickman-parkour.html",
+      "classification": "action"
+    },
+    {
+      "name": "Stick Fighter 3D",
+      "file": "games/action/stick-fighter-3d.html",
+      "classification": "action"
+    },
+    {
+      "name": "DTA 6",
+      "file": "games/action/dta-6.html",
+      "classification": "action"
+    },
+    {
+      "name": "Get On Top",
+      "file": "games/action/get-on-top.html",
+      "classification": "action"
+    },
+    {
+      "name": "Aventador Vice Crime City",
+      "file": "games/action/aventador-vice-crime-city.html",
+      "classification": "action"
+    },
+    {
+      "name": "Red Light Green Light",
+      "file": "games/action/red-light-green-light.html",
+      "classification": "action"
+    },
+    {
+      "name": "FPS Simulator",
+      "file": "games/action/fps-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "Crazy Strike Force",
+      "file": "games/action/crazy-strike-force.html",
+      "classification": "action"
+    },
+    {
+      "name": "CS Online",
+      "file": "games/action/cs-online.html",
+      "classification": "action"
+    },
+    {
+      "name": "Guerrillas io",
+      "file": "games/action/guerrillas-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Drunken Duel",
+      "file": "games/action/drunken-duel.html",
+      "classification": "action"
+    },
+    {
+      "name": "Only Up Obby",
+      "file": "games/action/only-up-obby.html",
+      "classification": "action"
+    },
+    {
+      "name": "Dan the Man",
+      "file": "games/action/dan-the-man.html",
+      "classification": "action"
+    },
+    {
+      "name": "Five Nights At Freddy's 4",
+      "file": "games/action/five-nights-at-freddys-4.html",
+      "classification": "action"
+    },
+    {
+      "name": "Legendary Sniper",
+      "file": "games/action/legendary-sniper.html",
+      "classification": "action"
+    },
+    {
+      "name": "Five Nights At Freddy's 3",
+      "file": "games/action/five-nights-at-freddys-3.html",
+      "classification": "action"
+    },
+    {
+      "name": "ShooterZ.io",
+      "file": "games/action/shooterzio.html",
+      "classification": "action"
+    },
+    {
+      "name": "Obby Prison Escape",
+      "file": "games/action/obby-prison-escape.html",
+      "classification": "action"
+    },
+    {
+      "name": "WarStrike",
+      "file": "games/action/warstrike.html",
+      "classification": "action"
+    },
+    {
+      "name": "Crazy Shooters 2",
+      "file": "games/action/crazy-shooters-2.html",
+      "classification": "action"
+    },
+    {
+      "name": "Archer Hero",
+      "file": "games/action/archer-hero.html",
+      "classification": "action"
+    },
+    {
+      "name": "Crazy Shooters",
+      "file": "games/action/crazy-shooters.html",
+      "classification": "action"
+    },
+    {
+      "name": "Funny Blade and Magic",
+      "file": "games/action/funny-blade-and-magic.html",
+      "classification": "action"
+    },
+    {
+      "name": "Crazy Motorcycle",
+      "file": "games/action/crazy-motorcycle.html",
+      "classification": "action"
+    },
+    {
+      "name": "Snow Rider 3D",
+      "file": "games/action/snow-rider-3d.html",
+      "classification": "action"
+    },
+    {
+      "name": "Slope Rolling",
+      "file": "games/action/slope-rolling.html",
+      "classification": "action"
+    },
+    {
+      "name": "Mob City",
+      "file": "games/action/mob-city.html",
+      "classification": "action"
+    },
+    {
+      "name": "Granny 2",
+      "file": "games/action/granny-2.html",
+      "classification": "action"
+    },
+    {
+      "name": "Time Shooter 3: SWAT",
+      "file": "games/action/time-shooter-3-swat.html",
+      "classification": "action"
+    },
+    {
+      "name": "Time Shooter 2",
+      "file": "games/action/time-shooter-2.html",
+      "classification": "action"
+    },
+    {
+      "name": "Pixel Survival",
+      "file": "games/action/pixel-survival.html",
+      "classification": "action"
+    },
+    {
+      "name": "ArmedForces.io",
+      "file": "games/action/armedforcesio.html",
+      "classification": "action"
+    },
+    {
+      "name": "Vex 3",
+      "file": "games/action/vex-3.html",
+      "classification": "action"
+    },
+    {
+      "name": "Obby: Parkour Lava",
+      "file": "games/action/obby-parkour-lava.html",
+      "classification": "action"
+    },
+    {
+      "name": "FPS Strike",
+      "file": "games/action/fps-strike.html",
+      "classification": "action"
+    },
+    {
+      "name": "FNaF Shooter",
+      "file": "games/action/fnaf-shooter.html",
+      "classification": "action"
+    },
+    {
+      "name": "Realistic Zombie Survival Warfare",
+      "file": "games/action/realistic-zombie-survival-warfare.html",
+      "classification": "action"
+    },
+    {
+      "name": "Immortal: Dark Slayer",
+      "file": "games/action/immortal-dark-slayer.html",
+      "classification": "action"
+    },
+    {
+      "name": "Funny Shooter 2",
+      "file": "games/action/funny-shooter-2.html",
+      "classification": "action"
+    },
+    {
+      "name": "Geometry Vibes X-Ball",
+      "file": "games/action/geometry-vibes-x-ball.html",
+      "classification": "action"
+    },
+    {
+      "name": "Zombie Apocalypse Shooter",
+      "file": "games/action/zombie-apocalypse-shooter.html",
+      "classification": "action"
+    },
+    {
+      "name": "Ultimate Robo Duel 3D",
+      "file": "games/action/ultimate-robo-duel-3d.html",
+      "classification": "action"
+    },
+    {
+      "name": "Hero Rush Tower Defense",
+      "file": "games/action/hero-rush-tower-defense.html",
+      "classification": "action"
+    },
+    {
+      "name": "Masked Forces Crazy Mode",
+      "file": "games/action/masked-forces-crazy-mode.html",
+      "classification": "action"
+    },
+    {
+      "name": "Secret Sniper Agent",
+      "file": "games/action/secret-sniper-agent.html",
+      "classification": "action"
+    },
+    {
+      "name": "Time Shooter",
+      "file": "games/action/time-shooter.html",
+      "classification": "action"
+    },
+    {
+      "name": "Skibidi Toilet Shooting",
+      "file": "games/action/skibidi-toilet-shooting.html",
+      "classification": "action"
+    },
+    {
+      "name": "Su Battle Royale",
+      "file": "games/action/su-battle-royale.html",
+      "classification": "action"
+    },
+    {
+      "name": "Tank War Simulator",
+      "file": "games/action/tank-war-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "Wasteland Shooters",
+      "file": "games/action/wasteland-shooters.html",
+      "classification": "action"
+    },
+    {
+      "name": "Rebel Forces",
+      "file": "games/action/rebel-forces.html",
+      "classification": "action"
+    },
+    {
+      "name": "Run Away 3",
+      "file": "games/action/run-away-3.html",
+      "classification": "action"
+    },
+    {
+      "name": "Monster Survivors",
+      "file": "games/action/monster-survivors.html",
+      "classification": "action"
+    },
+    {
+      "name": "Rome Simulator",
+      "file": "games/action/rome-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "Horse Riding Simulator",
+      "file": "games/action/horse-riding-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "City Police Cars",
+      "file": "games/action/city-police-cars.html",
+      "classification": "action"
+    },
+    {
+      "name": "Airplane Racer",
+      "file": "games/action/airplane-racer.html",
+      "classification": "action"
+    },
+    {
+      "name": "Dark Ninja Hanjo",
+      "file": "games/action/dark-ninja-hanjo.html",
+      "classification": "action"
+    },
+    {
+      "name": "Bob the Robber",
+      "file": "games/action/bob-the-robber.html",
+      "classification": "action"
+    },
+    {
+      "name": "Five Nights At Cat Freddy",
+      "file": "games/action/five-nights-at-cat-freddy.html",
+      "classification": "action"
+    },
+    {
+      "name": "Dragon Simulator Multiplayer",
+      "file": "games/action/dragon-simulator-multiplayer.html",
+      "classification": "action"
+    },
+    {
+      "name": "Gangsters",
+      "file": "games/action/gangsters.html",
+      "classification": "action"
+    },
+    {
+      "name": "Tank Arena",
+      "file": "games/action/tank-arena.html",
+      "classification": "action"
+    },
+    {
+      "name": "Squid Shooter",
+      "file": "games/action/squid-shooter.html",
+      "classification": "action"
+    },
+    {
+      "name": "Alien Sky Invasion",
+      "file": "games/action/alien-sky-invasion.html",
+      "classification": "action"
+    },
+    {
+      "name": "Five Nights At Candy's",
+      "file": "games/action/five-nights-at-candys.html",
+      "classification": "action"
+    },
+    {
+      "name": "Rainbow Obby Parkour",
+      "file": "games/action/rainbow-obby-parkour.html",
+      "classification": "action"
+    },
+    {
+      "name": "Horror Granny",
+      "file": "games/action/horror-granny.html",
+      "classification": "action"
+    },
+    {
+      "name": "Army Combat",
+      "file": "games/action/army-combat.html",
+      "classification": "action"
+    },
+    {
+      "name": "Only Up Parkour",
+      "file": "games/action/only-up-parkour.html",
+      "classification": "action"
+    },
+    {
+      "name": "Pixel Path",
+      "file": "games/action/pixel-path.html",
+      "classification": "action"
+    },
+    {
+      "name": "Unpacking",
+      "file": "games/action/unpacking.html",
+      "classification": "action"
+    },
+    {
+      "name": "Gummy Blocks",
+      "file": "games/action/gummy-blocks.html",
+      "classification": "action"
+    },
+    {
+      "name": "Bloxorz",
+      "file": "games/action/bloxorz.html",
+      "classification": "action"
+    },
+    {
+      "name": "Tic Tac Toe",
+      "file": "games/action/tic-tac-toe.html",
+      "classification": "action"
+    },
+    {
+      "name": "Fireboy and Watergirl 2: Light Temple",
+      "file": "games/action/fireboy-and-watergirl-2-light-temple.html",
+      "classification": "action"
+    },
+    {
+      "name": "Block Blast",
+      "file": "games/action/block-blast.html",
+      "classification": "action"
+    },
+    {
+      "name": "Rummikub",
+      "file": "games/action/rummikub.html",
+      "classification": "action"
+    },
+    {
+      "name": "Nuts and Bolts Puzzle",
+      "file": "games/action/nuts-and-bolts-puzzle.html",
+      "classification": "action"
+    },
+    {
+      "name": "Fireboy and Watergirl 5: Elements",
+      "file": "games/action/fireboy-and-watergirl-5-elements.html",
+      "classification": "action"
+    },
+    {
+      "name": "Fireboy and Watergirl 4: Crystal Temple",
+      "file": "games/action/fireboy-and-watergirl-4-crystal-temple.html",
+      "classification": "action"
+    },
+    {
+      "name": "Charge It",
+      "file": "games/action/charge-it.html",
+      "classification": "action"
+    },
+    {
+      "name": "Tetris",
+      "file": "games/action/tetris.html",
+      "classification": "action"
+    },
+    {
+      "name": "Fireboy and Watergirl 6: Fairy Tales",
+      "file": "games/action/fireboy-and-watergirl-6-fairy-tales.html",
+      "classification": "action"
+    },
+    {
+      "name": "Obby: Draw and Jump",
+      "file": "games/action/obby-draw-and-jump.html",
+      "classification": "action"
+    },
+    {
+      "name": "Fireboy and Watergirl 3: Ice Temple",
+      "file": "games/action/fireboy-and-watergirl-3-ice-temple.html",
+      "classification": "action"
+    },
+    {
+      "name": "Draw The Bridge",
+      "file": "games/action/draw-the-bridge.html",
+      "classification": "action"
+    },
+    {
+      "name": "Global Guesser",
+      "file": "games/action/global-guesser.html",
+      "classification": "action"
+    },
+    {
+      "name": "Baby Doll House Cleaning",
+      "file": "games/action/baby-doll-house-cleaning.html",
+      "classification": "action"
+    },
+    {
+      "name": "Soccer Merge",
+      "file": "games/action/soccer-merge.html",
+      "classification": "action"
+    },
+    {
+      "name": "Mini Cars Racing",
+      "file": "games/action/mini-cars-racing.html",
+      "classification": "action"
+    },
+    {
+      "name": "Super Mini Racing",
+      "file": "games/action/super-mini-racing.html",
+      "classification": "action"
+    },
+    {
+      "name": "2 Player Crazy Racer",
+      "file": "games/action/2-player-crazy-racer.html",
+      "classification": "action"
+    },
+    {
+      "name": "Hurakan City Driver HD",
+      "file": "games/action/hurakan-city-driver-hd.html",
+      "classification": "action"
+    },
+    {
+      "name": "Free City Drive",
+      "file": "games/action/free-city-drive.html",
+      "classification": "action"
+    },
+    {
+      "name": "Burnout Crazy Drift",
+      "file": "games/action/burnout-crazy-drift.html",
+      "classification": "action"
+    },
+    {
+      "name": "Tag Run",
+      "file": "games/action/tag-run.html",
+      "classification": "action"
+    },
+    {
+      "name": "Geometry Vibes 3D",
+      "file": "games/action/geometry-vibes-3d.html",
+      "classification": "action"
+    },
+    {
+      "name": "Geometry Vibes",
+      "file": "games/action/geometry-vibes.html",
+      "classification": "action"
+    },
+    {
+      "name": "Basketball Stars",
+      "file": "games/action/basketball-stars.html",
+      "classification": "action"
+    },
+    {
+      "name": "Paper io 2",
+      "file": "games/action/paper-io-2.html",
+      "classification": "action"
+    },
+    {
+      "name": "Brainrot Clicker",
+      "file": "games/action/brainrot-clicker.html",
+      "classification": "action"
+    },
+    {
+      "name": "Obby Gym Simulator",
+      "file": "games/action/obby-gym-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "Geometry Vibes Monster",
+      "file": "games/action/geometry-vibes-monster.html",
+      "classification": "action"
+    },
+    {
+      "name": "Waterpark Slide io",
+      "file": "games/action/waterpark-slide-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Chess",
+      "file": "games/action/chess.html",
+      "classification": "action"
+    },
+    {
+      "name": "Blocky Combat Swat",
+      "file": "games/action/blocky-combat-swat.html",
+      "classification": "action"
+    },
+    {
+      "name": "8 Ball Pool Billiard",
+      "file": "games/action/8-ball-pool-billiard.html",
+      "classification": "action"
+    },
+    {
+      "name": "Hole io",
+      "file": "games/action/hole-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Guess the Italian Brainrot Animals",
+      "file": "games/action/guess-the-italian-brainrot-animals.html",
+      "classification": "action"
+    },
+    {
+      "name": "State.io",
+      "file": "games/action/stateio.html",
+      "classification": "action"
+    },
+    {
+      "name": "Xtreme Paintball Wars",
+      "file": "games/action/xtreme-paintball-wars.html",
+      "classification": "action"
+    },
+    {
+      "name": "Halloween Survival",
+      "file": "games/action/halloween-survival.html",
+      "classification": "action"
+    },
+    {
+      "name": "CobraZ.io Classic",
+      "file": "games/action/cobrazio-classic.html",
+      "classification": "action"
+    },
+    {
+      "name": "ForceZ.io",
+      "file": "games/action/forcezio.html",
+      "classification": "action"
+    },
+    {
+      "name": "Survival Karts",
+      "file": "games/action/survival-karts.html",
+      "classification": "action"
+    },
+    {
+      "name": "Rummy Multiplayer",
+      "file": "games/action/rummy-multiplayer.html",
+      "classification": "action"
+    },
+    {
+      "name": "Dragon World",
+      "file": "games/action/dragon-world.html",
+      "classification": "action"
+    },
+    {
+      "name": "Masked Forces Zombie Survival",
+      "file": "games/action/masked-forces-zombie-survival.html",
+      "classification": "action"
+    },
+    {
+      "name": "Masked Shooters Assault",
+      "file": "games/action/masked-shooters-assault.html",
+      "classification": "action"
+    },
+    {
+      "name": "Masked io",
+      "file": "games/action/masked-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Bandits Multiplayer PvP",
+      "file": "games/action/bandits-multiplayer-pvp.html",
+      "classification": "action"
+    },
+    {
+      "name": "Mech Shooter",
+      "file": "games/action/mech-shooter.html",
+      "classification": "action"
+    },
+    {
+      "name": "Masked Forces",
+      "file": "games/action/masked-forces.html",
+      "classification": "action"
+    },
+    {
+      "name": "Gigga io",
+      "file": "games/action/gigga-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Subway Clash 2",
+      "file": "games/action/subway-clash-2.html",
+      "classification": "action"
+    },
+    {
+      "name": "Jul Moto RacingÂ",
+      "file": "games/action/jul-moto-racingâ.html",
+      "classification": "action"
+    },
+    {
+      "name": "War of Ships io",
+      "file": "games/action/war-of-ships-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Basketball io",
+      "file": "games/action/basketball-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Void City io",
+      "file": "games/action/void-city-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Basketball King",
+      "file": "games/action/basketball-king.html",
+      "classification": "action"
+    },
+    {
+      "name": "Skibidi Toilet io",
+      "file": "games/action/skibidi-toilet-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Cute Snake io",
+      "file": "games/action/cute-snake-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Slide io",
+      "file": "games/action/slide-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Paper Planets",
+      "file": "games/action/paper-planets.html",
+      "classification": "action"
+    },
+    {
+      "name": "State io Wars",
+      "file": "games/action/state-io-wars.html",
+      "classification": "action"
+    },
+    {
+      "name": "Dont Fall io",
+      "file": "games/action/dont-fall-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Kings io",
+      "file": "games/action/kings-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Snow War io",
+      "file": "games/action/snow-war-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Dino Evolution io",
+      "file": "games/action/dino-evolution-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Agar.io",
+      "file": "games/action/agario.html",
+      "classification": "action"
+    },
+    {
+      "name": "Mini Shooters",
+      "file": "games/action/mini-shooters.html",
+      "classification": "action"
+    },
+    {
+      "name": "Trains io",
+      "file": "games/action/trains-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Snake Wars",
+      "file": "games/action/snake-wars.html",
+      "classification": "action"
+    },
+    {
+      "name": "SwordBattle io",
+      "file": "games/action/swordbattle-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Social Media Snake",
+      "file": "games/action/social-media-snake.html",
+      "classification": "action"
+    },
+    {
+      "name": "ToonZ io",
+      "file": "games/action/toonz-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Arena Wars io",
+      "file": "games/action/arena-wars-io.html",
+      "classification": "action"
+    },
+    {
+      "name": "Love Tester",
+      "file": "games/action/love-tester.html",
+      "classification": "action"
+    },
+    {
+      "name": "TB World",
+      "file": "games/action/tb-world.html",
+      "classification": "action"
+    },
+    {
+      "name": "Italian Brainrot Clicker",
+      "file": "games/action/italian-brainrot-clicker.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Scooperia",
+      "file": "games/action/papas-scooperia.html",
+      "classification": "action"
+    },
+    {
+      "name": "Elastic Man",
+      "file": "games/action/elastic-man.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Freezeria",
+      "file": "games/action/papas-freezeria.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Pastaria",
+      "file": "games/action/papas-pastaria.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Cheeseria",
+      "file": "games/action/papas-cheeseria.html",
+      "classification": "action"
+    },
+    {
+      "name": "Uno Online",
+      "file": "games/action/uno-online.html",
+      "classification": "action"
+    },
+    {
+      "name": "Pill Soccer",
+      "file": "games/action/pill-soccer.html",
+      "classification": "action"
+    },
+    {
+      "name": "Barbiemania",
+      "file": "games/action/barbiemania.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Wingeria",
+      "file": "games/action/papas-wingeria.html",
+      "classification": "action"
+    },
+    {
+      "name": "Head Soccer 2022",
+      "file": "games/action/head-soccer-2022.html",
+      "classification": "action"
+    },
+    {
+      "name": "Cat Girl Fashion Challenge",
+      "file": "games/action/cat-girl-fashion-challenge.html",
+      "classification": "action"
+    },
+    {
+      "name": "Princess Wedding",
+      "file": "games/action/princess-wedding.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Bakeria",
+      "file": "games/action/papas-bakeria.html",
+      "classification": "action"
+    },
+    {
+      "name": "Organize It",
+      "file": "games/action/organize-it.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Sushiria",
+      "file": "games/action/papas-sushiria.html",
+      "classification": "action"
+    },
+    {
+      "name": "LOL Surprise Style Studio",
+      "file": "games/action/lol-surprise-style-studio.html",
+      "classification": "action"
+    },
+    {
+      "name": "Julie Beauty Salon",
+      "file": "games/action/julie-beauty-salon.html",
+      "classification": "action"
+    },
+    {
+      "name": "Tiny Fishing",
+      "file": "games/action/tiny-fishing.html",
+      "classification": "action"
+    },
+    {
+      "name": "Wedding Beauty Salon",
+      "file": "games/action/wedding-beauty-salon.html",
+      "classification": "action"
+    },
+    {
+      "name": "Kikis Pink Christmas",
+      "file": "games/action/kikis-pink-christmas.html",
+      "classification": "action"
+    },
+    {
+      "name": "BFFs Black Friday Collection",
+      "file": "games/action/bffs-black-friday-collection.html",
+      "classification": "action"
+    },
+    {
+      "name": "Snake Football",
+      "file": "games/action/snake-football.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Cupcakeria",
+      "file": "games/action/papas-cupcakeria.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Hot Doggeria",
+      "file": "games/action/papas-hot-doggeria.html",
+      "classification": "action"
+    },
+    {
+      "name": "Shopping Mania",
+      "file": "games/action/shopping-mania.html",
+      "classification": "action"
+    },
+    {
+      "name": "Wedding Planner",
+      "file": "games/action/wedding-planner.html",
+      "classification": "action"
+    },
+    {
+      "name": "Fun Party Makeup",
+      "file": "games/action/fun-party-makeup.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Burgeria",
+      "file": "games/action/papas-burgeria.html",
+      "classification": "action"
+    },
+    {
+      "name": "Little Unicorn",
+      "file": "games/action/little-unicorn.html",
+      "classification": "action"
+    },
+    {
+      "name": "Four Colors",
+      "file": "games/action/four-colors.html",
+      "classification": "action"
+    },
+    {
+      "name": "Snake",
+      "file": "games/action/snake.html",
+      "classification": "action"
+    },
+    {
+      "name": "BTS Signature Fashion Style",
+      "file": "games/action/bts-signature-fashion-style.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Pancakeria",
+      "file": "games/action/papas-pancakeria.html",
+      "classification": "action"
+    },
+    {
+      "name": "Angela All Season Fashion",
+      "file": "games/action/angela-all-season-fashion.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Pizzeria",
+      "file": "games/action/papas-pizzeria.html",
+      "classification": "action"
+    },
+    {
+      "name": "Monster Girls Back to School",
+      "file": "games/action/monster-girls-back-to-school.html",
+      "classification": "action"
+    },
+    {
+      "name": "Princess Influencer Salon",
+      "file": "games/action/princess-influencer-salon.html",
+      "classification": "action"
+    },
+    {
+      "name": "BFFs Retro Time Travel Fashion",
+      "file": "games/action/bffs-retro-time-travel-fashion.html",
+      "classification": "action"
+    },
+    {
+      "name": "BFFs Summer Aesthetic",
+      "file": "games/action/bffs-summer-aesthetic.html",
+      "classification": "action"
+    },
+    {
+      "name": "Happy Crayons",
+      "file": "games/action/happy-crayons.html",
+      "classification": "action"
+    },
+    {
+      "name": "Witch Beauty Salon",
+      "file": "games/action/witch-beauty-salon.html",
+      "classification": "action"
+    },
+    {
+      "name": "Cat Doctor",
+      "file": "games/action/cat-doctor.html",
+      "classification": "action"
+    },
+    {
+      "name": "Foot Doctor",
+      "file": "games/action/foot-doctor.html",
+      "classification": "action"
+    },
+    {
+      "name": "Weird Dance on Wednesday",
+      "file": "games/action/weird-dance-on-wednesday.html",
+      "classification": "action"
+    },
+    {
+      "name": "Ellie Thanksgiving Day",
+      "file": "games/action/ellie-thanksgiving-day.html",
+      "classification": "action"
+    },
+    {
+      "name": "Trendy Plaid Outfits",
+      "file": "games/action/trendy-plaid-outfits.html",
+      "classification": "action"
+    },
+    {
+      "name": "Unicorn Dress Up",
+      "file": "games/action/unicorn-dress-up.html",
+      "classification": "action"
+    },
+    {
+      "name": "Gold Miner",
+      "file": "games/action/gold-miner.html",
+      "classification": "action"
+    },
+    {
+      "name": "Dreamlike Room",
+      "file": "games/action/dreamlike-room.html",
+      "classification": "action"
+    },
+    {
+      "name": "Iconic Celebrity Look",
+      "file": "games/action/iconic-celebrity-look.html",
+      "classification": "action"
+    },
+    {
+      "name": "Get Ready Summer Picnic",
+      "file": "games/action/get-ready-summer-picnic.html",
+      "classification": "action"
+    },
+    {
+      "name": "Dinosaur Game",
+      "file": "games/action/dinosaur-game.html",
+      "classification": "action"
+    },
+    {
+      "name": "Winterella",
+      "file": "games/action/winterella.html",
+      "classification": "action"
+    },
+    {
+      "name": "Princesses Prom Night",
+      "file": "games/action/princesses-prom-night.html",
+      "classification": "action"
+    },
+    {
+      "name": "Car Wash",
+      "file": "games/action/car-wash.html",
+      "classification": "action"
+    },
+    {
+      "name": "Princess Beauty Salon",
+      "file": "games/action/princess-beauty-salon.html",
+      "classification": "action"
+    },
+    {
+      "name": "Ice Slushy Maker",
+      "file": "games/action/ice-slushy-maker.html",
+      "classification": "action"
+    },
+    {
+      "name": "Pets Beauty Salon",
+      "file": "games/action/pets-beauty-salon.html",
+      "classification": "action"
+    },
+    {
+      "name": "Rooftop Snipers",
+      "file": "games/action/rooftop-snipers.html",
+      "classification": "action"
+    },
+    {
+      "name": "GunSpin",
+      "file": "games/action/gunspin.html",
+      "classification": "action"
+    },
+    {
+      "name": "Rooftop Duel",
+      "file": "games/action/rooftop-duel.html",
+      "classification": "action"
+    },
+    {
+      "name": "Deer Hunter",
+      "file": "games/action/deer-hunter.html",
+      "classification": "action"
+    },
+    {
+      "name": "Urban Sniper",
+      "file": "games/action/urban-sniper.html",
+      "classification": "action"
+    },
+    {
+      "name": "Battle Royale Simulator",
+      "file": "games/action/battle-royale-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "Awesome Pirates",
+      "file": "games/action/awesome-pirates.html",
+      "classification": "action"
+    },
+    {
+      "name": "Sniper Elite",
+      "file": "games/action/sniper-elite.html",
+      "classification": "action"
+    },
+    {
+      "name": "Zombie Sniper",
+      "file": "games/action/zombie-sniper.html",
+      "classification": "action"
+    },
+    {
+      "name": "Backrooms Shooter",
+      "file": "games/action/backrooms-shooter.html",
+      "classification": "action"
+    },
+    {
+      "name": "Skibidi Strike",
+      "file": "games/action/skibidi-strike.html",
+      "classification": "action"
+    },
+    {
+      "name": "Funny Shooter",
+      "file": "games/action/funny-shooter.html",
+      "classification": "action"
+    },
+    {
+      "name": "Rainbow Survival",
+      "file": "games/action/rainbow-survival.html",
+      "classification": "action"
+    },
+    {
+      "name": "Stickman War",
+      "file": "games/action/stickman-war.html",
+      "classification": "action"
+    },
+    {
+      "name": "Sniper Reloaded",
+      "file": "games/action/sniper-reloaded.html",
+      "classification": "action"
+    },
+    {
+      "name": "Galactic Sniper",
+      "file": "games/action/galactic-sniper.html",
+      "classification": "action"
+    },
+    {
+      "name": "Squad Shooter",
+      "file": "games/action/squad-shooter.html",
+      "classification": "action"
+    },
+    {
+      "name": "Zombie War Defense",
+      "file": "games/action/zombie-war-defense.html",
+      "classification": "action"
+    },
+    {
+      "name": "Archery Master",
+      "file": "games/action/archery-master.html",
+      "classification": "action"
+    },
+    {
+      "name": "Pixel Battle Royale",
+      "file": "games/action/pixel-battle-royale.html",
+      "classification": "action"
+    },
+    {
+      "name": "Tank Driver Simulator",
+      "file": "games/action/tank-driver-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "Age of War",
+      "file": "games/action/age-of-war.html",
+      "classification": "action"
+    },
+    {
+      "name": "Agent Walker vs Skibidi Toilets",
+      "file": "games/action/agent-walker-vs-skibidi-toilets.html",
+      "classification": "action"
+    },
+    {
+      "name": "Counter Craft",
+      "file": "games/action/counter-craft.html",
+      "classification": "action"
+    },
+    {
+      "name": "Car Transform Racing",
+      "file": "games/action/car-transform-racing.html",
+      "classification": "action"
+    },
+    {
+      "name": "Speed Drift Racing",
+      "file": "games/action/speed-drift-racing.html",
+      "classification": "action"
+    },
+    {
+      "name": "Monster Truck Stunts",
+      "file": "games/action/monster-truck-stunts.html",
+      "classification": "action"
+    },
+    {
+      "name": "Duck Life 4",
+      "file": "games/action/duck-life-4.html",
+      "classification": "action"
+    },
+    {
+      "name": "Marble Run: Ultimate Race",
+      "file": "games/action/marble-run-ultimate-race.html",
+      "classification": "action"
+    },
+    {
+      "name": "Stack Fire Ball",
+      "file": "games/action/stack-fire-ball.html",
+      "classification": "action"
+    },
+    {
+      "name": "Geometry Arrow 2",
+      "file": "games/action/geometry-arrow-2.html",
+      "classification": "action"
+    },
+    {
+      "name": "Run 3",
+      "file": "games/action/run-3.html",
+      "classification": "action"
+    },
+    {
+      "name": "Geometry Dash",
+      "file": "games/action/geometry-dash.html",
+      "classification": "action"
+    },
+    {
+      "name": "Idle Breakout",
+      "file": "games/action/idle-breakout.html",
+      "classification": "action"
+    },
+    {
+      "name": "Basket Random",
+      "file": "games/action/basket-random.html",
+      "classification": "action"
+    },
+    {
+      "name": "Obby Bike Trials",
+      "file": "games/action/obby-bike-trials.html",
+      "classification": "action"
+    },
+    {
+      "name": "3D Dash",
+      "file": "games/action/3d-dash.html",
+      "classification": "action"
+    },
+    {
+      "name": "Slope Run",
+      "file": "games/action/slope-run.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Donuteria",
+      "file": "games/action/papas-donuteria.html",
+      "classification": "action"
+    },
+    {
+      "name": "A Small World Cup",
+      "file": "games/action/a-small-world-cup.html",
+      "classification": "action"
+    },
+    {
+      "name": "Papa's Taco Mia",
+      "file": "games/action/papas-taco-mia.html",
+      "classification": "action"
+    },
+    {
+      "name": "Monster Dash",
+      "file": "games/action/monster-dash.html",
+      "classification": "action"
+    },
+    {
+      "name": "Pacman 30th Anniversary",
+      "file": "games/action/pacman-30th-anniversary.html",
+      "classification": "action"
+    },
+    {
+      "name": "Obby Tower Parkour Climb",
+      "file": "games/action/obby-tower-parkour-climb.html",
+      "classification": "action"
+    },
+    {
+      "name": "OvO",
+      "file": "games/action/ovo.html",
+      "classification": "action"
+    },
+    {
+      "name": "Soccer Random",
+      "file": "games/action/soccer-random.html",
+      "classification": "action"
+    },
+    {
+      "name": "Ragdoll Football 2 Players",
+      "file": "games/action/ragdoll-football-2-players.html",
+      "classification": "action"
+    },
+    {
+      "name": "Asian Cup Soccer",
+      "file": "games/action/asian-cup-soccer.html",
+      "classification": "action"
+    },
+    {
+      "name": "Friday Night Funkin",
+      "file": "games/action/friday-night-funkin.html",
+      "classification": "action"
+    },
+    {
+      "name": "Flappy Bird",
+      "file": "games/action/flappy-bird.html",
+      "classification": "action"
+    },
+    {
+      "name": "Hoop World 3D",
+      "file": "games/action/hoop-world-3d.html",
+      "classification": "action"
+    },
+    {
+      "name": "Boxing Random",
+      "file": "games/action/boxing-random.html",
+      "classification": "action"
+    },
+    {
+      "name": "Tennis Masters",
+      "file": "games/action/tennis-masters.html",
+      "classification": "action"
+    },
+    {
+      "name": "FNF Garcello",
+      "file": "games/action/fnf-garcello.html",
+      "classification": "action"
+    },
+    {
+      "name": "Soccer Random Pro",
+      "file": "games/action/soccer-random-pro.html",
+      "classification": "action"
+    },
+    {
+      "name": "Soccer Masters",
+      "file": "games/action/soccer-masters.html",
+      "classification": "action"
+    },
+    {
+      "name": "Boxing Stars",
+      "file": "games/action/boxing-stars.html",
+      "classification": "action"
+    },
+    {
+      "name": "Bus Subway Runner",
+      "file": "games/action/bus-subway-runner.html",
+      "classification": "action"
+    },
+    {
+      "name": "Geometry Dash FreezeNova",
+      "file": "games/action/geometry-dash-freezenova.html",
+      "classification": "action"
+    },
+    {
+      "name": "Stickman Ragdoll",
+      "file": "games/action/stickman-ragdoll.html",
+      "classification": "action"
+    },
+    {
+      "name": "War of Tanks Paper Note",
+      "file": "games/action/war-of-tanks-paper-note.html",
+      "classification": "action"
+    },
+    {
+      "name": "Run 3D",
+      "file": "games/action/run-3d.html",
+      "classification": "action"
+    },
+    {
+      "name": "Basketball Slam Dunk",
+      "file": "games/action/basketball-slam-dunk.html",
+      "classification": "action"
+    },
+    {
+      "name": "World's Hardest Game",
+      "file": "games/action/worlds-hardest-game.html",
+      "classification": "action"
+    },
+    {
+      "name": "Sword Play Ninja Slice Runner",
+      "file": "games/action/sword-play-ninja-slice-runner.html",
+      "classification": "action"
+    },
+    {
+      "name": "Tunnel Road",
+      "file": "games/action/tunnel-road.html",
+      "classification": "action"
+    },
+    {
+      "name": "SpartaHoppers",
+      "file": "games/action/spartahoppers.html",
+      "classification": "action"
+    },
+    {
+      "name": "Backflip Dive 3D",
+      "file": "games/action/backflip-dive-3d.html",
+      "classification": "action"
+    },
+    {
+      "name": "Life Simulator",
+      "file": "games/action/life-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "Real Flight Simulator",
+      "file": "games/action/real-flight-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "Checkout Frenzy",
+      "file": "games/action/checkout-frenzy.html",
+      "classification": "action"
+    },
+    {
+      "name": "Battle Simulator: Sandbox",
+      "file": "games/action/battle-simulator-sandbox.html",
+      "classification": "action"
+    },
+    {
+      "name": "Crazy Plane Landing",
+      "file": "games/action/crazy-plane-landing.html",
+      "classification": "action"
+    },
+    {
+      "name": "Subway Idle 3D",
+      "file": "games/action/subway-idle-3d.html",
+      "classification": "action"
+    },
+    {
+      "name": "Fast Food Rush",
+      "file": "games/action/fast-food-rush.html",
+      "classification": "action"
+    },
+    {
+      "name": "Stickman Destruction",
+      "file": "games/action/stickman-destruction.html",
+      "classification": "action"
+    },
+    {
+      "name": "Supermarket Simulator",
+      "file": "games/action/supermarket-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "Idle Mining Empire",
+      "file": "games/action/idle-mining-empire.html",
+      "classification": "action"
+    },
+    {
+      "name": "Logistics Inc",
+      "file": "games/action/logistics-inc.html",
+      "classification": "action"
+    },
+    {
+      "name": "Idle Vlogger",
+      "file": "games/action/idle-vlogger.html",
+      "classification": "action"
+    },
+    {
+      "name": "Football Soccer World Cup",
+      "file": "games/action/football-soccer-world-cup.html",
+      "classification": "action"
+    },
+    {
+      "name": "City Bus Driver",
+      "file": "games/action/city-bus-driver.html",
+      "classification": "action"
+    },
+    {
+      "name": "Train Simulator",
+      "file": "games/action/train-simulator.html",
+      "classification": "action"
+    },
+    {
+      "name": "God Simulator",
+      "file": "games/action/god-simulator.html",
+      "classification": "action"
+    }
+  ],
+  "adventure": [
+    {
+      "name": "Drac & Franc",
+      "file": "games/adventure/drac-franc.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Minecraft Classic",
+      "file": "games/adventure/minecraft-classic.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Hole Digger",
+      "file": "games/adventure/hole-digger.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Fireboy and Watergirl",
+      "file": "games/adventure/fireboy-and-watergirl.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Cube Worlds",
+      "file": "games/adventure/cube-worlds.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Paper Minecraft",
+      "file": "games/adventure/paper-minecraft.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Cat Simulator",
+      "file": "games/adventure/cat-simulator.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Obby: Find 100 Cats",
+      "file": "games/adventure/obby-find-100-cats.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Mergest Kingdom",
+      "file": "games/adventure/mergest-kingdom.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Craftmine",
+      "file": "games/adventure/craftmine.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "We Become What We Behold",
+      "file": "games/adventure/we-become-what-we-behold.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Parkour Block 3D",
+      "file": "games/adventure/parkour-block-3d.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Mine Clone",
+      "file": "games/adventure/mine-clone.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Fortnite Z",
+      "file": "games/adventure/fortnite-z.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Fancy Pants 3",
+      "file": "games/adventure/fancy-pants-3.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Only Up or Lava",
+      "file": "games/adventure/only-up-or-lava.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Survival Craft",
+      "file": "games/adventure/survival-craft.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Survival Island",
+      "file": "games/adventure/survival-island.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Obby: Find Sprunki",
+      "file": "games/adventure/obby-find-sprunki.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Hero Dragon Power",
+      "file": "games/adventure/hero-dragon-power.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Dragon City",
+      "file": "games/adventure/dragon-city.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Vex 7",
+      "file": "games/adventure/vex-7.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Epic Mine",
+      "file": "games/adventure/epic-mine.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Blocky Parkour Ninja",
+      "file": "games/adventure/blocky-parkour-ninja.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Poptropica",
+      "file": "games/adventure/poptropica.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Help the Hero",
+      "file": "games/adventure/help-the-hero.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Fire and Water",
+      "file": "games/adventure/fire-and-water.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Top Burger Cooking",
+      "file": "games/adventure/top-burger-cooking.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "The Farmer Craft",
+      "file": "games/adventure/the-farmer-craft.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Horse Family Animal Simulator",
+      "file": "games/adventure/horse-family-animal-simulator.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Agent Smith",
+      "file": "games/adventure/agent-smith.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Voxel World",
+      "file": "games/adventure/voxel-world.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Dynamons World",
+      "file": "games/adventure/dynamons-world.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Home Makeover 2: Hidden Object",
+      "file": "games/adventure/home-makeover-2-hidden-object.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Papa Louie",
+      "file": "games/adventure/papa-louie.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Marco",
+      "file": "games/adventure/marco.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Fantasy Tower Defense",
+      "file": "games/adventure/fantasy-tower-defense.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Duck Life Space",
+      "file": "games/adventure/duck-life-space.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Conquer Kingdoms",
+      "file": "games/adventure/conquer-kingdoms.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Fancy Pants",
+      "file": "games/adventure/fancy-pants.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Jacks Village",
+      "file": "games/adventure/jacks-village.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Valkyrie RPG",
+      "file": "games/adventure/valkyrie-rpg.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Duck Life Adventure",
+      "file": "games/adventure/duck-life-adventure.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Math vs Bat",
+      "file": "games/adventure/math-vs-bat.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Pirate Adventure",
+      "file": "games/adventure/pirate-adventure.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Cake Shop",
+      "file": "games/adventure/cake-shop.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Fancy Pants 2",
+      "file": "games/adventure/fancy-pants-2.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Soul Essence Adventure",
+      "file": "games/adventure/soul-essence-adventure.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Treasure Hunter",
+      "file": "games/adventure/treasure-hunter.html",
+      "classification": "adventure"
+    },
+    {
+      "name": "Edelweiss",
+      "file": "games/adventure/edelweiss.html",
+      "classification": "adventure"
+    }
+  ],
+  "puzzle": [
+    {
+      "name": "BlockBuster Puzzle",
+      "file": "games/puzzle/blockbuster-puzzle.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Sprunky Incredibox Mods",
+      "file": "games/puzzle/sprunky-incredibox-mods.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Thief Puzzle",
+      "file": "games/puzzle/thief-puzzle.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Merge Cakes",
+      "file": "games/puzzle/merge-cakes.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Watermelon Game",
+      "file": "games/puzzle/watermelon-game.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Home Design",
+      "file": "games/puzzle/home-design.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Cake Match Puzzle",
+      "file": "games/puzzle/cake-match-puzzle.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Wordle",
+      "file": "games/puzzle/wordle.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Bookworm",
+      "file": "games/puzzle/bookworm.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Nova Craft",
+      "file": "games/puzzle/nova-craft.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Words of Wonders",
+      "file": "games/puzzle/words-of-wonders.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Words from Words",
+      "file": "games/puzzle/words-from-words.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Mathematical Crossword",
+      "file": "games/puzzle/mathematical-crossword.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Tile Match",
+      "file": "games/puzzle/tile-match.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Mahjong",
+      "file": "games/puzzle/mahjong.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Wood Block Jam",
+      "file": "games/puzzle/wood-block-jam.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "2048",
+      "file": "games/puzzle/2048.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Find It",
+      "file": "games/puzzle/find-it.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Sudoku",
+      "file": "games/puzzle/sudoku.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Vega Mix: Sea Adventures",
+      "file": "games/puzzle/vega-mix-sea-adventures.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "The House",
+      "file": "games/puzzle/the-house.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Stick Hero Mighty Tower Wars",
+      "file": "games/puzzle/stick-hero-mighty-tower-wars.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Tiny Crash Fighters",
+      "file": "games/puzzle/tiny-crash-fighters.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "House Painter",
+      "file": "games/puzzle/house-painter.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Hidden Objects: Brain Teaser",
+      "file": "games/puzzle/hidden-objects-brain-teaser.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Sort Resort",
+      "file": "games/puzzle/sort-resort.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Bubble Up Endless",
+      "file": "games/puzzle/bubble-up-endless.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Watermelon Suika",
+      "file": "games/puzzle/watermelon-suika.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Cool Math",
+      "file": "games/puzzle/cool-math.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Draw Here",
+      "file": "games/puzzle/draw-here.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Unblock It 3D",
+      "file": "games/puzzle/unblock-it-3d.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Mini Crossword",
+      "file": "games/puzzle/mini-crossword.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "The Smurfs: Village Cleaning",
+      "file": "games/puzzle/the-smurfs-village-cleaning.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Solitaire Adventure",
+      "file": "games/puzzle/solitaire-adventure.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Bullet Master",
+      "file": "games/puzzle/bullet-master.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Wordmeister",
+      "file": "games/puzzle/wordmeister.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Grandmaster Chess",
+      "file": "games/puzzle/grandmaster-chess.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Quordle Today",
+      "file": "games/puzzle/quordle-today.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Draw the Truck Bridge",
+      "file": "games/puzzle/draw-the-truck-bridge.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Christmas Mahjong",
+      "file": "games/puzzle/christmas-mahjong.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Hexotopia",
+      "file": "games/puzzle/hexotopia.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Draw the Bird Path",
+      "file": "games/puzzle/draw-the-bird-path.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Chess Fill",
+      "file": "games/puzzle/chess-fill.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Ancient 2048",
+      "file": "games/puzzle/ancient-2048.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Pirate Shootout",
+      "file": "games/puzzle/pirate-shootout.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Math Trivia",
+      "file": "games/puzzle/math-trivia.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Classic Minesweeper",
+      "file": "games/puzzle/classic-minesweeper.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Hero Tower",
+      "file": "games/puzzle/hero-tower.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Marble Zumba Stack",
+      "file": "games/puzzle/marble-zumba-stack.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Sudoku Village",
+      "file": "games/puzzle/sudoku-village.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Hexologic",
+      "file": "games/puzzle/hexologic.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Blocky Blast",
+      "file": "games/puzzle/blocky-blast.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Candy Bubble",
+      "file": "games/puzzle/candy-bubble.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Text Talk",
+      "file": "games/puzzle/text-talk.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Mr Dracula",
+      "file": "games/puzzle/mr-dracula.html",
+      "classification": "puzzle"
+    },
+    {
+      "name": "Sweet Sugar Match",
+      "file": "games/puzzle/sweet-sugar-match.html",
+      "classification": "puzzle"
+    }
+  ],
+  "sports": [
+    {
+      "name": "Draw the Car Path",
+      "file": "games/sports/draw-the-car-path.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Drift King",
+      "file": "games/sports/drift-king.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Police Simulator",
+      "file": "games/sports/police-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Drift Hunters 2",
+      "file": "games/sports/drift-hunters-2.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Traffic Jam 3D",
+      "file": "games/sports/traffic-jam-3d.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Highway Traffic",
+      "file": "games/sports/highway-traffic.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Street Traffic Racer",
+      "file": "games/sports/street-traffic-racer.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Drift Boss",
+      "file": "games/sports/drift-boss.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Tow N Go",
+      "file": "games/sports/tow-n-go.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Drift Hunters Pro",
+      "file": "games/sports/drift-hunters-pro.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Drift Hunters",
+      "file": "games/sports/drift-hunters.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Survival Race",
+      "file": "games/sports/survival-race.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Turbo Race 3D",
+      "file": "games/sports/turbo-race-3d.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Mega Lamba Ramp",
+      "file": "games/sports/mega-lamba-ramp.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Edys Car Simulator",
+      "file": "games/sports/edys-car-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Escape Car",
+      "file": "games/sports/escape-car.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Vehicles Simulator",
+      "file": "games/sports/vehicles-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Drift Rider",
+      "file": "games/sports/drift-rider.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Madalin Stunt Cars Pro",
+      "file": "games/sports/madalin-stunt-cars-pro.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Police Chase Drifter",
+      "file": "games/sports/police-chase-drifter.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Super Car Driving",
+      "file": "games/sports/super-car-driving.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Car Parking City Duel",
+      "file": "games/sports/car-parking-city-duel.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Burnout City",
+      "file": "games/sports/burnout-city.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Highway Racer Pro",
+      "file": "games/sports/highway-racer-pro.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Carnage Battle Arena",
+      "file": "games/sports/carnage-battle-arena.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Ultimate Flying Car",
+      "file": "games/sports/ultimate-flying-car.html",
+      "classification": "sports"
+    },
+    {
+      "name": "American Truck Car Driving",
+      "file": "games/sports/american-truck-car-driving.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Highway Cars",
+      "file": "games/sports/highway-cars.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Crazy Drifter",
+      "file": "games/sports/crazy-drifter.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Ultimate Flying Car 2",
+      "file": "games/sports/ultimate-flying-car-2.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Highway Road Racing",
+      "file": "games/sports/highway-road-racing.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Drift City",
+      "file": "games/sports/drift-city.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Hill Climb Racing Scratch",
+      "file": "games/sports/hill-climb-racing-scratch.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Racing Horizon",
+      "file": "games/sports/racing-horizon.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Slow Roads",
+      "file": "games/sports/slow-roads.html",
+      "classification": "sports"
+    },
+    {
+      "name": "F1 Drift Racer",
+      "file": "games/sports/f1-drift-racer.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Stunt Rider",
+      "file": "games/sports/stunt-rider.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Truck Driver: Snowy Roads",
+      "file": "games/sports/truck-driver-snowy-roads.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Jeep Driver",
+      "file": "games/sports/jeep-driver.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Police Real Chase Car Simulator",
+      "file": "games/sports/police-real-chase-car-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Vehicles Simulator 2",
+      "file": "games/sports/vehicles-simulator-2.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Car Football",
+      "file": "games/sports/car-football.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Eggy Car",
+      "file": "games/sports/eggy-car.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Car Stunt King",
+      "file": "games/sports/car-stunt-king.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Crazy Parking Fury",
+      "file": "games/sports/crazy-parking-fury.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Drift Fury",
+      "file": "games/sports/drift-fury.html",
+      "classification": "sports"
+    },
+    {
+      "name": "GT Cars City Racing",
+      "file": "games/sports/gt-cars-city-racing.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Taxi Simulator",
+      "file": "games/sports/taxi-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "ATV Highway Traffic",
+      "file": "games/sports/atv-highway-traffic.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Police Stunt Cars",
+      "file": "games/sports/police-stunt-cars.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Cars Simulator",
+      "file": "games/sports/cars-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Julio Police Cars",
+      "file": "games/sports/julio-police-cars.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Car Parking",
+      "file": "games/sports/car-parking.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Police Traffic",
+      "file": "games/sports/police-traffic.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Fort Drifter",
+      "file": "games/sports/fort-drifter.html",
+      "classification": "sports"
+    },
+    {
+      "name": "City Car Simulator",
+      "file": "games/sports/city-car-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Burnout Drift Hunter",
+      "file": "games/sports/burnout-drift-hunter.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Highway Racer 2",
+      "file": "games/sports/highway-racer-2.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Burnout Racers",
+      "file": "games/sports/burnout-racers.html",
+      "classification": "sports"
+    },
+    {
+      "name": "City Stunts",
+      "file": "games/sports/city-stunts.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Stunt Simulator",
+      "file": "games/sports/stunt-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "School Bus",
+      "file": "games/sports/school-bus.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Monster Truck Mountain Climb",
+      "file": "games/sports/monster-truck-mountain-climb.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Crazy Car Arena",
+      "file": "games/sports/crazy-car-arena.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Vegas Crime City",
+      "file": "games/sports/vegas-crime-city.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Poly Racing Cars",
+      "file": "games/sports/poly-racing-cars.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Offroad Rally",
+      "file": "games/sports/offroad-rally.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Stunt Simulator Multiplayer",
+      "file": "games/sports/stunt-simulator-multiplayer.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Race Clicker: Drift Max",
+      "file": "games/sports/race-clicker-drift-max.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Supercars Drift",
+      "file": "games/sports/supercars-drift.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Elite Racing",
+      "file": "games/sports/elite-racing.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Rally Champion",
+      "file": "games/sports/rally-champion.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Jelly Car Simulator",
+      "file": "games/sports/jelly-car-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Stunt Simulator 2",
+      "file": "games/sports/stunt-simulator-2.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Mr Racer",
+      "file": "games/sports/mr-racer.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Drag Racing Club",
+      "file": "games/sports/drag-racing-club.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Monster Truck City Parking",
+      "file": "games/sports/monster-truck-city-parking.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Pixel Driver",
+      "file": "games/sports/pixel-driver.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Super Hero Driving School",
+      "file": "games/sports/super-hero-driving-school.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Egg Car Racing",
+      "file": "games/sports/egg-car-racing.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Futuristic Racer",
+      "file": "games/sports/futuristic-racer.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Motorbike Stunt Simulator",
+      "file": "games/sports/motorbike-stunt-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Moto X3M",
+      "file": "games/sports/moto-x3m.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Vex X3M 2",
+      "file": "games/sports/vex-x3m-2.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Motor Tour",
+      "file": "games/sports/motor-tour.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Moto X3M Pool Party",
+      "file": "games/sports/moto-x3m-pool-party.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Motorbike Traffic",
+      "file": "games/sports/motorbike-traffic.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Moto X3M Spooky Land",
+      "file": "games/sports/moto-x3m-spooky-land.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Moto X3M Winter",
+      "file": "games/sports/moto-x3m-winter.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Monster Cars: Ultimate Simulator",
+      "file": "games/sports/monster-cars-ultimate-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Moto Trials",
+      "file": "games/sports/moto-trials.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Jet Ski Boat Race",
+      "file": "games/sports/jet-ski-boat-race.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Crazy Karts",
+      "file": "games/sports/crazy-karts.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Coach Bus Drive Simulator",
+      "file": "games/sports/coach-bus-drive-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Ultimate Moto",
+      "file": "games/sports/ultimate-moto.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Shortcut Race",
+      "file": "games/sports/shortcut-race.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Hover Racer Pro",
+      "file": "games/sports/hover-racer-pro.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Crazy Moto Racing",
+      "file": "games/sports/crazy-moto-racing.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Horse Rider",
+      "file": "games/sports/horse-rider.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Duck Life Battle",
+      "file": "games/sports/duck-life-battle.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Christmas Monster Truck",
+      "file": "games/sports/christmas-monster-truck.html",
+      "classification": "sports"
+    },
+    {
+      "name": "F1 Racing",
+      "file": "games/sports/f1-racing.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Duck Life",
+      "file": "games/sports/duck-life.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Neon Racer",
+      "file": "games/sports/neon-racer.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Duck Life 2",
+      "file": "games/sports/duck-life-2.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Hover Racer",
+      "file": "games/sports/hover-racer.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Formula 1 Driver",
+      "file": "games/sports/formula-1-driver.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Snow Hill Racing",
+      "file": "games/sports/snow-hill-racing.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Kart Racing Pro",
+      "file": "games/sports/kart-racing-pro.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Powerslide Kart Simulator",
+      "file": "games/sports/powerslide-kart-simulator.html",
+      "classification": "sports"
+    },
+    {
+      "name": "Car Rush",
+      "file": "games/sports/car-rush.html",
+      "classification": "sports"
+    }
+  ]
+}

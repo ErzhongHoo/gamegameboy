@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧩 Puzzle Games - Free Online Games | GameGameBoy.online</title>
+    <meta name="description" content="Challenge your mind with our collection of brain-teasing puzzle games! Train your brain and have fun. Play hundreds of puzzle games for free in your browser. No downloads required!">
+    <meta name="keywords" content="puzzle games, free online games, browser games, 🧩 Puzzle Games">
+    <link rel="canonical" href="https://gamegameboy.online/puzzle.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'apple-blue': '#007AFF',
+                        'apple-gray': '#8E8E93',
+                        'apple-light-gray': '#F2F2F7',
+                        'apple-dark-gray': '#1C1C1E'
+                    }
+                }
+            }
+        }
+    </script>
+    <meta property="og:title" content="🧩 Puzzle Games - Free Online Games">
+    <meta property="og:description" content="Challenge your mind with our collection of brain-teasing puzzle games! Train your brain and have fun.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gamegameboy.online/puzzle.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🧩 Puzzle Games">
+    <meta name="twitter:description" content="Challenge your mind with our collection of brain-teasing puzzle games! Train your brain and have fun.">
+    <style>
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans m-0">
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-apple-blue">🎮 GameGameBoy</a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="index.html" class="text-gray-700 hover:text-apple-blue transition-colors">Home</a>
+                    <a href="action.html" class="text-gray-700 hover:text-apple-blue transition-colors">Action</a>
+                    <a href="puzzle.html" class="text-apple-blue border-b-2 border-apple-blue pb-1">Puzzle</a>
+                    <a href="adventure.html" class="text-gray-700 hover:text-apple-blue transition-colors">Adventure</a>
+                    <a href="sports.html" class="text-gray-700 hover:text-apple-blue transition-colors">Sports</a>
+
+                    <!-- Navigation Search -->
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="navSearchInput"
+                            placeholder="Search games..."
+                            class="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
+                            onkeypress="if(event.key === 'Enter') navSearch()"
+                        >
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Home</a>
+                <a href="action.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Action</a>
+                <a href="puzzle.html" class="block px-3 py-2 text-apple-blue bg-apple-light-gray">Puzzle</a>
+                <a href="adventure.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Adventure</a>
+                <a href="sports.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue">Sports</a>
+
+                <!-- Mobile Search -->
+                <div class="px-3 py-2">
+                    <div class="relative">
+                        <input
+                            type="text"
+                            id="mobileNavSearchInput"
+                            placeholder="Search games..."
+                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
+                            onkeypress="if(event.key === 'Enter') mobileNavSearch()"
+                        >
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-purple-500 to-purple-600 text-white pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 pt-8">🧩 Puzzle Games</h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">Challenge your mind with our collection of brain-teasing puzzle games! Train your brain and have fun.</p>
+
+            <!-- Back to Home -->
+            <div class="flex justify-center">
+                <a href="index.html#puzzle" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-full transition-all flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Games Grid -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold">All Puzzle Games (56)</h2>
+                <div class="flex gap-2">
+                    <button onclick="sortGames('name')" class="bg-apple-blue text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+                        Sort by Name
+                    </button>
+                    <button onclick="sortGames('random')" class="bg-apple-blue text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+                        Shuffle
+                    </button>
+                </div>
+            </div>
+
+            <div id="gamesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Games will be loaded dynamically from database -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center">
+                <div class="flex gap-2">
+                    <button onclick="previousPage()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 transition-colors">
+                        Previous
+                    </button>
+                    <span id="pageDisplay" class="px-4 py-2 text-gray-600">Page 1 of 3</span>
+                    <button onclick="nextPage()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded hover:bg-gray-300 transition-colors">
+                        Next
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center text-gray-600">
+                <p>&copy; 2024 GameGameBoy.online. Play free online games in your browser.</p>
+                <p class="mt-2">
+                    <a href="index.html" class="text-apple-blue hover:underline">Home</a> |
+                    <a href="action.html" class="text-apple-blue hover:underline">Action Games</a> |
+                    <a href="adventure.html" class="text-apple-blue hover:underline">Adventure Games</a> |
+                    <a href="puzzle.html" class="text-apple-blue hover:underline">Puzzle Games</a> |
+                    <a href="sports.html" class="text-apple-blue hover:underline">Sports Games</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Basic search functionality (legacy)
+        function basicSearchGames(searchTerm) {
+            console.log('🔍 Basic search for:', searchTerm);
+            const gameCards = document.querySelectorAll('.game-card');
+
+            gameCards.forEach(card => {
+                const gameName = card.getAttribute('data-name');
+                if (gameName && gameName.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Sort functionality
+        function sortGames(type) {
+            const grid = document.getElementById('gamesGrid');
+            const cards = Array.from(grid.children);
+
+            if (type === 'name') {
+                cards.sort((a, b) => {
+                    const nameA = a.getAttribute('data-name');
+                    const nameB = b.getAttribute('data-name');
+                    return nameA.localeCompare(nameB);
+                });
+            } else if (type === 'random') {
+                cards.sort(() => Math.random() - 0.5);
+            }
+
+            // Clear and re-append sorted cards
+            grid.innerHTML = '';
+            cards.forEach(card => grid.appendChild(card));
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Pagination functionality - will be initialized after dynamic loading
+        window.currentPage = 1;
+        window.gamesPerPage = 12;
+        window.totalPages = 5; // Will be calculated based on actual game count
+        window.totalGames = 0;
+        window.allGames = [];
+
+        function previousPage() {
+            console.log('🔍 Puzzle previousPage() called, window.currentPage:', window.currentPage, 'window.totalPages:', window.totalPages);
+            if (window.currentPage > 1) {
+                window.currentPage--;
+                console.log('🔍 Going to previous page:', window.currentPage);
+                updatePagination();
+                goToPage();
+            } else {
+                console.log('🔍 Already on first page, cannot go back');
+            }
+        }
+
+        function nextPage() {
+            console.log('🔍 Puzzle nextPage() called, window.currentPage:', window.currentPage, 'window.totalPages:', window.totalPages);
+            if (window.currentPage < window.totalPages) {
+                window.currentPage++;
+                console.log('🔍 Going to next page:', window.currentPage);
+                updatePagination();
+                goToPage();
+            } else {
+                console.log('🔍 Already on last page, cannot go forward');
+            }
+        }
+
+        function goToPage() {
+            // Hide all games first
+            window.allGames.forEach(game => game.style.display = 'none');
+
+            // Calculate start and end indices
+            const startIndex = (window.currentPage - 1) * window.gamesPerPage;
+            const endIndex = startIndex + window.gamesPerPage;
+
+            // Show games for current page
+            for (let i = startIndex; i < endIndex && i < window.allGames.length; i++) {
+                if (window.allGames[i]) {
+                    window.allGames[i].style.display = 'block';
+                }
+            }
+
+            // Scroll to top of games section
+            document.querySelector('#gamesGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Update results count
+            updateResultsCount();
+        }
+
+        function updatePagination() {
+            console.log('🔍 Puzzle updatePagination() called, window.currentPage:', window.currentPage, 'window.totalPages:', window.totalPages);
+            // Update page display
+            const pageDisplay = document.getElementById('pageDisplay');
+            console.log('🔍 Puzzle page display element:', pageDisplay);
+            if (pageDisplay) {
+                pageDisplay.textContent = `Page ${window.currentPage} of ${window.totalPages}`;
+                console.log('🔍 Puzzle updated page display to:', pageDisplay.textContent);
+            }
+
+            // Update button states
+            const prevButton = document.querySelector('button[onclick="previousPage()"]');
+            const nextButton = document.querySelector('button[onclick="nextPage()"]');
+
+            if (prevButton) {
+                if (window.currentPage === 1) {
+                    prevButton.disabled = true;
+                    prevButton.classList.add('opacity-50', 'cursor-not-allowed');
+                } else {
+                    prevButton.disabled = false;
+                    prevButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
+            }
+
+            if (nextButton) {
+                if (window.currentPage === window.totalPages) {
+                    nextButton.disabled = true;
+                    nextButton.classList.add('opacity-50', 'cursor-not-allowed');
+                } else {
+                    nextButton.disabled = false;
+                    nextButton.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
+            }
+        }
+
+        // 导航高亮功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 移除所有导航链接的默认高亮
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('text-apple-blue', 'border-b-2', 'border-apple-blue', 'pb-1', 'bg-apple-light-gray');
+                link.classList.add('text-gray-700');
+            });
+
+            // 高亮当前页面
+            const currentPage = 'puzzle';
+
+              // 查找当前页面的导航链接
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href === currentPage + '.html') {
+                    link.classList.remove('text-gray-700');
+                    link.classList.add('text-apple-blue');
+
+                    // 桌面端和移动端不同的高亮样式
+                    if (link.closest('.hidden') || link.closest('#mobileMenu')) {
+                        // 移动端导航 - 背景高亮
+                        link.classList.add('bg-apple-light-gray');
+                    } else {
+                        // 桌面端导航 - 下划线高亮
+                        link.classList.add('border-b-2', 'border-apple-blue', 'pb-1');
+                    }
+                }
+            });
+
+            // 移动端菜单切换
+            window.toggleMobileMenu = function() {
+                const menu = document.getElementById('mobileMenu');
+                if (menu) {
+                    menu.classList.toggle('hidden');
+                }
+            };
+
+            // Navigation search functions
+            window.navSearch = function() {
+                const searchInput = document.getElementById('navSearchInput');
+                const searchTerm = searchInput ? searchInput.value.trim() : '';
+                if (searchTerm) {
+                    window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+                }
+            };
+
+            window.mobileNavSearch = function() {
+                const searchInput = document.getElementById('mobileNavSearchInput');
+                const searchTerm = searchInput ? searchInput.value.trim() : '';
+                if (searchTerm) {
+                    // Close mobile menu first
+                    const mobileMenu = document.getElementById('mobileMenu');
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+                }
+            };
+
+            // Pagination will be initialized after dynamic game loading
+            console.log('🔍 Puzzle: Waiting for dynamic game loading to complete...');
+        });
+    </script>
+
+    <script src="games_data.js"></script>
+    <script>
+        // Dynamic game loading function with smart icon and gradient mapping
+        function loadGamesFromDatabase(category) {
+            console.log(`🎮 Loading ${category} games from database...`);
+
+            // Clear existing static game cards
+            const gamesGrid = document.getElementById('gamesGrid');
+            if (gamesGrid) {
+                gamesGrid.innerHTML = '';
+            }
+
+            // Load games from GAMES_DATABASE
+            if (window.GAMES_DATABASE && window.GAMES_DATABASE[category]) {
+                const games = window.GAMES_DATABASE[category];
+                console.log(`📊 Found ${games.length} ${category} games`);
+
+                // Smart icon mapping based on game names
+                function getGameIcon(gameName) {
+                    const name = gameName.toLowerCase();
+
+                    // Action games icon mapping
+                    if (category === 'action') {
+                        if (name.includes('bike') || name.includes('moto') || name.includes('road')) return '🏍️';
+                        if (name.includes('gta') || name.includes('car') || name.includes('simulator')) return '🚗';
+                        if (name.includes('forces') || name.includes('mask') || name.includes('special')) return '💥';
+                        if (name.includes('five nights') || name.includes('freddys') || name.includes('horror')) return '👹';
+                        if (name.includes('geometry') || name.includes('arrow')) return '📐';
+                        if (name.includes('granny') || name.includes('scary')) return '👵';
+                        if (name.includes('fragen') || name.includes('stick')) return '⚔️';
+                        if (name.includes('run') || name.includes('parkour')) return '🏃';
+                        if (name.includes('fps') || name.includes('shooter')) return '🔫';
+                        if (name.includes('fight') || name.includes('battle')) return '🥊';
+                        if (name.includes('zombie') || name.includes('dead')) return '🧟';
+                        if (name.includes('ninja') || name.includes('samurai')) return '🥷';
+                        return '⚔️'; // Default action icon
+                    }
+
+                    // Puzzle games icon mapping
+                    if (category === 'puzzle') {
+                        if (name.includes('puzzle') || name.includes('block')) return '🧩';
+                        if (name.includes('cake') || name.includes('merge')) return '🎂';
+                        if (name.includes('water') || name.includes('melon')) return '💧';
+                        if (name.includes('design') || name.includes('home')) return '🏠';
+                        if (name.includes('word') || name.includes('letter')) return '📝';
+                        if (name.includes('book') || name.includes('worm')) return '📚';
+                        if (name.includes('mine') || name.includes('craft')) return '⛏️';
+                        if (name.includes('match') || name.includes('3')) return '🎯';
+                        if (name.includes('number') || name.includes('math')) return '🔢';
+                        if (name.includes('color') || name.includes('paint')) return '🎨';
+                        if (name.includes('thief')) return '🔍';
+                        if (name.includes('sprunky') || name.includes('incredibox')) return '🎵';
+                        if (name.includes('tile') || name.includes('domino')) return '🁁';
+                        return '🧩'; // Default puzzle icon
+                    }
+
+                    // Adventure games icon mapping
+                    if (category === 'adventure') {
+                        if (name.includes('minecraft') || name.includes('craft') || name.includes('mine')) return '⛏️';
+                        if (name.includes('drac') || name.includes('vampire')) return '🔮';
+                        if (name.includes('hole') || name.includes('dig')) return '🕳️';
+                        if (name.includes('fire') || name.includes('water') || name.includes('element')) return '🔥';
+                        if (name.includes('cube') || name.includes('world')) return '🌍';
+                        if (name.includes('cat') || name.includes('animal')) return '🐱';
+                        if (name.includes('merge') || name.includes('kingdom')) return '👑';
+                        if (name.includes('parkour') || name.includes('run')) return '🏃';
+                        if (name.includes('simulator')) return '🎮';
+                        if (name.includes('dragon') || name.includes('fantasy')) return '🐉';
+                        return '🗡️'; // Default adventure icon
+                    }
+
+                    // Sports games icon mapping
+                    if (category === 'sports') {
+                        if (name.includes('car') || name.includes('drift') || name.includes('racing')) return '🏎️';
+                        if (name.includes('traffic') || name.includes('road')) return '🚗';
+                        if (name.includes('police') || name.includes('cop')) return '🚓';
+                        if (name.includes('football') || name.includes('soccer')) return '⚽';
+                        if (name.includes('basketball') || name.includes('hoop')) return '🏀';
+                        if (name.includes('ball')) return '⚾';
+                        if (name.includes('bike') || name.includes('cycle')) return '🚴';
+                        if (name.includes('run') || name.includes('track')) return '🏃';
+                        if (name.includes('swim') || name.includes('water')) return '🏊';
+                        if (name.includes('fight') || name.includes('boxing')) return '🥊';
+                        return '⚽'; // Default sports icon
+                    }
+
+                    return '🎮'; // Default icon
+                }
+
+                // Smart gradient mapping based on game names
+                function getGameGradient(gameName) {
+                    const name = gameName.toLowerCase();
+
+                    // Action games gradients
+                    if (category === 'action') {
+                        if (name.includes('bike') || name.includes('moto')) return 'from-orange-600 to-red-700';
+                        if (name.includes('gta') || name.includes('car')) return 'from-gray-800 to-orange-600';
+                        if (name.includes('forces') || name.includes('mask')) return 'from-orange-500 to-red-600';
+                        if (name.includes('five nights') || name.includes('horror')) return 'from-red-600 to-pink-600';
+                        if (name.includes('geometry')) return 'from-gray-800 to-red-700';
+                        if (name.includes('granny')) return 'from-orange-500 to-red-600';
+                        if (name.includes('run') || name.includes('parkour')) return 'from-green-600 to-blue-700';
+                        if (name.includes('fps') || name.includes('shooter')) return 'from-indigo-500 to-purple-700';
+                        return 'from-red-500 to-orange-600'; // Default action gradient
+                    }
+
+                    // Puzzle games gradients
+                    if (category === 'puzzle') {
+                        if (name.includes('puzzle') || name.includes('block')) return 'from-indigo-500 to-purple-600';
+                        if (name.includes('cake') || name.includes('merge')) return 'from-pink-400 to-yellow-500';
+                        if (name.includes('water') || name.includes('melon')) return 'from-blue-500 to-cyan-600';
+                        if (name.includes('design') || name.includes('home')) return 'from-pink-500 to-rose-600';
+                        if (name.includes('word') || name.includes('letter')) return 'from-green-500 to-blue-600';
+                        if (name.includes('book') || name.includes('worm')) return 'from-violet-500 to-purple-700';
+                        if (name.includes('mine') || name.includes('craft')) return 'from-brown-600 to-green-700';
+                        if (name.includes('thief')) return 'from-pink-500 to-rose-600';
+                        if (name.includes('sprunky') || name.includes('music')) return 'from-purple-500 to-pink-600';
+                        return 'from-purple-500 to-pink-600'; // Default puzzle gradient
+                    }
+
+                    // Adventure games gradients
+                    if (category === 'adventure') {
+                        if (name.includes('minecraft') || name.includes('craft')) return 'from-green-600 to-brown-600';
+                        if (name.includes('drac') || name.includes('vampire')) return 'from-emerald-500 to-teal-600';
+                        if (name.includes('hole') || name.includes('dig')) return 'from-emerald-500 to-teal-600';
+                        if (name.includes('fire') || name.includes('water')) return 'from-red-600 to-orange-700';
+                        if (name.includes('cube') || name.includes('world')) return 'from-cyan-600 to-blue-700';
+                        if (name.includes('cat') || name.includes('animal')) return 'from-orange-500 to-pink-600';
+                        if (name.includes('merge') || name.includes('kingdom')) return 'from-emerald-500 to-teal-600';
+                        if (name.includes('parkour') || name.includes('run')) return 'from-green-600 to-blue-700';
+                        return 'from-green-500 to-blue-600'; // Default adventure gradient
+                    }
+
+                    // Sports games gradients
+                    if (category === 'sports') {
+                        if (name.includes('car') || name.includes('drift') || name.includes('racing')) return 'from-blue-600 to-purple-600';
+                        if (name.includes('traffic') || name.includes('road')) return 'from-blue-600 to-purple-600';
+                        if (name.includes('police')) return 'from-blue-700 to-blue-900';
+                        if (name.includes('football') || name.includes('soccer')) return 'from-teal-600 to-green-700';
+                        if (name.includes('basketball')) return 'from-orange-600 to-red-700';
+                        return 'from-blue-600 to-purple-600'; // Default sports gradient
+                    }
+
+                    return 'from-gray-500 to-gray-700'; // Default gradient
+                }
+
+                games.forEach((game, index) => {
+                    if (game && game.name && game.file) {
+                        const gameCard = document.createElement('div');
+                        gameCard.className = 'game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105';
+                        gameCard.setAttribute('data-name', game.name.toLowerCase());
+
+                        const icon = getGameIcon(game.name);
+                        const gradient = getGameGradient(game.name);
+
+                        gameCard.innerHTML = `
+                            <div class="aspect-video bg-gradient-to-br ${gradient} flex items-center justify-center">
+                                <span class="text-white text-4xl">${icon}</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold mb-2">${game.name}</h4>
+                                <p class="text-sm text-gray-600 mb-3">Click to play this amazing ${category} game!</p>
+                                <a href="${game.file}" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                            </div>
+                        `;
+
+                        gamesGrid.appendChild(gameCard);
+                    }
+                });
+
+                console.log(`✅ Successfully loaded ${games.length} ${category} games`);
+
+                // Store all game cards for pagination
+                window.allGames = Array.from(gamesGrid.querySelectorAll('.game-card'));
+                console.log(`📊 Stored ${window.allGames.length} game cards for pagination`);
+
+                // Update pagination variables
+                window.totalGames = games.length;
+                window.totalPages = Math.ceil(window.totalGames / window.gamesPerPage);
+                window.currentPage = 1; // Reset to first page
+                window.updatePagination();
+                window.goToPage();
+            } else {
+                console.error(`❌ No games found for category: ${category}`);
+            }
+        }
+
+        // Initialize page when DOM is ready and data is loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            // Small delay to ensure games_data.js is fully loaded
+            setTimeout(function() {
+                if (window.GAMES_DATABASE) {
+                    console.log("🎮 Games database loaded, initializing puzzle games...");
+                    loadGamesFromDatabase("puzzle");
+                } else {
+                    console.error("❌ Games database not found");
+                }
+            }, 100);
+        });
+
+        // Navigation search functions
+        window.navSearch = function() {
+            const searchInput = document.getElementById('navSearchInput');
+            const searchTerm = searchInput ? searchInput.value.trim() : '';
+            if (searchTerm) {
+                window.location.href = 'search.html?q=' + encodeURIComponent(searchTerm);
+            }
+        };
+
+        window.mobileNavSearch = function() {
+            const searchInput = document.getElementById('mobileNavSearchInput');
+            const searchTerm = searchInput ? searchInput.value.trim() : '';
+            if (searchTerm) {
+                // Close mobile menu first
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (mobileMenu) {
+                    mobileMenu.classList.add('hidden');
+                }
+                window.location.href = 'search.html?q=' + encodeURIComponent(searchTerm);
+            }
+        };
+
+        // Mobile menu toggle
+        window.toggleMobileMenu = function() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        };
+    </script>
+</body>
+</html>

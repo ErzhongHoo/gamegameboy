@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pagination Test</title>
+    <script>
+        // Test the games database loading and pagination functionality
+        window.addEventListener('load', function() {
+            console.log('🧪 Testing pagination functionality...');
+
+            // Test 1: Check if games database loads
+            if (typeof GAMES_DATABASE !== 'undefined') {
+                console.log('✅ GAMES_DATABASE loaded successfully');
+
+                // Test 2: Check puzzle games
+                if (GAMES_DATABASE.puzzle) {
+                    console.log(`✅ Found ${GAMES_DATABASE.puzzle.length} puzzle games`);
+                    console.log('First 3 puzzle games:', GAMES_DATABASE.puzzle.slice(0, 3).map(g => g.name));
+                }
+
+                // Test 3: Test pagination calculation
+                const totalGames = GAMES_DATABASE.puzzle.length;
+                const gamesPerPage = 12;
+                const totalPages = Math.ceil(totalGames / gamesPerPage);
+
+                console.log(`🔢 Pagination calculation:`);
+                console.log(`   - Total games: ${totalGames}`);
+                console.log(`   - Games per page: ${gamesPerPage}`);
+                console.log(`   - Total pages: ${totalPages}`);
+
+                // Test 4: Test pagination variables
+                window.totalGames = totalGames;
+                window.totalPages = totalPages;
+                window.gamesPerPage = gamesPerPage;
+                window.currentPage = 1;
+
+                console.log('✅ Pagination variables set:');
+                console.log(`   - window.totalGames: ${window.totalGames}`);
+                console.log(`   - window.totalPages: ${window.totalPages}`);
+                console.log(`   - window.currentPage: ${window.currentPage}`);
+
+            } else {
+                console.error('❌ GAMES_DATABASE not loaded');
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Pagination Test</h1>
+    <p>Check browser console for test results.</p>
+
+    <script src="games_data.js"></script>
+</body>
+</html>

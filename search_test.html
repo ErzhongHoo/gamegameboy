@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Test</title>
+    <script src="games_data.js"></script>
+</head>
+<body>
+    <h1>Search Test</h1>
+    <div id="test-results"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Testing search functionality...');
+            console.log('GAMES_DATABASE available:', !!window.GAMES_DATABASE);
+
+            if (window.GAMES_DATABASE) {
+                // Convert to flat array like search page
+                const allGames = [];
+                Object.keys(window.GAMES_DATABASE).forEach(category => {
+                    window.GAMES_DATABASE[category].forEach(game => {
+                        allGames.push({
+                            name: game.name,
+                            file: game.file,
+                            classification: game.classification
+                        });
+                    });
+                });
+
+                console.log('Total games loaded:', allGames.length);
+
+                // Search for Gold Miner
+                const searchTerm = 'gold miner';
+                const filteredGames = allGames.filter(game =>
+                    game.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    game.classification.toLowerCase().includes(searchTerm.toLowerCase())
+                );
+
+                console.log('Search term:', searchTerm);
+                console.log('Results found:', filteredGames.length);
+
+                filteredGames.forEach(game => {
+                    console.log('Found:', game.name, '(', game.classification, ')');
+                });
+
+                // Display results
+                const resultsDiv = document.getElementById('test-results');
+                resultsDiv.innerHTML = `
+                    <h2>Search Results for "${searchTerm}":</h2>
+                    <p>Total games in database: ${allGames.length}</p>
+                    <p>Games found: ${filteredGames.length}</p>
+                    <ul>
+                        ${filteredGames.map(game => `<li>${game.name} (${game.classification})</li>`).join('')}
+                    </ul>
+                `;
+            } else {
+                document.getElementById('test-results').innerHTML = '<p>Error: GAMES_DATABASE not loaded</p>';
+            }
+        });
+    </script>
+</body>
+</html>

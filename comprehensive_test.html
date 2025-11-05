@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Pagination Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .success { color: green; }
+        .error { color: red; }
+        .game-card { border: 1px solid #ccc; margin: 5px; padding: 10px; display: inline-block; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Comprehensive Pagination Test</h1>
+
+    <div class="test-section">
+        <h2>Game Database Test</h2>
+        <div id="database-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Pagination Test</h2>
+        <div id="pagination-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Dynamic Loading Test</h2>
+        <div id="gamesGrid" class="grid"></div>
+        <div id="loading-results"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Navigation Test</h2>
+        <button onclick="previousPage()">Previous</button>
+        <span id="pageDisplay">Page 1 of 1</span>
+        <button onclick="nextPage()">Next</button>
+        <div id="navigation-results"></div>
+    </div>
+
+    <script src="games_data.js"></script>
+    <script src="enhanced_search.js"></script>
+    <script>
+        // Initialize pagination variables
+        window.currentPage = 1;
+        window.gamesPerPage = 12;
+        window.totalPages = 1;
+        window.totalGames = 0;
+        window.allGames = [];
+
+        // Test database loading
+        function testDatabase() {
+            const results = document.getElementById('database-results');
+
+            if (typeof GAMES_DATABASE !== 'undefined') {
+                results.innerHTML = '<div class="success">✅ GAMES_DATABASE loaded successfully</div>';
+
+                // Test each category
+                const categories = ['action', 'puzzle', 'adventure', 'sports'];
+                categories.forEach(category => {
+                    if (GAMES_DATABASE[category]) {
+                        results.innerHTML += `<div class="success">✅ ${category}: ${GAMES_DATABASE[category].length} games</div>`;
+                    } else {
+                        results.innerHTML += `<div class="error">❌ ${category}: No games found</div>`;
+                    }
+                });
+            } else {
+                results.innerHTML = '<div class="error">❌ GAMES_DATABASE not loaded</div>';
+            }
+        }
+
+        // Test pagination calculation
+        function testPagination() {
+            const results = document.getElementById('pagination-results');
+
+            if (typeof GAMES_DATABASE !== 'undefined' && GAMES_DATABASE.puzzle) {
+                const totalGames = GAMES_DATABASE.puzzle.length;
+                window.totalGames = totalGames;
+                window.totalPages = Math.ceil(totalGames / window.gamesPerPage);
+
+                results.innerHTML = `
+                    <div class="success">✅ Total games: ${totalGames}</div>
+                    <div class="success">✅ Games per page: ${window.gamesPerPage}</div>
+                    <div class="success">✅ Total pages: ${window.totalPages}</div>
+                `;
+            } else {
+                results.innerHTML = '<div class="error">❌ Cannot test pagination - no database</div>';
+            }
+        }
+
+        // Dynamic loading function (copied from category pages)
+        function loadGamesFromDatabase(category) {
+            console.log(`🎮 Loading ${category} games from database...`);
+
+            // Clear existing static game cards
+            const gamesGrid = document.getElementById('gamesGrid');
+            if (gamesGrid) {
+                gamesGrid.innerHTML = '';
+            }
+
+            // Load games from GAMES_DATABASE
+            if (window.GAMES_DATABASE && window.GAMES_DATABASE[category]) {
+                const games = window.GAMES_DATABASE[category];
+                console.log(`📊 Found ${games.length} ${category} games`);
+
+                // Game icon mapping
+                const gameIcons = {
+                    'action': '⚔️',
+                    'adventure': '🗡️',
+                    'puzzle': '🧩',
+                    'sports': '⚽'
+                };
+
+                games.forEach((game, index) => {
+                    const icon = gameIcons[category] || '🎮';
+                    const gameCard = document.createElement('div');
+                    gameCard.className = 'game-card';
+                    gameCard.setAttribute('data-name', game.name.toLowerCase());
+
+                    gameCard.innerHTML = `
+                        <div>
+                            <div style="font-size: 2em;">${icon}</div>
+                            <h4>${game.name}</h4>
+                            <a href="${game.file}">Play Now</a>
+                        </div>
+                    `;
+
+                    gamesGrid.appendChild(gameCard);
+                });
+
+                console.log(`✅ Successfully loaded ${games.length} ${category} games`);
+
+                // Initialize pagination variables after dynamic loading
+                window.totalGames = games.length;
+                window.totalPages = Math.ceil(window.totalGames / window.gamesPerPage);
+                window.currentPage = 1;
+
+                // Initialize pagination
+                window.allGames = Array.from(document.querySelectorAll('.game-card'));
+                updatePagination();
+                goToPage();
+
+                return games.length;
+            } else {
+                console.error(`❌ No games found for category: ${category}`);
+                return 0;
+            }
+        }
+
+        function previousPage() {
+            if (window.currentPage > 1) {
+                window.currentPage--;
+                updatePagination();
+                goToPage();
+            }
+        }
+
+        function nextPage() {
+            if (window.currentPage < window.totalPages) {
+                window.currentPage++;
+                updatePagination();
+                goToPage();
+            }
+        }
+
+        function goToPage() {
+            // Hide all games first
+            window.allGames.forEach(game => game.classList.add('hidden'));
+
+            // Calculate start and end indices
+            const startIndex = (window.currentPage - 1) * window.gamesPerPage;
+            const endIndex = startIndex + window.gamesPerPage;
+
+            // Show games for current page
+            for (let i = startIndex; i < endIndex && i < window.allGames.length; i++) {
+                if (window.allGames[i]) {
+                    window.allGames[i].classList.remove('hidden');
+                }
+            }
+        }
+
+        function updatePagination() {
+            // Update page display
+            const pageDisplay = document.getElementById('pageDisplay');
+            if (pageDisplay) {
+                pageDisplay.textContent = `Page ${window.currentPage} of ${window.totalPages}`;
+            }
+
+            // Update button states
+            const prevButton = document.querySelector('button[onclick="previousPage()"]');
+            const nextButton = document.querySelector('button[onclick="nextPage()"]');
+
+            if (prevButton) {
+                prevButton.disabled = window.currentPage === 1;
+                prevButton.style.opacity = window.currentPage === 1 ? '0.5' : '1';
+            }
+
+            if (nextButton) {
+                nextButton.disabled = window.currentPage === window.totalPages;
+                nextButton.style.opacity = window.currentPage === window.totalPages ? '0.5' : '1';
+            }
+        }
+
+        // Test dynamic loading
+        function testDynamicLoading() {
+            const results = document.getElementById('loading-results');
+
+            const gamesLoaded = loadGamesFromDatabase('puzzle');
+
+            setTimeout(() => {
+                if (gamesLoaded > 0) {
+                    results.innerHTML = `
+                        <div class="success">✅ Successfully loaded ${gamesLoaded} puzzle games</div>
+                        <div class="success">✅ Total DOM elements: ${window.allGames.length}</div>
+                    `;
+                } else {
+                    results.innerHTML = '<div class="error">❌ Failed to load games</div>';
+                }
+            }, 1000);
+        }
+
+        // Run all tests
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🧪 Starting comprehensive pagination tests...');
+
+            testDatabase();
+            testPagination();
+            testDynamicLoading();
+        });
+    </script>
+</body>
+</html>
