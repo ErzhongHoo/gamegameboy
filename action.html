@@ -545,7 +545,7 @@
 
                         gameCard.innerHTML = `
                             <div class="aspect-video relative overflow-hidden bg-gray-100">
-                                <img src="/assets/images/games/${category}/${game.filename}.jpg" alt="${game.name}" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'; console.error('❌ Failed to load image:', '/assets/images/games/${category}/${game.filename}.jpg');">
+                                <img src="assets/images/games/${category}/${game.filename}.jpg" alt="${game.name}" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'; console.error('❌ Failed to load image:', 'assets/images/games/${category}/${game.filename}.jpg');">
                                 <div class="aspect-video bg-gradient-to-br ${gradient} flex items-center justify-center" style="display:none;">
                                     <span class="text-white text-4xl">${icon}</span>
                                 </div>

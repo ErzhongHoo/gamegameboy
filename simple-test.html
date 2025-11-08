@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Image Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 10px; border: 1px solid #ccc; }
+        img { max-width: 200px; height: auto; border: 2px solid #ccc; margin: 5px; }
+        .status { margin: 10px 0; padding: 5px; background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+
+    <div class="test-section">
+        <h2>Test 1: Relative Path</h2>
+        <img id="img1" src="assets/images/games/action/obby-but-youre-on-a-bike.jpg" alt="Relative path">
+        <div class="status" id="status1">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: Absolute Path</h2>
+        <img id="img2" src="/assets/images/games/action/obby-but-youre-on-a-bike.jpg" alt="Absolute path">
+        <div class="status" id="status2">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: Another Game</h2>
+        <img id="img3" src="/assets/images/games/action/gta-simulator.jpg" alt="GTA Simulator">
+        <div class="status" id="status3">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 4: Puzzle Game</h2>
+        <img id="img4" src="/assets/images/games/puzzle/wordle.jpg" alt="Wordle">
+        <div class="status" id="status4">Loading...</div>
+    </div>
+
+    <script>
+        function checkImage(imgId, statusId, path) {
+            const img = document.getElementById(imgId);
+            const status = document.getElementById(statusId);
+
+            img.onload = function() {
+                status.innerHTML = `✅ SUCCESS: ${path}<br>Size: ${img.naturalWidth}x${img.naturalHeight}`;
+                status.style.color = 'green';
+                status.style.background = '#e8f5e8';
+            };
+
+            img.onerror = function() {
+                status.innerHTML = `❌ FAILED: ${path}<br>Could not load image`;
+                status.style.color = 'red';
+                status.style.background = '#ffe8e8';
+            };
+        }
+
+        // Check all images
+        window.addEventListener('load', function() {
+            checkImage('img1', 'status1', 'assets/images/games/action/obby-but-youre-on-a-bike.jpg');
+            checkImage('img2', 'status2', '/assets/images/games/action/obby-but-youre-on-a-bike.jpg');
+            checkImage('img3', 'status3', '/assets/images/games/action/gta-simulator.jpg');
+            checkImage('img4', 'status4', '/assets/images/games/puzzle/wordle.jpg');
+        });
+    </script>
+</body>
+</html>
