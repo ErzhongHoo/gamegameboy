@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Image Loading</title>
+</head>
+<body>
+    <h1>Image Loading Test</h1>
+
+    <h2>Direct Path Test:</h2>
+    <img src="assets/images/games/action/obby-but-youre-on-a-bike.jpg" alt="Direct path test" style="max-width: 200px; border: 2px solid red;">
+
+    <h2>Absolute Path Test:</h2>
+    <img src="/assets/images/games/action/obby-but-youre-on-a-bike.jpg" alt="Absolute path test" style="max-width: 200px; border: 2px solid blue;">
+
+    <h2>Relative Path Test:</h2>
+    <img src="./assets/images/games/action/obby-but-youre-on-a-bike.jpg" alt="Relative path test" style="max-width: 200px; border: 2px solid green;">
+
+    <h2>Debug Info:</h2>
+    <div id="debug"></div>
+
+    <script>
+        window.addEventListener('load', function() {
+            const debug = document.getElementById('debug');
+            const images = document.querySelectorAll('img');
+
+            images.forEach((img, index) => {
+                const div = document.createElement('div');
+                div.style.border = '1px solid #ccc';
+                div.style.margin = '5px';
+                div.style.padding = '5px';
+
+                const status = img.naturalWidth > 0 ? '✅ Loaded' : '❌ Failed';
+                const dimensions = img.naturalWidth > 0 ? `${img.naturalWidth}x${img.naturalHeight}` : '0x0';
+
+                div.innerHTML = `
+                    <strong>Image ${index + 1}:</strong> ${img.src}<br>
+                    Status: ${status}<br>
+                    Dimensions: ${dimensions}
+                `;
+
+                debug.appendChild(div);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Category Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white p-8">
+    <h1 class="text-2xl font-bold mb-4">Debug Category Page</h1>
+
+    <div id="debug-info" class="mb-4 p-4 bg-gray-100 rounded"></div>
+
+    <div id="games-container" class="grid grid-cols-4 gap-4">
+        <!-- Games will be loaded here -->
+    </div>
+
+    <script src="games_data.js"></script>
+    <script>
+        console.log('🔍 Debug page loading...');
+        console.log('🔍 GAMES_DATABASE:', window.GAMES_DATABASE);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const debugInfo = document.getElementById('debug-info');
+            const gamesContainer = document.getElementById('games-container');
+
+            if (window.GAMES_DATABASE && window.GAMES_DATABASE.action) {
+                const games = window.GAMES_DATABASE.action;
+                debugInfo.innerHTML = `
+                    <p>✅ GAMES_DATABASE loaded successfully</p>
+                    <p>Total action games: ${games.length}</p>
+                    <p>First game: ${games[0].name}</p>
+                    <p>First game filename: ${games[0].filename}</p>
+                    <p>First game image path: assets/images/games/action/${games[0].filename}.jpg</p>
+                `;
+
+                // Test loading first 5 games
+                games.slice(0, 5).forEach((game, index) => {
+                    const imageUrl = `assets/images/games/action/${game.filename}.jpg`;
+                    console.log(`🔍 Loading image ${index + 1}:`, imageUrl);
+
+                    const gameCard = document.createElement('div');
+                    gameCard.className = 'border rounded p-2';
+                    gameCard.innerHTML = `
+                        <h3 class="font-bold text-sm">${game.name}</h3>
+                        <div class="aspect-video relative overflow-hidden bg-gray-100 mb-2">
+                            <img src="${imageUrl}" alt="${game.name}" class="w-full h-full object-cover"
+                                 onerror="console.error('❌ Failed to load:', '${imageUrl}'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="aspect-video bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center" style="display:none;">
+                                <span class="text-white text-2xl">🎮</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-600">${imageUrl}</p>
+                    `;
+
+                    gamesContainer.appendChild(gameCard);
+                });
+            } else {
+                debugInfo.innerHTML = `
+                    <p class="text-red-600">❌ GAMES_DATABASE not loaded</p>
+                    <p>window.GAMES_DATABASE: ${window.GAMES_DATABASE}</p>
+                    <p>window.GAMES_DATABASE.action: ${window.GAMES_DATABASE ? window.GAMES_DATABASE.action : 'undefined'}</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
