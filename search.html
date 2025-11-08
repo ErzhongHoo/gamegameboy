@@ -104,16 +104,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Search Info -->
-            <div id="searchInfo" class="text-center hidden">
-                <p class="text-lg opacity-90">
-                    Searching for: <span id="searchTerm" class="font-semibold"></span>
-                </p>
-                <p class="text-sm opacity-75 mt-1">
-                    Found <span id="resultCount" class="font-semibold">0</span> games
-                </p>
-            </div>
         </div>
     </section>
 
@@ -123,6 +113,11 @@
         <div id="loadingState" class="text-center py-12 hidden">
             <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-apple-blue"></div>
             <p class="mt-4 text-gray-600">Searching games...</p>
+        </div>
+
+        <!-- Search Results Grid -->
+        <div id="searchResults" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Results will be dynamically inserted here -->
         </div>
 
         <!-- No Results -->
@@ -138,19 +133,7 @@
             </div>
         </div>
 
-        <!-- Search Results Grid -->
-        <div id="searchResults" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <!-- Results will be dynamically inserted here -->
-        </div>
-
-        <!-- Initial State - Popular Games -->
-        <div id="initialState">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">Popular Games</h2>
-            <div id="popularGames" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Popular games will be loaded here -->
-            </div>
-        </div>
-    </main>
+      </main>
 
     <!-- Footer -->
     <footer class="bg-gray-100 border-t border-gray-200 mt-16">
@@ -194,9 +177,35 @@
         </div>
     </footer>
 
+    <style>
+        /* 确保搜索结果显示在正确位置 */
+        #searchResults {
+            min-height: 200px;
+        }
+
+        /* 防止搜索结果出现在hero section中 */
+        .bg-gradient-to-br {
+            overflow: hidden;
+        }
+
+        /* 确保main区域正确显示 */
+        main {
+            background-color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* 修复游戏卡片样式 */
+        .game-card {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+
     <!-- Scripts -->
     <script src="games_data.js"></script>
-    <script src="enhanced_search.js"></script>
+    <!-- 暂时禁用增强搜索以避免冲突 -->
+    <!-- <script src="enhanced_search.js"></script> -->
     <script>
         // Mobile menu toggle
         function toggleMobileMenu() {
@@ -221,7 +230,8 @@
                                 allGames.push({
                                     name: game.name,
                                     file: game.file,
-                                    classification: game.classification || category
+                                    classification: game.classification || category,
+                                    filename: game.filename || extractFilenameFromFile(game.file)
                                 });
                             });
                         }
@@ -241,6 +251,12 @@
             }
         }
 
+        // Helper function to extract filename from file path
+        function extractFilenameFromFile(filePath) {
+            // Extract filename from "games/action/game-name.html" -> "game-name"
+            return filePath.split('/').pop().replace('.html', '');
+        }
+
         // Initialize page
         document.addEventListener('DOMContentLoaded', () => {
             // Load games data synchronously since we're using GAMES_DATABASE
@@ -250,27 +266,16 @@
             const urlParams = new URLSearchParams(window.location.search);
             const searchParam = urlParams.get('q');
 
-            if (searchParam) {
-                document.getElementById('searchInput').value = searchParam;
-                // Small delay to ensure data is loaded
-                setTimeout(() => {
-                    performSearch();
-                }, 100);
-            } else {
-                showPopularGames();
-            }
-
             // Setup enter key for search
-            document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
                     performSearch();
                 }
             });
 
             // Setup clear button
-            const searchInput = document.getElementById('searchInput');
             const clearButton = document.getElementById('clearSearchButton');
-
             searchInput.addEventListener('input', () => {
                 if (searchInput.value.trim()) {
                     clearButton.classList.remove('hidden');
@@ -278,6 +283,17 @@
                     clearButton.classList.add('hidden');
                 }
             });
+
+            // Handle search after data is loaded
+            if (searchParam) {
+                searchInput.value = searchParam;
+                // Small delay to ensure data is loaded
+                setTimeout(() => {
+                    performSearch();
+                }, 100);
+            } else {
+                showPopularGames();
+            }
         });
 
         // Perform search
@@ -297,10 +313,10 @@
 
             // Show loading state
             document.getElementById('loadingState').classList.remove('hidden');
-            document.getElementById('initialState').classList.add('hidden');
+            
             document.getElementById('searchResults').innerHTML = '';
             document.getElementById('noResults').classList.add('hidden');
-            document.getElementById('searchInfo').classList.add('hidden');
+            
 
             // Simulate loading delay for better UX
             setTimeout(() => {
@@ -329,16 +345,10 @@
         // Show search results
         function showSearchResults(games, searchTerm) {
             const searchResults = document.getElementById('searchResults');
-            const searchInfo = document.getElementById('searchInfo');
 
-            // Update search info
-            document.getElementById('searchTerm').textContent = searchTerm;
-            document.getElementById('resultCount').textContent = games.length;
-            searchInfo.classList.remove('hidden');
-
-            // Hide initial state
-            document.getElementById('initialState').classList.add('hidden');
+            // Hide initial state and no results message
             document.getElementById('noResults').classList.add('hidden');
+            document.getElementById('loadingState').classList.add('hidden');
 
             // Clear and populate results
             searchResults.innerHTML = '';
@@ -352,37 +362,55 @@
         // Show no results
         function showNoResults() {
             document.getElementById('searchResults').innerHTML = '';
-            document.getElementById('initialState').classList.add('hidden');
+            document.getElementById('loadingState').classList.add('hidden');
             document.getElementById('noResults').classList.remove('hidden');
-            document.getElementById('searchInfo').classList.add('hidden');
         }
 
-        // Show popular games
+
+
+        // Show popular games (when no search term is provided)
         function showPopularGames() {
-            document.getElementById('searchInfo').classList.add('hidden');
+            const searchResults = document.getElementById('searchResults');
+            document.getElementById('loadingState').classList.add('hidden');
             document.getElementById('noResults').classList.add('hidden');
-            document.getElementById('searchResults').innerHTML = '';
-            document.getElementById('initialState').classList.remove('hidden');
 
-            // Load some popular games
-            const popularGames = allGames.slice(0, 8);
-            const popularGamesContainer = document.getElementById('popularGames');
-            popularGamesContainer.innerHTML = '';
-
-            popularGames.forEach(game => {
-                const gameCard = createGameCard(game);
-                popularGamesContainer.appendChild(gameCard);
+            // Show a selection of popular games from each category
+            const popularGames = [];
+            Object.keys(window.GAMES_DATABASE || {}).forEach(category => {
+                const games = window.GAMES_DATABASE[category];
+                if (games && games.length > 0) {
+                    // Take first 2 games from each category
+                    popularGames.push(...games.slice(0, 2));
+                }
             });
+
+            searchResults.innerHTML = '';
+
+            if (popularGames.length > 0) {
+                popularGames.forEach(game => {
+                    const gameCard = createGameCard(game);
+                    searchResults.appendChild(gameCard);
+                });
+            } else {
+                showNoResults();
+            }
         }
 
         // Clear search
         function clearSearch() {
             document.getElementById('searchInput').value = '';
             document.getElementById('clearSearchButton').classList.add('hidden');
-            showPopularGames();
+
+            // Clear search results
+            document.getElementById('searchResults').innerHTML = '';
+            document.getElementById('noResults').classList.add('hidden');
+            document.getElementById('loadingState').classList.add('hidden');
 
             // Update URL
             window.history.pushState({}, '', window.location.pathname);
+
+            // Show popular games
+            showPopularGames();
         }
 
         // Search for term (from footer links)
@@ -408,10 +436,17 @@
 
             card.innerHTML = `
                 <div class="relative">
-                    <div class="h-48 bg-gradient-to-br ${colorClass} flex items-center justify-center">
-                        <div class="text-white text-center">
-                            <div class="text-4xl mb-2">🎮</div>
-                            <p class="text-sm opacity-75 uppercase tracking-wide font-semibold">${game.classification}</p>
+                    <div class="h-48 relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/${game.classification}/${game.filename}.jpg"
+                             alt="${game.name}"
+                             class="w-full h-full object-cover"
+                             loading="lazy"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="h-48 bg-gradient-to-br ${colorClass} flex items-center justify-center" style="display:none;">
+                            <div class="text-white text-center">
+                                <div class="text-4xl mb-2">🎮</div>
+                                <p class="text-sm opacity-75 uppercase tracking-wide font-semibold">${game.classification}</p>
+                            </div>
                         </div>
                     </div>
                     <div class="absolute top-2 right-2">

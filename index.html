@@ -38,19 +38,27 @@
                     <a href="sports.html" class="nav-link" data-page="sports" class="text-gray-700 hover:text-apple-blue transition-colors">Sports</a>
 
                     <!-- Navigation Search -->
-                    <div class="relative">
-                        <input
-                            type="text"
-                            id="navSearchInput"
-                            placeholder="Search games..."
-                            class="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
-                            onkeypress="if(event.key === 'Enter') navSearch()"
-                        >
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
+                    <div class="flex items-center space-x-2">
+                        <div class="relative">
+                            <input
+                                type="text"
+                                id="navSearchInput"
+                                placeholder="Search games..."
+                                class="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
+                                onkeypress="if(event.key === 'Enter') navSearch()"
+                            >
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
                         </div>
+                        <button
+                            onclick="navSearch()"
+                            class="bg-apple-blue text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-apple-blue focus:ring-offset-2"
+                        >
+                            Search
+                        </button>
                     </div>
                 </div>
                 <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
@@ -71,19 +79,27 @@
 
                 <!-- Mobile Search -->
                 <div class="px-3 py-2">
-                    <div class="relative">
-                        <input
-                            type="text"
-                            id="mobileNavSearchInput"
-                            placeholder="Search games..."
-                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
-                            onkeypress="if(event.key === 'Enter') mobileNavSearch()"
-                        >
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
+                    <div class="flex space-x-2">
+                        <div class="relative flex-1">
+                            <input
+                                type="text"
+                                id="mobileNavSearchInput"
+                                placeholder="Search games..."
+                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
+                                onkeypress="if(event.key === 'Enter') mobileNavSearch()"
+                            >
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
                         </div>
+                        <button
+                            onclick="mobileNavSearch()"
+                            class="bg-apple-blue text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-apple-blue focus:ring-offset-2"
+                        >
+                            Search
+                        </button>
                     </div>
                 </div>
             </div>
@@ -112,8 +128,8 @@
             <h2 class="text-3xl font-bold mb-8 text-center">🎮 Action Games</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-orange-600 to-red-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">🚴</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/obby-but-youre-on-a-bike.jpg" alt="Obby But You&#x27;re on a Bike" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Obby But You&#x27;re on a Bike</h4>
@@ -122,8 +138,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-gray-800 to-orange-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🚗</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/gta-simulator.jpg" alt="GTA Simulator" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">GTA Simulator</h4>
@@ -132,8 +148,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">💥</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/masked-special-forces.jpg" alt="Masked Special Forces" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Masked Special Forces</h4>
@@ -142,8 +158,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-red-600 to-pink-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">⚔️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/five-nights-at-freddys.jpg" alt="Five Nights At Freddys" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Five Nights At Freddys</h4>
@@ -152,8 +168,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-gray-800 to-red-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">💥</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/geometry-arrow.jpg" alt="Geometry Arrow" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Geometry Arrow</h4>
@@ -162,8 +178,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">🔢</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/moto-road-rash-3d.jpg" alt="Moto Road Rash 3D" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Moto Road Rash 3D</h4>
@@ -172,8 +188,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🛡️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/granny.jpg" alt="Granny" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Granny</h4>
@@ -182,8 +198,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">⚔️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/fragen.jpg" alt="Fragen" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Fragen</h4>
@@ -192,8 +208,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🏃</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/extreme-run-3d.jpg" alt="Extreme Run 3D" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Extreme Run 3D</h4>
@@ -202,8 +218,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-gray-800 to-orange-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🚗</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/stickman-gta-city.jpg" alt="Stickman GTA City" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Stickman GTA City</h4>
@@ -212,8 +228,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-rose-500 to-red-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">⚔️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/five-nights-at-freddys-2.jpg" alt="Five Nights At Freddy&#x27;s 2" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Five Nights At Freddy&#x27;s 2</h4>
@@ -222,8 +238,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="action">
-                    <div class="aspect-video bg-gradient-to-br from-green-600 to-blue-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">🏃</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/action/stickman-parkour.jpg" alt="Stickman Parkour" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Stickman Parkour</h4>
@@ -246,8 +262,8 @@
             <h2 class="text-3xl font-bold mb-8 text-center">🗺️ Adventure Games</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🔮</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/drac-franc.jpg" alt="Drac &amp; Franc" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Drac &amp; Franc</h4>
@@ -256,8 +272,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-green-600 to-brown-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">⛏️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/minecraft-classic.jpg" alt="Minecraft Classic" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Minecraft Classic</h4>
@@ -266,8 +282,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🛡️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/hole-digger.jpg" alt="Hole Digger" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Hole Digger</h4>
@@ -276,8 +292,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-red-600 to-orange-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">🔥</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/fireboy-and-watergirl.jpg" alt="Fireboy and Watergirl" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Fireboy and Watergirl</h4>
@@ -286,8 +302,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-cyan-600 to-blue-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">🧭</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/cube-worlds.jpg" alt="Cube Worlds" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Cube Worlds</h4>
@@ -296,8 +312,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-green-600 to-brown-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">⛏️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/paper-minecraft.jpg" alt="Paper Minecraft" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Paper Minecraft</h4>
@@ -306,8 +322,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-pink-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🐱</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/cat-simulator.jpg" alt="Cat Simulator" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Cat Simulator</h4>
@@ -316,8 +332,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-orange-500 to-pink-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🐱</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/obby-find-100-cats.jpg" alt="Obby: Find 100 Cats" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Obby: Find 100 Cats</h4>
@@ -326,8 +342,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🗡️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/mergest-kingdom.jpg" alt="Mergest Kingdom" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Mergest Kingdom</h4>
@@ -336,8 +352,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-brown-600 to-green-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">⛏️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/craftmine.jpg" alt="Craftmine" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Craftmine</h4>
@@ -346,8 +362,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-cyan-600 to-blue-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">🛡️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/we-become-what-we-behold.jpg" alt="We Become What We Behold" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">We Become What We Behold</h4>
@@ -356,8 +372,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="adventure">
-                    <div class="aspect-video bg-gradient-to-br from-green-600 to-blue-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">🏃</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/adventure/parkour-block-3d.jpg" alt="Parkour Block 3D" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Parkour Block 3D</h4>
@@ -380,8 +396,8 @@
             <h2 class="text-3xl font-bold mb-8 text-center">🧩 Puzzle Games</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🧩</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/blockbuster-puzzle.jpg" alt="BlockBuster Puzzle" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">BlockBuster Puzzle</h4>
@@ -390,8 +406,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-red-600 to-pink-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🧩</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/sprunky-incredibox-mods.jpg" alt="Sprunky Incredibox Mods" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Sprunky Incredibox Mods</h4>
@@ -400,8 +416,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🧩</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/thief-puzzle.jpg" alt="Thief Puzzle" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Thief Puzzle</h4>
@@ -410,8 +426,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-pink-400 to-yellow-500 flex items-center justify-center">
-                        <span class="text-white text-4xl">🎂</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/merge-cakes.jpg" alt="Merge Cakes" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Merge Cakes</h4>
@@ -420,8 +436,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">💧</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/watermelon-game.jpg" alt="Watermelon Game" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Watermelon Game</h4>
@@ -430,8 +446,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🔍</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/home-design.jpg" alt="Home Design" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Home Design</h4>
@@ -440,8 +456,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🧩</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/cake-match-puzzle.jpg" alt="Cake Match Puzzle" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Cake Match Puzzle</h4>
@@ -450,8 +466,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-green-500 to-blue-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">📝</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/wordle.jpg" alt="Wordle" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Wordle</h4>
@@ -460,8 +476,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-violet-500 to-purple-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">🎲</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/bookworm.jpg" alt="Bookworm" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Bookworm</h4>
@@ -470,8 +486,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-brown-600 to-green-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">⛏️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/nova-craft.jpg" alt="Nova Craft" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Nova Craft</h4>
@@ -480,8 +496,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🎲</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/words-of-wonders.jpg" alt="Words of Wonders" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Words of Wonders</h4>
@@ -490,8 +506,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="puzzle">
-                    <div class="aspect-video bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🎲</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/puzzle/words-from-words.jpg" alt="Words from Words" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Words from Words</h4>
@@ -514,8 +530,8 @@
             <h2 class="text-3xl font-bold mb-8 text-center">⚽ Sports Games</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-gray-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">🚗</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/draw-the-car-path.jpg" alt="Draw the Car Path" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Draw the Car Path</h4>
@@ -524,8 +540,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🏎️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/drift-king.jpg" alt="Drift King" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Drift King</h4>
@@ -534,8 +550,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-blue-700 to-blue-900 flex items-center justify-center">
-                        <span class="text-white text-4xl">🚓</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/police-simulator.jpg" alt="Police Simulator" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Police Simulator</h4>
@@ -544,8 +560,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🏎️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/drift-hunters-2.jpg" alt="Drift Hunters 2" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Drift Hunters 2</h4>
@@ -554,8 +570,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🔢</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/traffic-jam-3d.jpg" alt="Traffic Jam 3D" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Traffic Jam 3D</h4>
@@ -564,8 +580,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🏈</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/highway-traffic.jpg" alt="Highway Traffic" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Highway Traffic</h4>
@@ -574,8 +590,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🥅</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/street-traffic-racer.jpg" alt="Street Traffic Racer" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Street Traffic Racer</h4>
@@ -584,8 +600,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🏎️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/drift-boss.jpg" alt="Drift Boss" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Drift Boss</h4>
@@ -594,8 +610,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-teal-600 to-green-700 flex items-center justify-center">
-                        <span class="text-white text-4xl">⚽</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/tow-n-go.jpg" alt="Tow N Go" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Tow N Go</h4>
@@ -604,8 +620,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🏎️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/drift-hunters-pro.jpg" alt="Drift Hunters Pro" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Drift Hunters Pro</h4>
@@ -614,8 +630,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                        <span class="text-white text-4xl">🏎️</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/drift-hunters.jpg" alt="Drift Hunters" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Drift Hunters</h4>
@@ -624,8 +640,8 @@
                     </div>
                 </div>
                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105" data-category="sports">
-                    <div class="aspect-video bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
-                        <span class="text-white text-4xl">⚾</span>
+                    <div class="aspect-video relative overflow-hidden bg-gray-100">
+                        <img src="assets/images/games/sports/survival-race.jpg" alt="Survival Race" class="w-full h-full object-cover" loading="lazy">
                     </div>
                     <div class="p-4">
                         <h4 class="font-bold mb-2">Survival Race</h4>

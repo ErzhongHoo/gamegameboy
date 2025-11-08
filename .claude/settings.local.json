@@ -8,7 +8,14 @@
       "Bash(/tmp/puzzle_test.txt:*)",
       "Bash(/tmp/puzzle_final_js.txt)",
       "Bash(find:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(playwright install:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_type",
+      "Bash(chmod:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

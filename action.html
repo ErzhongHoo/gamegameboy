@@ -106,16 +106,7 @@
             <h1 class="text-4xl md:text-6xl font-bold mb-6 pt-8">🎮 Action Games</h1>
             <p class="text-xl md:text-2xl mb-8 opacity-90">Exciting action-packed gameplay awaits! Dive into thrilling adventures and test your reflexes.</p>
 
-            <!-- Back to Home -->
-            <div class="flex justify-center">
-                <a href="index.html#action" class="bg-white bg-opacity-20 hover:bg-opacity-30 px-6 py-3 rounded-full transition-all flex items-center gap-2">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                    </svg>
-                    Back to Home
-                </a>
-            </div>
-        </div>
+          </div>
     </section>
 
     <!-- Games Grid -->
@@ -547,8 +538,11 @@
                         const gradient = getGameGradient(game.name);
 
                         gameCard.innerHTML = `
-                            <div class="aspect-video bg-gradient-to-br ${gradient} flex items-center justify-center">
-                                <span class="text-white text-4xl">${icon}</span>
+                            <div class="aspect-video relative overflow-hidden bg-gray-100">
+                                <img src="assets/images/games/${category}/${game.filename}.jpg" alt="${game.name}" class="w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="aspect-video bg-gradient-to-br ${gradient} flex items-center justify-center" style="display:none;">
+                                    <span class="text-white text-4xl">${icon}</span>
+                                </div>
                             </div>
                             <div class="p-4">
                                 <h4 class="font-bold mb-2">${game.name}</h4>
