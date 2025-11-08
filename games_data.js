@@ -6,12 +6,6 @@
 const GAMES_DATABASE = {
   "action": [
     {
-      "name": "Obby But You're on a Bike",
-      "file": "games/action/obby-but-youre-on-a-bike.html",
-      "classification": "action",
-      "filename": "obby-but-youre-on-a-bike"
-    },
-    {
       "name": "GTA Simulator",
       "file": "games/action/gta-simulator.html",
       "classification": "action",
@@ -40,12 +34,6 @@ const GAMES_DATABASE = {
       "file": "games/action/moto-road-rash-3d.html",
       "classification": "action",
       "filename": "moto-road-rash-3d"
-    },
-    {
-      "name": "Granny",
-      "file": "games/action/granny.html",
-      "classification": "action",
-      "filename": "granny"
     },
     {
       "name": "Fragen",

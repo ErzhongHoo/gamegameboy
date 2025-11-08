@@ -1,11 +1,6 @@
 {
   "action": [
     {
-      "name": "Obby But You're on a Bike",
-      "file": "games/action/obby-but-youre-on-a-bike.html",
-      "classification": "action"
-    },
-    {
       "name": "GTA Simulator",
       "file": "games/action/gta-simulator.html",
       "classification": "action"
@@ -28,11 +23,6 @@
     {
       "name": "Moto Road Rash 3D",
       "file": "games/action/moto-road-rash-3d.html",
-      "classification": "action"
-    },
-    {
-      "name": "Granny",
-      "file": "games/action/granny.html",
       "classification": "action"
     },
     {
