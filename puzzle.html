@@ -48,19 +48,27 @@
                     <a href="sports.html" class="text-gray-700 hover:text-apple-blue transition-colors">Sports</a>
 
                     <!-- Navigation Search -->
-                    <div class="relative">
-                        <input
-                            type="text"
-                            id="navSearchInput"
-                            placeholder="Search games..."
-                            class="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
-                            onkeypress="if(event.key === 'Enter') navSearch()"
-                        >
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
+                    <div class="flex items-center space-x-2">
+                        <div class="relative">
+                            <input
+                                type="text"
+                                id="navSearchInput"
+                                placeholder="Search games..."
+                                class="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
+                                onkeypress="if(event.key === 'Enter') navSearch()"
+                            >
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
                         </div>
+                        <button
+                            onclick="navSearch()"
+                            class="bg-apple-blue text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-apple-blue focus:ring-offset-2"
+                        >
+                            Search
+                        </button>
                     </div>
                 </div>
                 <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
@@ -81,19 +89,27 @@
 
                 <!-- Mobile Search -->
                 <div class="px-3 py-2">
-                    <div class="relative">
-                        <input
-                            type="text"
-                            id="mobileNavSearchInput"
-                            placeholder="Search games..."
-                            class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
-                            onkeypress="if(event.key === 'Enter') mobileNavSearch()"
-                        >
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
+                    <div class="flex space-x-2">
+                        <div class="relative flex-1">
+                            <input
+                                type="text"
+                                id="mobileNavSearchInput"
+                                placeholder="Search games..."
+                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
+                                onkeypress="if(event.key === 'Enter') mobileNavSearch()"
+                            >
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </div>
                         </div>
+                        <button
+                            onclick="mobileNavSearch()"
+                            class="bg-apple-blue text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-apple-blue focus:ring-offset-2"
+                        >
+                            Search
+                        </button>
                     </div>
                 </div>
             </div>
