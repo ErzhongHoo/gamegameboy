@@ -1862,12 +1862,6 @@ const GAMES_DATABASE = {
       "filename": "cat-simulator"
     },
     {
-      "name": "Obby: Find 100 Cats",
-      "file": "games/adventure/obby-find-100-cats.html",
-      "classification": "adventure",
-      "filename": "obby-find-100-cats"
-    },
-    {
       "name": "Mergest Kingdom",
       "file": "games/adventure/mergest-kingdom.html",
       "classification": "adventure",
@@ -1926,12 +1920,6 @@ const GAMES_DATABASE = {
       "file": "games/adventure/survival-island.html",
       "classification": "adventure",
       "filename": "survival-island"
-    },
-    {
-      "name": "Obby: Find Sprunki",
-      "file": "games/adventure/obby-find-sprunki.html",
-      "classification": "adventure",
-      "filename": "obby-find-sprunki"
     },
     {
       "name": "Hero Dragon Power",
@@ -2134,12 +2122,6 @@ const GAMES_DATABASE = {
       "filename": "sprunky-incredibox-mods"
     },
     {
-      "name": "Thief Puzzle",
-      "file": "games/puzzle/thief-puzzle.html",
-      "classification": "puzzle",
-      "filename": "thief-puzzle"
-    },
-    {
       "name": "Merge Cakes",
       "file": "games/puzzle/merge-cakes.html",
       "classification": "puzzle",
@@ -2180,12 +2162,6 @@ const GAMES_DATABASE = {
       "file": "games/puzzle/nova-craft.html",
       "classification": "puzzle",
       "filename": "nova-craft"
-    },
-    {
-      "name": "Words of Wonders",
-      "file": "games/puzzle/words-of-wonders.html",
-      "classification": "puzzle",
-      "filename": "words-of-wonders"
     },
     {
       "name": "Words from Words",
@@ -2524,12 +2500,6 @@ const GAMES_DATABASE = {
       "file": "games/sports/drift-hunters.html",
       "classification": "sports",
       "filename": "drift-hunters"
-    },
-    {
-      "name": "Survival Race",
-      "file": "games/sports/survival-race.html",
-      "classification": "sports",
-      "filename": "survival-race"
     },
     {
       "name": "Turbo Race 3D",
