@@ -395,6 +395,152 @@
                 }
             }
         });
+
+        // Mobile orientation handling - hide navigation in landscape mode
+        function handleOrientationChange() {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const navigation = document.querySelector('nav');
+
+            if (!isMobile) return;
+
+            const isLandscape = window.innerWidth > window.innerHeight;
+
+            if (isLandscape) {
+                // Hide navigation for better gaming experience
+                if (navigation) {
+                    navigation.style.transition = 'transform 0.3s ease-in-out';
+                    navigation.style.transform = 'translateY(-100%)';
+                    navigation.classList.add('mobile-landscape-hidden');
+                }
+
+                // Add some padding to prevent content from jumping
+                const main = document.querySelector('main');
+                if (main) {
+                    main.style.transition = 'margin-top 0.3s ease-in-out';
+                    main.style.marginTop = '-80px';
+                }
+
+                // Show a small hint about hiding navigation
+                showNavigationHint();
+            } else {
+                // Show navigation in portrait mode
+                if (navigation) {
+                    navigation.style.transform = 'translateY(0)';
+                    navigation.classList.remove('mobile-landscape-hidden');
+                }
+
+                // Reset main content margin
+                const main = document.querySelector('main');
+                if (main) {
+                    main.style.marginTop = '0';
+                }
+
+                // Hide navigation hint
+                hideNavigationHint();
+            }
+        }
+
+        function showNavigationHint() {
+            // Remove existing hint if any
+            hideNavigationHint();
+
+            const hint = document.createElement('div');
+            hint.id = 'orientation-hint';
+            hint.innerHTML = `
+                <div style="
+                    position: fixed;
+                    top: 10px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 8px 16px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    z-index: 1000;
+                    animation: fadeInOut 3s ease-in-out;
+                    pointer-events: none;
+                ">
+                    🎮 导航栏已隐藏 | 回到竖屏恢复
+                </div>
+                <style>
+                    @keyframes fadeInOut {
+                        0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+                        20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                        80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+                        100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+                    }
+                </style>
+            `;
+
+            document.body.appendChild(hint);
+
+            // Auto-remove after 3 seconds
+            setTimeout(() => {
+                hideNavigationHint();
+            }, 3000);
+        }
+
+        function hideNavigationHint() {
+            const hint = document.getElementById('orientation-hint');
+            if (hint) {
+                hint.remove();
+            }
+        }
+
+        // Listen for orientation changes
+        window.addEventListener('orientationchange', function() {
+            // Wait for orientation change to complete
+            setTimeout(handleOrientationChange, 100);
+        });
+
+        // Also listen for resize events (works better for most devices)
+        window.addEventListener('resize', function() {
+            clearTimeout(window.orientationResizeTimer);
+            window.orientationResizeTimer = setTimeout(handleOrientationChange, 150);
+        });
+
+        // Initial check when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(handleOrientationChange, 100);
+        });
+
+        // Add double-tap to toggle navigation in landscape mode
+        let lastTap = 0;
+        document.addEventListener('touchend', function(e) {
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const isLandscape = window.innerWidth > window.innerHeight;
+            const navigation = document.querySelector('nav');
+
+            if (!isMobile || !isLandscape || !navigation) return;
+
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+
+            if (tapLength < 500 && tapLength > 0) {
+                // Double tap detected - toggle navigation
+                e.preventDefault();
+
+                if (navigation.classList.contains('mobile-landscape-hidden')) {
+                    // Show navigation temporarily
+                    navigation.style.transform = 'translateY(0)';
+                    navigation.classList.remove('mobile-landscape-hidden');
+
+                    // Auto-hide after 3 seconds
+                    setTimeout(() => {
+                        const stillLandscape = window.innerWidth > window.innerHeight;
+                        if (stillLandscape) {
+                            navigation.style.transform = 'translateY(-100%)';
+                            navigation.classList.add('mobile-landscape-hidden');
+                        }
+                    }, 3000);
+                }
+
+                lastTap = 0;
+            } else {
+                lastTap = currentTime;
+            }
+        });
     </script>
 
 </body>
