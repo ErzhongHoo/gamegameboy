@@ -213,5 +213,82 @@
             window.open(`https://reddit.com/submit?url=${url}&title=${title}`, '_blank');
         }
     </script>
+
+    <script>
+        // Fullscreen functionality
+        function toggleFullscreen() {
+            const gameContainer = document.querySelector('.relative.w-full[style*="padding-bottom"]');
+            const fullscreenIcon = document.getElementById('fullscreen-icon');
+            const exitFullscreenIcon = document.getElementById('exit-fullscreen-icon');
+
+            if (!document.fullscreenElement) {
+                // Enter fullscreen
+                if (gameContainer.requestFullscreen) {
+                    gameContainer.requestFullscreen();
+                } else if (gameContainer.webkitRequestFullscreen) { /* Safari */
+                    gameContainer.webkitRequestFullscreen();
+                } else if (gameContainer.msRequestFullscreen) { /* IE11 */
+                    gameContainer.msRequestFullscreen();
+                }
+
+                // Show exit icon, hide enter icon
+                fullscreenIcon.style.display = 'none';
+                exitFullscreenIcon.style.display = 'block';
+
+                // Make button more visible in fullscreen
+                document.getElementById('fullscreen-btn').classList.add('bg-opacity-70');
+            } else {
+                // Exit fullscreen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+
+                // Show enter icon, hide exit icon
+                fullscreenIcon.style.display = 'block';
+                exitFullscreenIcon.style.display = 'none';
+
+                // Reset button opacity
+                document.getElementById('fullscreen-btn').classList.remove('bg-opacity-70');
+            }
+        }
+
+        // Listen for fullscreen changes
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+        function handleFullscreenChange() {
+            const fullscreenIcon = document.getElementById('fullscreen-icon');
+            const exitFullscreenIcon = document.getElementById('exit-fullscreen-icon');
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+            if (document.fullscreenElement || document.webkitFullscreenElement ||
+                document.mozFullScreenElement || document.msFullscreenElement) {
+                // In fullscreen mode
+                fullscreenIcon.style.display = 'none';
+                exitFullscreenIcon.style.display = 'block';
+                fullscreenBtn.classList.add('bg-opacity-70');
+            } else {
+                // Not in fullscreen mode
+                fullscreenIcon.style.display = 'block';
+                exitFullscreenIcon.style.display = 'none';
+                fullscreenBtn.classList.remove('bg-opacity-70');
+            }
+        }
+
+        // Keyboard shortcut for fullscreen (F key)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'f' || e.key === 'F') {
+                e.preventDefault();
+                toggleFullscreen();
+            }
+        });
+    </script>
+
 </body>
 </html>

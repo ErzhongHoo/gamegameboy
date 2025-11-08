@@ -91,6 +91,15 @@
             <h2 class="text-2xl font-bold text-gray-900 mb-4">Play Game Online</h2>
             <div class="bg-white rounded-lg shadow-lg p-4">
                 <div class="relative w-full" style="padding-bottom: 56.25%;">
+                    <div class="relative w-full" style="padding-bottom: 56.25%;">
+                        <button id="fullscreen-btn" class="absolute top-2 right-2 z-10 bg-black bg-opacity-50 text-white p-2 rounded-lg hover:bg-opacity-70 transition-all duration-200" onclick="toggleFullscreen()" title="Toggle Fullscreen">
+                            <svg id="fullscreen-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                            </svg>
+                            <svg id="exit-fullscreen-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
+                            </svg>
+                        </button>
                     <iframe
                         src="https://www.onlinegames.io/games/2022/unity4/super-mini-racing/index.html"
                         class="absolute top-0 left-0 w-full h-full rounded-lg border border-gray-200"
@@ -195,6 +204,82 @@
                 alert('Link copied to clipboard!');
             });
         }
+    </script>
+
+    <script>
+        // Fullscreen functionality
+        function toggleFullscreen() {
+            const gameContainer = document.querySelector('.relative.w-full[style*="padding-bottom"]');
+            const fullscreenIcon = document.getElementById('fullscreen-icon');
+            const exitFullscreenIcon = document.getElementById('exit-fullscreen-icon');
+
+            if (!document.fullscreenElement) {
+                // Enter fullscreen
+                if (gameContainer.requestFullscreen) {
+                    gameContainer.requestFullscreen();
+                } else if (gameContainer.webkitRequestFullscreen) { /* Safari */
+                    gameContainer.webkitRequestFullscreen();
+                } else if (gameContainer.msRequestFullscreen) { /* IE11 */
+                    gameContainer.msRequestFullscreen();
+                }
+
+                // Show exit icon, hide enter icon
+                fullscreenIcon.style.display = 'none';
+                exitFullscreenIcon.style.display = 'block';
+
+                // Make button more visible in fullscreen
+                document.getElementById('fullscreen-btn').classList.add('bg-opacity-70');
+            } else {
+                // Exit fullscreen
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+
+                // Show enter icon, hide exit icon
+                fullscreenIcon.style.display = 'block';
+                exitFullscreenIcon.style.display = 'none';
+
+                // Reset button opacity
+                document.getElementById('fullscreen-btn').classList.remove('bg-opacity-70');
+            }
+        }
+
+        // Listen for fullscreen changes
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+
+        function handleFullscreenChange() {
+            const fullscreenIcon = document.getElementById('fullscreen-icon');
+            const exitFullscreenIcon = document.getElementById('exit-fullscreen-icon');
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+
+            if (document.fullscreenElement || document.webkitFullscreenElement ||
+                document.mozFullScreenElement || document.msFullscreenElement) {
+                // In fullscreen mode
+                fullscreenIcon.style.display = 'none';
+                exitFullscreenIcon.style.display = 'block';
+                fullscreenBtn.classList.add('bg-opacity-70');
+            } else {
+                // Not in fullscreen mode
+                fullscreenIcon.style.display = 'block';
+                exitFullscreenIcon.style.display = 'none';
+                fullscreenBtn.classList.remove('bg-opacity-70');
+            }
+        }
+
+        // Keyboard shortcut for fullscreen (F key)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'f' || e.key === 'F') {
+                e.preventDefault();
+                toggleFullscreen();
+            }
+        });
     </script>
 </body>
 </html>
