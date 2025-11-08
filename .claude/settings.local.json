@@ -15,7 +15,9 @@
       "mcp__playwright__browser_navigate",
       "mcp__playwright__browser_type",
       "Bash(chmod:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
