@@ -2873,11 +2873,11 @@
   },
   {
     "name": "2048",
-    "filename": "2048-game",
+    "filename": "2048",
     "category": "puzzle",
     "url": "https://play2048.co/",
     "description": "Play 2048 online for free! Challenge yourself with this addictive number puzzle game. Combine tiles to reach 2048 and beyond. No downloads required!",
-    "html_file": "games/puzzle/2048-game.html"
+    "html_file": "games/puzzle/2048.html"
   },
   {
     "name": "Hidden Objects: Brain Teaser",

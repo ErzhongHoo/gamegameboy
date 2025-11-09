@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Play 2048 Online - Free Puzzle Game | GameGameBoy.online</title>
-    <meta name="description" content="Experience thrilling action-packed gameplay in this exciting online game. Play 2048 for free in your browser. No downloads required!">
-    <meta name="keywords" content="2048, online game, free game, puzzle game, browser game">
-    <link rel="canonical" href="https://gamegameboy.online/games/2048.html">
+    <meta name="description" content="Play the classic 2048 puzzle game! Combine tiles to reach 2048 in this addictive number puzzle game. Free online gaming with no downloads required!">
+    <meta name="keywords" content="2048, puzzle game, number game, brain teaser, free online game, browser game">
+    <link rel="canonical" href="https://gamegameboy.online/games/puzzle/2048.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,36 +15,271 @@
                     colors: {
                         'apple-blue': '#007AFF',
                         'apple-gray': '#8E8E93',
-                        'apple-light-gray': '#F2F2F7',
-                        'apple-dark-gray': '#1C1C1E'
+                        'apple-light-gray': '#F2F2F7'
                     }
                 }
             }
         }
     </script>
-    <meta property="og:title" content="Play 2048 Online - Free Game">
-    <meta property="og:description" content="Experience thrilling action-packed gameplay in this exciting online game.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gamegameboy.online/games/2048.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Play 2048 Online">
-    <meta name="twitter:description" content="Experience thrilling action-packed gameplay in this exciting online game.">
+    <style>
+        /* 2048 Game Styles - Based on official 2048 game */
+        .game-container {
+            background: #bbada0;
+            border-radius: 6px;
+            width: min(100%, 500px);
+            height: min(100%, 500px);
+            padding: 15px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .grid-container {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .grid-row {
+            margin-bottom: 15px;
+        }
+
+        .grid-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .grid-cell {
+            width: 106.25px;
+            height: 106.25px;
+            background: rgba(238, 228, 218, 0.35);
+            border-radius: 3px;
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .grid-cell:last-child {
+            margin-right: 0;
+        }
+
+        .tile-container {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .tile {
+            width: 106.25px;
+            height: 106.25px;
+            background: #eee4da;
+            border-radius: 3px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+            color: #776e65;
+            position: absolute;
+            transition: all 0.15s ease-in-out;
+            line-height: 1;
+            box-sizing: border-box;
+        }
+
+        .tile-2 { background: #eee4da; color: #776e65; }
+        .tile-4 { background: #ede0c8; color: #776e65; }
+        .tile-8 { background: #f2b179; color: #f9f6f2; }
+        .tile-16 { background: #f59563; color: #f9f6f2; }
+        .tile-32 { background: #f67c5f; color: #f9f6f2; }
+        .tile-64 { background: #f65e3b; color: #f9f6f2; }
+        .tile-128 { background: #edcf72; color: #f9f6f2; font-size: 45px; }
+        .tile-256 { background: #edcc61; color: #f9f6f2; font-size: 45px; }
+        .tile-512 { background: #edc850; color: #f9f6f2; font-size: 45px; }
+        .tile-1024 { background: #edc53f; color: #f9f6f2; font-size: 35px; }
+        .tile-2048 { background: #edc22e; color: #f9f6f2; font-size: 35px; }
+
+        .tile-super {
+            background: #3c3a32;
+            color: #f9f6f2;
+            font-size: 30px;
+        }
+
+        /* Game controls are now positioned in the main game container */
+
+        /* Score display is now handled by inline controls */
+
+        /* Best score display is now handled by inline controls */
+
+        /* Restart button is now inline with Bootstrap-style classes */
+
+        .game-explanation {
+            margin-top: 50px;
+        }
+
+        .game-explanation p {
+            font-size: 18px;
+            color: #776e65;
+            line-height: 1.65;
+        }
+
+        .game-explanation strong {
+            color: #776e65;
+            font-weight: bold;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .tile-new {
+            animation: pop 0.2s ease-in-out;
+        }
+
+        .tile-merged {
+            animation: pop 0.2s ease-in-out;
+            z-index: 20;
+        }
+
+        @media (max-width: 520px) {
+            .game-container {
+                width: 280px;
+                height: 280px;
+                padding: 10px;
+            }
+
+            .grid-cell, .tile {
+                width: 57.5px;
+                height: 57.5px;
+                font-size: 35px;
+            }
+
+            .tile-128, .tile-256, .tile-512 {
+                font-size: 25px;
+            }
+
+            .tile-1024, .tile-2048 {
+                font-size: 20px;
+            }
+
+            .tile-super {
+                font-size: 15px;
+            }
+
+            .grid-cell {
+                margin-right: 10px;
+            }
+
+            .grid-row {
+                margin-bottom: 10px;
+            }
+
+            .score-container, .best-container {
+                margin-top: 5px;
+                padding: 10px 15px;
+                font-size: 18px;
+                min-width: 70px;
+            }
+
+            .restart-button {
+                height: 35px;
+                line-height: 37px;
+                font-size: 16px;
+                padding: 0 15px;
+            }
+        }
+
+        .game-won, .game-over {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(238, 228, 218, 0.73);
+            z-index: 100;
+            text-align: center;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fade-in 0.8s ease-in-out;
+        }
+
+        .game-won p, .game-over p {
+            font-size: 60px;
+            font-weight: bold;
+            height: 60px;
+            line-height: 60px;
+            color: #776e65;
+        }
+
+        .restart-button:hover {
+            background: #9f8b76;
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .keep-playing-button {
+            display: inline-block;
+            background: #8f7a66;
+            border-radius: 3px;
+            padding: 0 20px;
+            text-decoration: none;
+            color: #f9f6f2;
+            height: 40px;
+            line-height: 42px;
+            display: block;
+            text-align: center;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0 0 0;
+        }
+
+        .keep-playing-button:hover {
+            background: #9f8b76;
+        }
+    </style>
 </head>
 <body class="bg-white text-gray-900 font-sans">
     <!-- Navigation -->
-    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <a href="../../index.html" class="text-2xl font-bold text-apple-blue">🎮 GameGameBoy</a>
+                    <a href="../../index.html" class="text-2xl font-bold text-apple-blue">GameGameBoy</a>
                 </div>
                 <div class="hidden md:flex space-x-8">
                     <a href="../../index.html" class="text-gray-700 hover:text-apple-blue transition-colors">Home</a>
+                    <a href="../index.html#featured" class="text-gray-700 hover:text-apple-blue transition-colors">Featured</a>
                     <a href="../../action.html" class="text-gray-700 hover:text-apple-blue transition-colors">Action</a>
-                    <a href="../../puzzle.html" class="text-gray-700 hover:text-apple-blue transition-colors">Puzzle</a>
+                    <a href="../../puzzle.html" class="text-apple-blue border-b-2 border-apple-blue pb-1">Puzzle</a>
                     <a href="../../adventure.html" class="text-gray-700 hover:text-apple-blue transition-colors">Adventure</a>
                     <a href="../../sports.html" class="text-gray-700 hover:text-apple-blue transition-colors">Sports</a>
                 </div>
+                <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="../../index.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue transition-colors">Home</a>
+                <a href="../index.html#featured" class="block px-3 py-2 text-gray-700 hover:text-apple-blue transition-colors">Featured</a>
+                <a href="../../action.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue transition-colors">Action</a>
+                <a href="../../puzzle.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue transition-colors">Puzzle</a>
+                <a href="../../adventure.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue transition-colors">Adventure</a>
+                <a href="../../sports.html" class="block px-3 py-2 text-gray-700 hover:text-apple-blue transition-colors">Sports</a>
             </div>
         </div>
     </nav>
@@ -52,35 +287,45 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Game Header -->
-        <div class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                2048
-            </h1>
-            <p class="text-xl text-apple-gray max-w-3xl mx-auto">
-                Experience thrilling action-packed gameplay in this exciting online game.
-            </p>
-        </div>
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">2048</h1>
+            <p class="text-xl text-gray-600 mb-2">Challenge yourself with this addictive number puzzle game. Combine tiles to reach 2048!</p>
+            <div class="flex justify-center items-center space-x-4 text-sm text-apple-gray">
+                <span class="bg-apple-light-gray px-3 py-1 rounded-full">Puzzle</span>
+                <span class="bg-apple-light-gray px-3 py-1 rounded-full">Number Game</span>
+                <span class="bg-apple-light-gray px-3 py-1 rounded-full">Brain Training</span>
+                <span class="bg-apple-light-gray px-3 py-1 rounded-full">Free to Play</span>
+            </div>
+        </header>
 
-        <!-- How to Play -->
+        <!-- How to Play Section -->
         <section class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Play</h2>
+            <h2 class="text-2xl font-bold mb-4">How to Play</h2>
             <div class="bg-apple-light-gray rounded-lg p-6">
                 <ul class="space-y-2 text-gray-700">
-                    <li class="flex items-center">
-                        <span class="text-apple-blue mr-2">▸</span>
-                        Click the play button below to start the game
+                    <li class="flex items-start">
+                        <span class="text-apple-blue mr-2">→</span>
+                        <span><strong>Arrow Keys</strong> or <strong>WASD</strong> to move tiles in four directions</span>
                     </li>
-                    <li class="flex items-center">
-                        <span class="text-apple-blue mr-2">▸</span>
-                        Use your mouse or keyboard to control the game
+                    <li class="flex items-start">
+                        <span class="text-apple-blue mr-2">→</span>
+                        <span>When two tiles with the same number touch, they merge into one</span>
                     </li>
-                    <li class="flex items-center">
-                        <span class="text-apple-blue mr-2">▸</span>
-                        Follow the in-game instructions for specific controls
+                    <li class="flex items-start">
+                        <span class="text-apple-blue mr-2">→</span>
+                        <span><strong>Combine tiles</strong> strategically to create larger numbers</span>
                     </li>
-                    <li class="flex items-center">
-                        <span class="text-apple-blue mr-2">▸</span>
-                        Have fun and challenge yourself!
+                    <li class="flex items-start">
+                        <span class="text-apple-blue mr-2">→</span>
+                        <span><strong>Plan ahead</strong> - think about your moves before making them</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-apple-blue mr-2">→</span>
+                        <span><strong>Keep playing</strong> until you can't make any more moves</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-apple-blue mr-2">→</span>
+                        <span><strong>Goal:</strong> Create a tile with the number 2048 to win!</span>
                     </li>
                 </ul>
             </div>
@@ -88,81 +333,126 @@
 
         <!-- Game Container -->
         <section class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Play Game Online</h2>
+            <h2 class="text-2xl font-bold mb-4">Play Game Online</h2>
             <div class="bg-white rounded-lg shadow-lg p-4">
-                <div class="relative w-full" style="padding-bottom: 56.25%;">
-                    <div class="relative w-full" style="padding-bottom: 56.25%;">
-                        <button id="fullscreen-btn" class="absolute top-2 right-2 z-10 bg-black bg-opacity-50 text-white p-2 rounded-lg hover:bg-opacity-70 transition-all duration-200" onclick="toggleFullscreen()" title="Toggle Fullscreen">
-                            <svg id="fullscreen-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-                            </svg>
-                            <svg id="exit-fullscreen-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
-                                <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
-                            </svg>
-                        </button>
-                    <iframe
-                        src="https://cloud.onlinegames.io/games/2025/html/2048/index.html"
-                        class="absolute top-0 left-0 w-full h-full rounded-lg border border-gray-200"
-                        frameborder="0"
-                        allowfullscreen
-                        loading="lazy"
-                        title="2048 Game">
-                    </iframe>
+                <div class="relative w-full" style="padding-bottom: 75%;">
+                    <button id="fullscreen-btn" class="absolute top-2 right-2 z-10 bg-black bg-opacity-50 text-white p-2 rounded-lg hover:bg-opacity-70 transition-all duration-200" onclick="toggleFullscreen()" title="Toggle Fullscreen">
+                        <svg id="fullscreen-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                        </svg>
+                        <svg id="exit-fullscreen-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+                            <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"></path>
+                        </svg>
+                    </button>
+                    <!-- Game Container - 2048 Game -->
+                    <div class="absolute top-0 left-0 w-full h-full rounded-lg border border-gray-200 flex items-center justify-center">
+                        <!-- Game Controls -->
+                        <div class="absolute top-4 left-4 z-10 flex gap-2">
+                            <div class="bg-black bg-opacity-50 text-white px-3 py-1 rounded-lg text-sm">
+                                Score: <span id="score-display">0</span>
+                            </div>
+                            <div class="bg-black bg-opacity-50 text-white px-3 py-1 rounded-lg text-sm">
+                                Best: <span id="best-display">0</span>
+                            </div>
+                            <button id="restart-button" class="bg-black bg-opacity-50 text-white px-3 py-1 rounded-lg hover:bg-opacity-70 transition-all duration-200 text-sm">
+                                New Game
+                            </button>
+                        </div>
+
+                        <!-- 2048 Game Container -->
+                        <div class="game-container" id="game-container">
+                            <div class="grid-container" id="grid-container">
+                                <!-- Grid cells will be generated by JavaScript -->
+                            </div>
+                            <div class="tile-container" id="tile-container">
+                                <!-- Tiles will be generated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Share Buttons -->
+        <!-- Game Tips -->
         <section class="mb-8">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Share This Game</h2>
-            <div class="flex flex-wrap gap-4">
-                <button onclick="shareToTwitter()" class="bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
-                    Share to Twitter
-                </button>
-                <button onclick="shareToFacebook()" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
-                    Share to Facebook
-                </button>
-                <button onclick="shareToReddit()" class="bg-orange-600 text-white px-6 py-3 rounded-lg hover:bg-orange-700 transition-colors">
-                    Share to Reddit
-                </button>
-                <button onclick="copyLink()" class="bg-apple-blue text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors">
-                    Copy Link
-                </button>
+            <h2 class="text-2xl font-bold mb-4">Pro Tips</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-apple-light-gray rounded-lg p-4">
+                    <h3 class="font-bold mb-2 text-apple-blue">🎯 Corner Strategy</h3>
+                    <p class="text-sm text-gray-700">Keep your highest tile in a corner and build smaller tiles around it.</p>
+                </div>
+                <div class="bg-apple-light-gray rounded-lg p-4">
+                    <h3 class="font-bold mb-2 text-apple-blue">🔢 Build Sequences</h3>
+                    <p class="text-sm text-gray-700">Try to create sequences of numbers like 2, 4, 8, 16 in adjacent rows.</p>
+                </div>
+                <div class="bg-apple-light-gray rounded-lg p-4">
+                    <h3 class="font-bold mb-2 text-apple-blue">📊 Prioritize Merges</h3>
+                    <p class="text-sm text-gray-700">Focus on merging smaller tiles first before going for larger ones.</p>
+                </div>
+                <div class="bg-apple-light-gray rounded-lg p-4">
+                    <h3 class="font-bold mb-2 text-apple-blue">🧠 Think Ahead</h3>
+                    <p class="text-sm text-gray-700">Always think 2-3 moves ahead to avoid getting stuck with no moves.</p>
+                </div>
             </div>
         </section>
 
-                                                <!-- Related Games -->
+        <!-- Social Sharing -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Share This Game</h2>
+            <div class="flex flex-wrap gap-4">
+                <a href="#" onclick="shareToTwitter(); return false;" class="bg-blue-400 hover:bg-blue-500 text-white px-6 py-3 rounded-lg transition-colors flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                    <span>Share to Twitter</span>
+                </a>
+                <a href="#" onclick="shareToFacebook(); return false;" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    <span>Share to Facebook</span>
+                </a>
+                <a href="#" onclick="shareToReddit(); return false;" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg transition-colors flex items-center space-x-2">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+                    </svg>
+                    <span>Share to Reddit</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Related Games -->
         <section class="mb-8">
             <h2 class="text-2xl font-bold mb-4">You Might Also Like</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105">
                     <div class="aspect-video bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center relative overflow-hidden">
-                        <img src="../../assets/images/games/puzzle/hexologic.jpg" alt="Hexologic" class="w-full h-full object-cover">
+                        <img src="../../assets/images/games/puzzle/hexotopia.jpg" alt="Hexotopia" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold mb-2">Hexologic</h3>
-                        <p class="text-sm text-gray-600 mb-3">Challenge yourself with Hexologic!</p>
-                        <a href="hexologic.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                        <h3 class="font-bold mb-2">Hexotopia</h3>
+                        <p class="text-sm text-gray-600 mb-3">Challenge yourself with Hexotopia!</p>
+                        <a href="hexotopia.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
                     </div>
                 </div>
                                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105">
                     <div class="aspect-video bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center relative overflow-hidden">
-                        <img src="../../assets/images/games/puzzle/house-painter.jpg" alt="House Painter" class="w-full h-full object-cover">
+                        <img src="../../assets/images/games/puzzle/find-it.jpg" alt="Find It" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold mb-2">House Painter</h3>
-                        <p class="text-sm text-gray-600 mb-3">Enjoy House Painter in your browser!</p>
-                        <a href="house-painter.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                        <h3 class="font-bold mb-2">Find It</h3>
+                        <p class="text-sm text-gray-600 mb-3">Exciting gameplay awaits in Find It!</p>
+                        <a href="find-it.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
                     </div>
                 </div>
                                 <div class="game-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all hover:scale-105">
                     <div class="aspect-video bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center relative overflow-hidden">
-                        <img src="../../assets/images/games/puzzle/watermelon-suika.jpg" alt="Watermelon Suika" class="w-full h-full object-cover">
+                        <img src="../../assets/images/games/puzzle/merge-cakes.jpg" alt="Merge Cakes" class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold mb-2">Watermelon Suika</h3>
-                        <p class="text-sm text-gray-600 mb-3">Play Watermelon Suika online for free!</p>
-                        <a href="watermelon-suika.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
+                        <h3 class="font-bold mb-2">Merge Cakes</h3>
+                        <p class="text-sm text-gray-600 mb-3">Enjoy Merge Cakes in your browser!</p>
+                        <a href="merge-cakes.html" class="w-full bg-apple-blue text-white py-2 rounded hover:bg-blue-600 transition-colors block text-center">Play Now</a>
                     </div>
                 </div>
             </div>
@@ -170,160 +460,493 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-100 border-t border-gray-200 mt-16">
+    <footer class="bg-gray-100 border-t border-gray-200 mt-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="text-center text-gray-600">
-                <p>&copy; 2024 GameGameBoy.online. Play free online games in your browser.</p>
-                <p class="mt-2">
-                    <a href="../../index.html" class="text-apple-blue hover:underline">Back to Home</a>
-                </p>
+            <div class="text-center">
+                <p class="text-gray-600 mb-2">© 2024 GameGameBoy.online - Free Online Games</p>
+                <p class="text-sm text-gray-500">Play the best free online games in your browser. No downloads required!</p>
             </div>
         </div>
     </footer>
 
     <script>
-        function shareToTwitter() {
-            const url = window.location.href;
-            const text = "Check out this amazing game: 2048!";
-            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
-        }
+        // 2048 Game Implementation - Based on official 2048 game
+        class Game2048 {
+            constructor() {
+                this.size = 4;
+                this.startTiles = 2;
+                this.grid = [];
+                this.score = 0;
+                this.bestScore = parseInt(localStorage.getItem('best2048Score') || '0');
+                this.over = false;
+                this.won = false;
+                this.keepPlaying = false;
+                this.tiles = [];
 
-        function shareToFacebook() {
-            const url = window.location.href;
-            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-        }
+                this.tileContainer = document.getElementById('tile-container');
+                this.gameContainer = document.getElementById('game-container');
+                this.scoreDisplay = document.getElementById('score-display');
+                this.bestDisplay = document.getElementById('best-display');
+                this.gridContainer = document.getElementById('grid-container');
 
-        function shareToReddit() {
-            const url = window.location.href;
-            const title = "2048 - Free Online Game";
-            window.open(`https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`, '_blank');
-        }
+                this.setup();
+                this.addEventListeners();
+            }
 
-        function copyLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('Link copied to clipboard!');
-            });
-        }
-    </script>
+            setup() {
+                this.createGrid();
+                this.addStartTiles();
+                this.updateDisplay();
+                this.updateBestScore();
+            }
 
-    <script>
-        // Fullscreen functionality
-        function toggleFullscreen() {
-            const gameContainer = document.querySelector('.relative.w-full[style*="padding-bottom"]');
-            const gameIframe = document.querySelector('iframe');
-            const fullscreenIcon = document.getElementById('fullscreen-icon');
-            const exitFullscreenIcon = document.getElementById('exit-fullscreen-icon');
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            createGrid() {
+                // Clear existing grid
+                this.gridContainer.innerHTML = '';
 
-            if (!document.fullscreenElement) {
-                // Create fullscreen container for better experience
-                const fullscreenContainer = document.createElement('div');
-                fullscreenContainer.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100vw;
-                    height: 100vh;
-                    background: #000;
-                    z-index: 9999;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                `;
+                // Create grid cells
+                for (let row = 0; row < this.size; row++) {
+                    const gridRow = document.createElement('div');
+                    gridRow.className = 'grid-row';
 
-                // Clone the iframe for fullscreen
-                const fullscreenIframe = gameIframe.cloneNode(true);
-                fullscreenIframe.style.cssText = `
-                    width: 100%;
-                    height: 100%;
-                    border: none;
-                    object-fit: contain;
-                `;
+                    for (let col = 0; col < this.size; col++) {
+                        const gridCell = document.createElement('div');
+                        gridCell.className = 'grid-cell';
+                        gridRow.appendChild(gridCell);
+                    }
 
-                // Create exit button for mobile
-                const mobileExitBtn = document.createElement('button');
-                mobileExitBtn.innerHTML = '✕';
-                mobileExitBtn.style.cssText = `
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                    z-index: 10000;
-                    background: rgba(0, 0, 0, 0.7);
-                    color: white;
-                    border: none;
-                    border-radius: 50%;
-                    width: 50px;
-                    height: 50px;
-                    font-size: 24px;
-                    cursor: pointer;
-                    display: ${isMobile ? 'block' : 'none'};
-                `;
-                mobileExitBtn.onclick = function() {
-                    exitEnhancedFullscreen();
-                };
-
-                fullscreenContainer.appendChild(fullscreenIframe);
-                fullscreenContainer.appendChild(mobileExitBtn);
-                document.body.appendChild(fullscreenContainer);
-
-                // Hide original fullscreen button
-                document.getElementById('fullscreen-btn').style.display = 'none';
-
-                // Update icons
-                fullscreenIcon.style.display = 'none';
-                exitFullscreenIcon.style.display = 'block';
-
-                // Try to enter browser fullscreen if supported
-                if (!isMobile && fullscreenContainer.requestFullscreen) {
-                    fullscreenContainer.requestFullscreen();
-                } else if (!isMobile && fullscreenContainer.webkitRequestFullscreen) { /* Safari */
-                    fullscreenContainer.webkitRequestFullscreen();
+                    this.gridContainer.appendChild(gridRow);
                 }
 
-                // Handle escape key
-                const handleEscape = function(e) {
-                    if (e.key === 'Escape') {
-                        exitEnhancedFullscreen();
-                        document.removeEventListener('keydown', handleEscape);
-                    }
-                };
-                document.addEventListener('keydown', handleEscape);
+                // Initialize grid array
+                this.grid = Array(this.size).fill().map(() => Array(this.size).fill(0));
+            }
 
-            } else {
-                exitEnhancedFullscreen();
+            addStartTiles() {
+                for (let i = 0; i < this.startTiles; i++) {
+                    this.addRandomTile();
+                }
+            }
+
+            addRandomTile() {
+                if (this.availableCells().length > 0) {
+                    const value = Math.random() < 0.9 ? 2 : 4;
+                    const cell = this.randomAvailableCell();
+                    this.grid[cell.y][cell.x] = value;
+
+                    const tile = new Tile(cell, value);
+                    this.tiles.push(tile);
+                    this.tileContainer.appendChild(tile.element);
+                }
+            }
+
+            availableCells() {
+                const cells = [];
+                for (let row = 0; row < this.size; row++) {
+                    for (let col = 0; col < this.size; col++) {
+                        if (this.grid[row][col] === 0) {
+                            cells.push({x: col, y: row});
+                        }
+                    }
+                }
+                return cells;
+            }
+
+            randomAvailableCell() {
+                const cells = this.availableCells();
+                if (cells.length > 0) {
+                    return cells[Math.floor(Math.random() * cells.length)];
+                }
+                return null;
+            }
+
+            move(direction) {
+                if (this.over || this.won && !this.keepPlaying) return;
+
+                let self = this;
+                let vector = this.getVector(direction);
+                let traversals = this.buildTraversals(vector);
+                let moved = false;
+                let scoreGained = 0;
+
+                this.prepareTiles();
+
+                traversals.x.forEach(function (x) {
+                    traversals.y.forEach(function (y) {
+                        const position = {x: x, y: y};
+                        const tile = self.grid[y][x];
+
+                        if (tile > 0) {
+                            const positions = self.findFarthestPosition(position, vector);
+                            const next = positions.next;
+
+                            if (next && self.grid[next.y][next.x] === tile) {
+                                const merged = self.mergeTiles(position, next);
+                                if (merged) {
+                                    scoreGained += tile * 2;
+                                    moved = true;
+                                }
+                            } else if (positions.farthest.x !== position.x || positions.farthest.y !== position.y) {
+                                self.moveTile(position, positions.farthest, tile);
+                                moved = true;
+                            }
+                        }
+                    });
+                });
+
+                if (moved) {
+                    this.score += scoreGained;
+                    this.addRandomTile();
+
+                    if (!this.movesAvailable()) {
+                        this.over = true;
+                    }
+
+                    if (this.score > this.bestScore) {
+                        this.bestScore = this.score;
+                        localStorage.setItem('best2048Score', this.bestScore.toString());
+                    }
+
+                    this.updateDisplay();
+                }
+            }
+
+            getVector(direction) {
+                const map = {
+                    0: { x: 0, y: -1 }, // Up
+                    1: { x: 1, y: 0 },  // Right
+                    2: { x: 0, y: 1 },  // Down
+                    3: { x: -1, y: 0 }  // Left
+                };
+                return map[direction];
+            }
+
+            buildTraversals(vector) {
+                const traversals = { x: [], y: [] };
+
+                for (let pos = 0; pos < this.size; pos++) {
+                    traversals.x.push(pos);
+                    traversals.y.push(pos);
+                }
+
+                if (vector.x === 1) traversals.x = traversals.x.reverse();
+                if (vector.y === 1) traversals.y = traversals.y.reverse();
+
+                return traversals;
+            }
+
+            findFarthestPosition(position, vector) {
+                let previous;
+                let cell = {x: position.x, y: position.y};
+
+                do {
+                    previous = cell;
+                    cell = { x: previous.x + vector.x, y: previous.y + vector.y };
+                } while (this.withinBounds(cell) && this.cellAvailable(cell));
+
+                return {
+                    farthest: previous,
+                    next: this.withinBounds(cell) && !this.cellAvailable(cell) ? cell : null
+                };
+            }
+
+            withinBounds(position) {
+                return position.x >= 0 && position.x < this.size &&
+                       position.y >= 0 && position.y < this.size;
+            }
+
+            cellAvailable(cell) {
+                return this.grid[cell.y][cell.x] === 0;
+            }
+
+            prepareTiles() {
+                this.tiles.forEach(tile => {
+                    tile.updatePosition({x: tile.x, y: tile.y});
+                    tile.element.className = tile.element.className.replace(' tile-new', '');
+                });
+            }
+
+            moveTile(from, to, value) {
+                this.grid[to.y][to.x] = value;
+                this.grid[from.y][from.x] = 0;
+
+                const tile = this.getTileAt(from);
+                if (tile) {
+                    tile.updatePosition(to);
+                }
+            }
+
+            getTileAt(position) {
+                for (let tile of this.tiles) {
+                    if (tile.x === position.x && tile.y === position.y) {
+                        return tile;
+                    }
+                }
+                return null;
+            }
+
+            mergeTiles(position1, position2) {
+                const value = this.grid[position1.y][position1.x] * 2;
+                this.grid[position1.y][position1.x] = value;
+                this.grid[position2.y][position2.x] = 0;
+
+                // Remove the tile being merged
+                const tileToRemove = this.getTileAt(position2);
+                if (tileToRemove) {
+                    tileToRemove.remove();
+                    const index = this.tiles.indexOf(tileToRemove);
+                    this.tiles.splice(index, 1);
+                }
+
+                // Update the merging tile
+                const tile = this.getTileAt(position1);
+                if (tile) {
+                    tile.setValue(value);
+                    tile.element.className += ' tile-merged';
+
+                    // Animate score display
+                    this.scoreDisplay.style.transform = 'scale(1.2)';
+                    this.scoreDisplay.style.transition = 'transform 0.3s ease';
+                    setTimeout(() => {
+                        this.scoreDisplay.style.transform = 'scale(1)';
+                    }, 300);
+                }
+
+                if (value === 2048 && !this.won) {
+                    this.won = true;
+                }
+
+                return true;
+            }
+
+            updateDisplay() {
+                this.updateScore();
+                this.updateBestScore();
+
+                if (this.over) {
+                    this.message('Game Over!');
+                } else if (this.won && !this.keepPlaying) {
+                    this.message('You Win!');
+                }
+            }
+
+            updateScore() {
+                this.scoreDisplay.textContent = this.score;
+            }
+
+            updateBestScore() {
+                this.bestDisplay.textContent = this.bestScore;
+            }
+
+            message(text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = this.won ? 'game-won' : 'game-over';
+                messageDiv.innerHTML = `<p>${text}</p>`;
+
+                if (this.won && !this.keepPlaying) {
+                    const keepPlayingButton = document.createElement('button');
+                    keepPlayingButton.className = 'keep-playing-button';
+                    keepPlayingButton.textContent = 'Keep going';
+                    keepPlayingButton.onclick = () => {
+                        this.keepPlaying = true;
+                        this.clearMessage();
+                    };
+                    messageDiv.appendChild(keepPlayingButton);
+                }
+
+                const restartButton = document.createElement('button');
+                restartButton.className = 'restart-button';
+                restartButton.textContent = 'Try again';
+                restartButton.onclick = () => this.restart();
+                messageDiv.appendChild(restartButton);
+
+                this.gameContainer.appendChild(messageDiv);
+            }
+
+            clearMessage() {
+                const messages = this.gameContainer.getElementsByClassName('game-won');
+                const overMessages = this.gameContainer.getElementsByClassName('game-over');
+
+                for (let message of messages) {
+                    message.remove();
+                }
+
+                for (let message of overMessages) {
+                    message.remove();
+                }
+            }
+
+            movesAvailable() {
+                for (let row = 0; row < this.size; row++) {
+                    for (let col = 0; col < this.size; col++) {
+                        if (this.grid[row][col] === 0) {
+                            return true;
+                        }
+
+                        if (row < this.size - 1 && this.grid[row][col] === this.grid[row + 1][col]) {
+                            return true;
+                        }
+
+                        if (col < this.size - 1 && this.grid[row][col] === this.grid[row][col + 1]) {
+                            return true;
+                        }
+                    }
+                }
+                return false;
+            }
+
+            restart() {
+                this.grid = [];
+                this.score = 0;
+                this.over = false;
+                this.won = false;
+                this.keepPlaying = false;
+                this.tiles = [];
+                this.clearMessage();
+                this.tileContainer.innerHTML = '';
+                this.setup();
+            }
+
+            addEventListeners() {
+                // Keyboard controls
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
+                        e.preventDefault();
+                        this.move(0); // Up
+                    } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+                        e.preventDefault();
+                        this.move(1); // Right
+                    } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+                        e.preventDefault();
+                        this.move(2); // Down
+                    } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+                        e.preventDefault();
+                        this.move(3); // Left
+                    }
+                });
+
+                // Touch controls
+                let touchStartX = 0;
+                let touchStartY = 0;
+
+                const gameContainer = document.getElementById('game-container');
+
+                gameContainer.addEventListener('touchstart', (e) => {
+                    touchStartX = e.touches[0].clientX;
+                    touchStartY = e.touches[0].clientY;
+                }, { passive: true });
+
+                gameContainer.addEventListener('touchend', (e) => {
+                    if (!touchStartX || !touchStartY) return;
+
+                    const touchEndX = e.changedTouches[0].clientX;
+                    const touchEndY = e.changedTouches[0].clientY;
+
+                    const dx = touchEndX - touchStartX;
+                    const dy = touchEndY - touchStartY;
+
+                    if (Math.abs(dx) > Math.abs(dy)) {
+                        if (dx > 0) {
+                            this.move(1); // Right
+                        } else {
+                            this.move(3); // Left
+                        }
+                    } else {
+                        if (dy > 0) {
+                            this.move(2); // Down
+                        } else {
+                            this.move(0); // Up
+                        }
+                    }
+
+                    touchStartX = 0;
+                    touchStartY = 0;
+                }, { passive: true });
+
+                // Restart button
+                document.getElementById('restart-button').addEventListener('click', () => {
+                    this.restart();
+                });
             }
         }
-                // Enter fullscreen
-                if (gameContainer.requestFullscreen) {
-                    gameContainer.requestFullscreen();
-                } else if (gameContainer.webkitRequestFullscreen) { /* Safari */
-                    gameContainer.webkitRequestFullscreen();
-                } else if (gameContainer.msRequestFullscreen) { /* IE11 */
-                    gameContainer.msRequestFullscreen();
-                }
 
-                // Show exit icon, hide enter icon
-                fullscreenIcon.style.display = 'none';
-                exitFullscreenIcon.style.display = 'block';
+        // Tile class
+        class Tile {
+            constructor(position, value) {
+                this.x = position.x;
+                this.y = position.y;
+                this.value = value;
+                this.previousPosition = null;
+                this.mergedFrom = null;
+                this.element = this.createElement();
+            }
 
-                // Make button more visible in fullscreen
-                document.getElementById('fullscreen-btn').classList.add('bg-opacity-70');
+            createElement() {
+                const element = document.createElement('div');
+                element.className = `tile tile-${this.value} tile-new`;
+                element.textContent = this.value;
+
+                // Set position before calling updatePosition
+                const x = this.x * 121.25;
+                const y = this.y * 121.25;
+                element.style.left = `${x}px`;
+                element.style.top = `${y}px`;
+
+                return element;
+            }
+
+            updatePosition(position) {
+                this.x = position.x;
+                this.y = position.y;
+
+                const x = this.x * 121.25;
+                const y = this.y * 121.25;
+
+                this.element.style.left = `${x}px`;
+                this.element.style.top = `${y}px`;
+            }
+
+            setValue(value) {
+                this.value = value;
+                this.element.textContent = value;
+                this.element.className = `tile tile-${value}`;
+            }
+
+            remove() {
+                this.element.remove();
+            }
+        }
+
+        // Initialize game when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const game = new Game2048();
+            window.game2048 = game;
+
+            // Ensure restart button works even if game initialization has issues
+            const restartButton = document.getElementById('restart-button');
+            if (restartButton) {
+                restartButton.addEventListener('click', () => {
+                    if (window.game2048) {
+                        window.game2048.restart();
+                    } else {
+                        // Fallback: force re-initialize game
+                        const newGame = new Game2048();
+                        window.game2048 = newGame;
+                    }
+                });
+            }
+        });
+
+        // Fullscreen functionality
+        function toggleFullscreen() {
+            const gameContainer = document.querySelector('.game-container').parentElement;
+
+            if (!document.fullscreenElement) {
+                gameContainer.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable fullscreen: ${err.message}`);
+                });
             } else {
-                // Exit fullscreen
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) { /* Safari */
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { /* IE11 */
-                    document.msExitFullscreen();
-                }
-
-                // Show enter icon, hide exit icon
-                fullscreenIcon.style.display = 'block';
-                exitFullscreenIcon.style.display = 'none';
-
-                // Reset button opacity
-                document.getElementById('fullscreen-btn').classList.remove('bg-opacity-70');
+                document.exitFullscreen();
             }
         }
 
@@ -332,29 +955,6 @@
         document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
         document.addEventListener('mozfullscreenchange', handleFullscreenChange);
         document.addEventListener('MSFullscreenChange', handleFullscreenChange);
-
-        
-        function exitEnhancedFullscreen() {
-            // Remove custom fullscreen container
-            const fullscreenContainer = document.querySelector('div[style*="z-index: 9999"]');
-            if (fullscreenContainer) {
-                fullscreenContainer.remove();
-            }
-
-            // Show original fullscreen button
-            document.getElementById('fullscreen-btn').style.display = 'block';
-
-            // Update icons
-            document.getElementById('fullscreen-icon').style.display = 'block';
-            document.getElementById('exit-fullscreen-icon').style.display = 'none';
-
-            // Exit browser fullscreen if in it
-            if (document.fullscreenElement) {
-                document.exitFullscreen();
-            } else if (document.webkitFullscreenElement) { /* Safari */
-                document.webkitExitFullscreen();
-            }
-        }
 
         function handleFullscreenChange() {
             const fullscreenIcon = document.getElementById('fullscreen-icon');
@@ -382,6 +982,30 @@
                 toggleFullscreen();
             }
         });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Share functions
+        function shareToTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Check out 2048 - an amazing number puzzle game!');
+            window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank');
+        }
+
+        function shareToFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank');
+        }
+
+        function shareToReddit() {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent('Play 2048 Online - Free Number Puzzle Game');
+            window.open(`https://reddit.com/submit?url=${url}&title=${title}`, '_blank');
+        }
     </script>
 </body>
 </html>

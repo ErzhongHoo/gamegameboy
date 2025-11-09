@@ -2197,7 +2197,7 @@ const GAMES_DATABASE = {
       "name": "2048",
       "file": "games/puzzle/2048.html",
       "classification": "puzzle",
-      "filename": "2048-game"
+      "filename": "2048"
     },
     {
       "name": "Find It",
